@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Политика конфиденциальности SAFENET?VPN — строгая политика отсутствия логов 2025</title>
+  <meta name="description" content="Официальная Политика конфиденциальности SAFENET-VPN. Строгая политика отсутствия логов, защита анонимности, соответствие GDPR и ФЗ-152. Узнайте, как мы защищаем ваши данные.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Политика конфиденциальности — SAFENET-VPN">
+  <meta property="og:description" content="Строгая политика отсутствия логов, защита анонимности, соответствие международным стандартам. Ваша конфиденциальность — наш приоритет.">
+  <meta property="og:url" content="https://dostup-plus.github.io/legal/privacy/">
+  <meta property="og:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+  <meta property="og:site_name" content="SAFENET-VPN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Политика конфиденциальности SAFENET?VPN">
+  <meta name="twitter:description" content="Строгая политика отсутствия логов и защита анонимности пользователей VPN.">
+  <meta name="twitter:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+
+  <!-- Иконки -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="SAFENET-VPN — Руководства по VPN" href="/rss.xml">
+
+  <!-- ЕДИНЫЙ CSS КОД (С ИСПРАВЛЕНИЯМИ) -->
+  <style>
+    /* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ === */
+    :root{
+      --bg:#0b1020; --card:#11183a; --text:#e9eefc; --muted:#aab3d9; 
+      --accent:#4da3ff; --accent-2:#7de2d1; --ok:#29c773; --warn:#ffb020; --err:#ff5c5c;
+      --legal:#8e44ad;
+    }
+
+    /* === БАЗОВЫЕ СТИЛИ === */
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* === LAYOUT === */
+    .container{max-width:1050px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* === НАВИГАЦИЯ === */
+    .breadcrumbs{font-size:.9rem;color:var(--muted);margin:12px 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    /* === HERO СЕКЦИЯ === */
+    .hero{background:linear-gradient(135deg,rgba(142,68,173,.15),rgba(125,226,209,.12));border:1px solid rgba(142,68,173,.25);border-radius:16px;padding:28px;margin:16px 0}
+    .hero h1{margin:0 0 10px 0;font-size:2rem}
+    .hero p{margin:0 0 16px 0;color:var(--muted)}
+    .badge{display:inline-block;background:rgba(142,68,173,.15);border:1px solid rgba(142,68,173,.4);color:#e8d1f2;padding:2px 8px;border-radius:999px;font-size:.8rem}
+
+    /* === КНОПКИ (ПОЛНОСТЬЮ ИСПРАВЛЕНО) === */
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{display:inline-block;background:var(--accent);color:#061229;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn:hover{text-decoration:none;filter:brightness(1.05)}
+    .btn.secondary{background:transparent;border:1px solid var(--accent);color:var(--text)}
+    .btn.norm{background:var(--ok);color:#061229}
+    .btn.legal{background:var(--legal);color:#fff}
+    .btn-card{display:inline-block;background:var(--accent);color:#061229;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
+    .btn-card.norm{background:var(--ok);color:#061229}
+
+    /* === КАРТОЧКИ === */
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px}
+    
+    /* === ТИПОГРАФИКА === */
+    h2{margin-top:28px}
+    h3{margin-top:20px}
+    .small{font-size:.9rem}
+    .muted{color:var(--muted)}
+    .ok{color:var(--ok);font-weight:600}
+
+    /* === СПЕЦИАЛЬНЫЕ БЛОКИ === */
+    .note{border-left:3px solid var(--accent-2);padding-left:12px;color:#cfe5ff}
+    .warn{border-left:3px solid var(--warn);padding-left:12px}
+    .legal-tip{border-left:3px solid var(--legal);padding-left:12px;background:rgba(142,68,173,.08);border-radius:0 8px 8px 0;padding:12px 12px 12px 16px}
+    .legal-important{background:linear-gradient(135deg,rgba(142,68,173,.1),rgba(142,68,173,.05));border:1px solid var(--legal);border-radius:12px;padding:16px;margin:20px 0}
+    .legal-important h4{color:var(--legal);margin:0 0 8px 0}
+    
+    /* === СПИСКИ === */
+    ul.check>li::marker{content:"? ";color:var(--ok)}
+    ul.cross>li::marker{content:"? ";color:var(--err)}
+    .also ul{columns:2;gap:24px}
+    @media(max-width:680px){.also ul{columns:1}}
+    
+    /* === TOC === */
+    .toc li{margin:6px 0}
+
+    /* === CTA В ФУТЕРЕ === */
+    .footer-cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+    /* === СЕТКИ КАРТОЧЕК === */
+    .vpn-cards, .policy-cards{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:20px 0
+    }
+    .vpn-card, .policy-card{
+      border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;background:rgba(17,24,58,.3);transition:border-color .2s;position:relative
+    }
+    .vpn-card:hover, .policy-card:hover{border-color:var(--accent)}
+    .vpn-card h3, .policy-card h3{margin:0 0 8px 0;color:var(--accent)}
+    .vpn-card .desc, .policy-card .desc{color:var(--muted);font-size:.9rem;margin:8px 0 12px 0}
+    .vpn-card .meta, .policy-card .meta{
+      font-size:.8rem;color:var(--muted);margin:8px 0;display:flex;flex-wrap:wrap;gap:8px
+    }
+    .vpn-card .meta span, .policy-card .meta span{
+      background:rgba(77,163,255,.1);padding:2px 6px;border-radius:4px
+    }
+
+    /* === МАРКЕРЫ СТАТУСА === */
+    .recommended, .alternative, .strict, .transparent, .secure{position:relative}
+    .recommended::before, .alternative::before, .strict::before, .transparent::before, .secure::before{
+      position:absolute;top:-8px;right:12px;font-size:.75rem;padding:2px 8px;border-radius:999px;font-weight:600
+    }
+    .recommended{background:linear-gradient(135deg,rgba(41,199,115,.1),rgba(125,226,209,.08));border-color:var(--ok)}
+    .recommended::before{content:"? Рекомендуем";background:var(--ok);color:#061229}
+    .alternative{background:linear-gradient(135deg,rgba(125,226,209,.1),rgba(77,163,255,.08));border-color:var(--accent-2)}
+    .alternative::before{content:"?? Альтернатива";background:var(--accent-2);color:#061229}
+    .strict{background:linear-gradient(135deg,rgba(142,68,173,.1),rgba(142,68,173,.05));border-color:var(--legal)}
+    .strict::before{content:"?? Строго";background:var(--legal);color:#fff}
+    .strict h3{color:var(--legal)}
+    .transparent{background:linear-gradient(135deg,rgba(41,199,115,.1),rgba(125,226,209,.08));border-color:var(--ok)}
+    .transparent::before{content:"? Прозрачно";background:var(--ok);color:#061229}
+    .transparent h3{color:var(--ok)}
+    .secure{background:linear-gradient(135deg,rgba(77,163,255,.1),rgba(77,163,255,.05));border-color:var(--accent)}
+    .secure::before{content:"??? Безопасно";background:var(--accent);color:#fff}
+    .secure h3{color:var(--accent)}
+
+    /* КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ ПРОБЛЕМЫ С КНОПКАМИ */
+    .btn.norm::before, .btn-card.norm::before,
+    .btn.alternative::before, .btn-card.alternative::before { 
+      content: none !important; 
+    }
+
+    /* === ЮРИДИЧЕСКИЕ РАЗДЕЛЫ === */
+    .legal-section{margin:32px 0;padding:24px;background:var(--card);border:1px solid rgba(142,68,173,.2);border-radius:14px}
+    .legal-section h2{color:var(--legal);margin-top:0}
+    .legal-section h3{color:var(--accent-2);margin-top:20px}
+
+    /* === КОНТАКТНАЯ ИНФОРМАЦИЯ === */
+    .contact-box{background:rgba(142,68,173,.08);border:1px solid var(--legal);border-radius:12px;padding:20px;margin:20px 0}
+    .contact-box h4{color:var(--legal);margin:0 0 12px 0}
+
+    /* === ДАТА ОБНОВЛЕНИЯ === */
+    .last-updated{background:rgba(142,68,173,.1);border:1px solid var(--legal);border-radius:8px;padding:12px;margin:16px 0;text-align:center;color:var(--legal);font-weight:600}
+
+    /* === АДАПТИВНОСТЬ === */
+    @media(max-width:640px){
+      .vpn-cards, .policy-cards{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(103602117, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+
+<link rel="canonical" href="https://dostup-plus.github.io/legal\privacy/">
+</head>
+<body>
+  <div class="container">
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> › <a href="/legal/">Правовая информация</a> › <span>Политика конфиденциальности</span>
+    </nav>
+
+    <!-- HERO СЕКЦИЯ -->
+    <section class="hero">
+      <span class="badge">Ваша конфиденциальность</span>
+      <h1>Политика конфиденциальности — строгая политика отсутствия логов</h1>
+      <p>SAFENET?VPN придерживается строжайшей политики конфиденциальности с полным отсутствием логов активности. Мы не собираем, не храним и не можем передать информацию о вашей онлайн-активности. Ваша анонимность — наш главный приоритет.</p>
+      <div class="cta-row">
+        <a class="btn legal" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','privacy_main_safenet')" rel="noopener nofollow">SAFENET?VPN</a>
+        <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','privacy_main_normvpn')" rel="noopener nofollow">Norm VPN</a>
+        <a class="btn secondary" href="/legal/terms/" onclick="ym(103602117,'reachGoal','privacy_to_terms')">Пользовательское соглашение</a>
+      </div>
+      <p class="muted small">No-Logs Policy • GDPR соответствие • ФЗ-152 соответствие</p>
+    </section>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="grid">
+      <main>
+        <div class="last-updated">
+          <strong>Последнее обновление:</strong> 21 августа 2025 года
+        </div>
+
+        <!-- Общие положения -->
+        <section class="legal-section">
+          <h2>1. Общие положения</h2>
+          
+          <p>Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок обработки и защиты персональных данных пользователей информационного ресурса SAFENET-VPN, расположенного по адресу <strong>vpnhub-cyber.github.io</strong>, и связанных VPN-сервисов.</p>
+
+          <p>Мы серьезно относимся к защите вашей конфиденциальности и обеспечиваем максимальный уровень анонимности при использовании наших VPN-сервисов.</p>
+
+          <div class="legal-important">
+            <h4>?? Строгая политика отсутствия логов (No-Logs Policy)</h4>
+            <p>SAFENET?VPN придерживается строжайшей политики отсутствия логов. <strong>Мы НЕ собираем, НЕ записываем и НЕ храним:</strong></p>
+            <ul class="cross" style="margin-top:12px">
+              <li>IP-адреса пользователей при подключении к VPN</li>
+              <li>Историю посещенных сайтов и веб-страниц</li>
+              <li>Загруженные или переданные данные</li>
+              <li>DNS-запросы через наши серверы</li>
+              <li>Метаданные соединений и временные метки</li>
+              <li>Используемую полосу пропускания на индивидуальном уровне</li>
+            </ul>
+          </div>
+
+          <h3>Правовые основания обработки</h3>
+          <p>Обработка персональных данных осуществляется в соответствии с:</p>
+          <ul class="check">
+            <li><strong>Федеральным законом РФ №152-ФЗ</strong> «О персональных данных»</li>
+            <li><strong>Общим регламентом по защите данных (GDPR)</strong> Европейского союза</li>
+            <li><strong>Согласием пользователя</strong> на обработку персональных данных</li>
+            <li><strong>Законными интересами</strong> для обеспечения безопасности сервиса</li>
+          </ul>
+        </section>
+
+        <!-- Что мы собираем -->
+        <section class="legal-section">
+          <h2>2. Информация, которую мы собираем</h2>
+
+          <div class="policy-cards">
+            <div class="policy-card strict">
+              <h3>?? Что мы НЕ собираем (No-Logs)</h3>
+              <div class="desc">
+                <ul class="cross">
+                  <li>Исходящие IP-адреса пользователей</li>
+                  <li>История посещений сайтов</li>
+                  <li>Содержимое трафика</li>
+                  <li>DNS-запросы</li>
+                  <li>Временные метки подключений</li>
+                  <li>Используемая полоса пропускания (индивидуально)</li>
+                </ul>
+              </div>
+              <div class="meta">
+                <span>100% анонимность</span>
+                <span>Нулевые логи</span>
+                <span>Защита от слежки</span>
+              </div>
+            </div>
+
+            <div class="policy-card transparent">
+              <h3>? Минимальные технические данные</h3>
+              <div class="desc">Для обеспечения работы сервиса мы собираем только критически необходимые данные:
+                <ul class="check" style="margin-top:8px">
+                  <li>Общий объем трафика (агрегированно)</li>
+                  <li>Количество одновременных подключений</li>
+                  <li>Информация об ошибках подключения</li>
+                  <li>Версия клиентского приложения</li>
+                </ul>
+              </div>
+              <div class="meta">
+                <span>Агрегированная статистика</span>
+                <span>Техническая диагностика</span>
+                <span>Улучшение сервиса</span>
+              </div>
+            </div>
+
+            <div class="policy-card secure">
+              <h3>?? Данные веб-сайта</h3>
+              <div class="desc">На информационном сайте мы используем Яндекс.Метрику (ID: 103602117) для анализа посещаемости:
+                <ul style="margin-top:8px">
+                  <li>Обезличенная статистика посещений</li>
+                  <li>Информация о браузере и устройстве</li>
+                  <li>Страницы просмотра и источники переходов</li>
+                  <li>Географическая статистика (на уровне страны/региона)</li>
+                </ul>
+              </div>
+              <div class="meta">
+                <span>Яндекс.Метрика</span>
+                <span>Анонимная аналитика</span>
+                <span>Улучшение сайта</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            <strong>Важно понимать:</strong> Даже минимальные технические данные, которые мы собираем, не могут быть использованы для идентификации ваших действий в интернете или связывания с вашей личностью.
+          </div>
+        </section>
+
+        <!-- Как мы используем данные -->
+        <section class="legal-section">
+          <h2>3. Как мы используем собранную информацию</h2>
+
+          <h3>Цели использования данных</h3>
+          <ul class="check">
+            <li><strong>Предоставление VPN-сервиса:</strong> Обеспечение доступа к VPN-серверам, управление подпиской</li>
+            <li><strong>Техническая поддержка:</strong> Диагностика проблем подключения, решение технических вопросов</li>
+            <li><strong>Улучшение качества:</strong> Анализ производительности серверов, оптимизация сетевой инфраструктуры</li>
+            <li><strong>Безопасность сервиса:</strong> Предотвращение злоупотреблений, защита от DDoS-атак</li>
+            <li><strong>Соблюдение законодательства:</strong> Выполнение требований применимого права</li>
+          </ul>
+
+          <h3>Принципы обработки</h3>
+          <ul class="check">
+            <li><strong>Минимизация:</strong> Собираем только необходимые для работы сервиса данные</li>
+            <li><strong>Анонимизация:</strong> Все данные обрабатываются в обезличенном виде</li>
+            <li><strong>Ограничение целей:</strong> Данные используются только для заявленных целей</li>
+            <li><strong>Временные ограничения:</strong> Данные хранятся минимально необходимое время</li>
+          </ul>
+        </section>
+
+        <!-- Передача данных -->
+        <section class="legal-section">
+          <h2>4. Передача данных третьим лицам</h2>
+
+          <p><strong>Мы НЕ продаем, НЕ обмениваем и НЕ передаем ваши персональные данные третьим лицам в коммерческих целях.</strong></p>
+
+          <h3>Ограниченные случаи передачи</h3>
+          <ul>
+            <li><strong>Технические партнеры:</strong> Хостинг-провайдеры серверов (с соглашениями о конфиденциальности)</li>
+            <li><strong>Платежные системы:</strong> Процессоры платежей для обработки подписок (минимальные данные)</li>
+            <li><strong>Веб-аналитика:</strong> Яндекс.Метрика для анализа сайта (обезличенные данные)</li>
+            <li><strong>Правовые требования:</strong> При наличии законного судебного запроса (но у нас нет логов активности для передачи)</li>
+          </ul>
+
+          <div class="legal-tip">
+            <strong>?? Важное преимущество No-Logs Policy:</strong> Даже если мы получим законный запрос от правоохранительных органов, мы физически не сможем предоставить информацию о вашей онлайн-активности, так как мы ее не собираем и не храним.
+          </div>
+        </section>
+
+        <!-- Безопасность данных -->
+        <section class="legal-section">
+          <h2>5. Защита и безопасность данных</h2>
+
+          <h3>Технические меры защиты</h3>
+          <ul class="check">
+            <li><strong>Шифрование AES-256:</strong> Военный уровень шифрования для всего трафика</li>
+            <li><strong>Perfect Forward Secrecy:</strong> Каждая сессия использует уникальные ключи</li>
+            <li><strong>Защита от утечек:</strong> DNS, IPv6, WebRTC leak protection</li>
+            <li><strong>Kill Switch:</strong> Автоматическое отключение интернета при разрыве VPN</li>
+            <li><strong>Secure servers:</strong> Серверы работают только в оперативной памяти</li>
+          </ul>
+
+          <h3>Организационные меры</h3>
+          <ul class="check">
+            <li><strong>Ограниченный доступ:</strong> Только авторизованный персонал имеет доступ к системам</li>
+            <li><strong>Регулярные аудиты:</strong> Проверка систем безопасности и соответствия политикам</li>
+            <li><strong>Обучение персонала:</strong> Регулярное обучение по вопросам защиты данных</li>
+            <li><strong>Инцидент-менеджмент:</strong> Процедуры реагирования на нарушения безопасности</li>
+          </ul>
+
+          <div class="legal-important">
+            <h4>??? Гарантии безопасности</h4>
+            <p>Благодаря политике отсутствия логов, даже в случае компрометации наших систем злоумышленники не смогут получить информацию о вашей онлайн-активности — ее просто не существует в наших системах.</p>
+          </div>
+        </section>
+
+        <!-- Права пользователей -->
+        <section class="legal-section">
+          <h2>6. Ваши права в отношении персональных данных</h2>
+
+          <p>В соответствии с GDPR и ФЗ-152 «О персональных данных», вы имеете следующие права:</p>
+
+          <h3>Основные права</h3>
+          <ul class="check">
+            <li><strong>Право на информацию:</strong> Получение сведений о том, какие данные мы обрабатываем</li>
+            <li><strong>Право на доступ:</strong> Получение копии ваших персональных данных</li>
+            <li><strong>Право на исправление:</strong> Внесение изменений в неточные данные</li>
+            <li><strong>Право на удаление:</strong> Требование удаления ваших данных</li>
+            <li><strong>Право на ограничение:</strong> Временная приостановка обработки</li>
+            <li><strong>Право на возражение:</strong> Отказ от обработки в маркетинговых целях</li>
+            <li><strong>Право на портабельность:</strong> Получение данных в машиночитаемом формате</li>
+          </ul>
+
+          <h3>Как реализовать свои права</h3>
+          <ul class="steps-list">
+            <li><div class="idx">1</div><div><strong>Обратитесь к нам</strong><br>Отправьте запрос через Telegram-бот или контактную форму</div></li>
+            <li><div class="idx">2</div><div><strong>Укажите конкретное право</strong><br>Четко сформулируйте, какое право вы хотите реализовать</div></li>
+            <li><div class="idx">3</div><div><strong>Подтвердите личность</strong><br>Для защиты данных мы можем запросить подтверждение личности</div></li>
+            <li><div class="idx">4</div><div><strong>Получите ответ</strong><br>Мы ответим в течение 30 дней с момента получения запроса</div></li>
+          </ul>
+        </section>
+
+        <!-- Международные передачи -->
+        <section class="legal-section">
+          <h2>7. Международные передачи данных</h2>
+
+          <p>В связи с глобальной природой VPN-сервиса и использованием международной инфраструктуры, некоторые данные могут обрабатываться за пределами Российской Федерации:</p>
+
+          <ul>
+            <li><strong>GitHub Pages (Microsoft):</strong> Хостинг информационного сайта (США)</li>
+            <li><strong>Яндекс.Метрика:</strong> Веб-аналитика (Россия, серверы Яндекса)</li>
+            <li><strong>VPN-серверы:</strong> Расположены в различных юрисдикциях для обеспечения доступа</li>
+          </ul>
+
+          <div class="legal-tip">
+            <strong>Важно:</strong> Благодаря политике отсутствия логов, даже при международных передачах ваша онлайн-активность остается полностью анонимной и недоступной для любых третьих лиц.
+          </div>
+        </section>
+
+        <!-- Контактная информация -->
+        <section class="contact-box">
+          <h4>?? Контакты по вопросам конфиденциальности</h4>
+          <p>По всем вопросам, связанным с обработкой персональных данных и реализацией ваших прав:</p>
+          
+          <ul class="check">
+            <li><strong>Telegram-бот поддержки:</strong> <a href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','privacy_contact_safenet')" rel="noopener nofollow">@SafeNetVpn_bot</a></li>
+            <li><strong>Альтернативный канал:</strong> <a href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','privacy_contact_normvpn')" rel="noopener nofollow">@normwpn_bot</a></li>
+            <li><strong>Веб-сайт:</strong> <a href="https://dostup-plus.github.io/">vpnhub-cyber.github.io</a></li>
+          </ul>
+
+          <p><strong>Время ответа:</strong> В течение 30 дней с момента получения обращения<br>
+          <strong>Языки:</strong> Русский, английский</p>
+        </section>
+
+        <!-- Блок "Читайте также" -->
+        <section class="card also">
+          <h2>Читайте также</h2>
+          <ul>
+            <li><a href="/legal/terms/">Пользовательское соглашение</a></li>
+            <li><a href="/about/">О проекте SAFENET-VPN</a></li>
+            <li><a href="/guide/security/">Безопасность и защита от утечек</a></li>
+            <li><a href="/guide/selection-criteria/">Как выбрать безопасный VPN</a></li>
+            <li><a href="/diagnostics/ip-check/">Проверка утечек и анонимности</a></li>
+            <li><a href="/">Главная страница</a></li>
+          </ul>
+        </section>
+
+        <!-- Финальный CTA -->
+        <section class="card">
+          <div class="footer-cta">
+            <div>
+              <h3>Защитите свою конфиденциальность</h3>
+              <p class="muted">Выбирайте VPN-сервисы с доказанной политикой отсутствия логов и максимальной защитой анонимности.</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn legal" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','privacy_footer_safenet')" rel="noopener nofollow">SAFENET?VPN (126?/мес)</a>
+              <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','privacy_footer_normvpn')" rel="noopener nofollow">Norm VPN</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- САЙДБАР -->
+      <aside>
+        <div class="card toc" aria-label="Содержание">
+          <strong>Содержание</strong>
+          <ol>
+            <li><a href="#general">Общие положения</a></li>
+            <li><a href="#data-collection">Собираемые данные</a></li>
+            <li><a href="#data-usage">Использование данных</a></li>
+            <li><a href="#data-sharing">Передача данных</a></li>
+            <li><a href="#data-security">Безопасность данных</a></li>
+            <li><a href="#user-rights">Права пользователей</a></li>
+            <li><a href="#international">Международные передачи</a></li>
+            <li><a href="#contacts">Контактная информация</a></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>?? Важные документы</h3>
+          <ul style="list-style:none;padding:0">
+            <li style="margin:8px 0"><a href="/legal/terms/">?? Пользовательское соглашение</a></li>
+            <li style="margin:8px 0"><a href="/about/">?? О проекте</a></li>
+            <li style="margin:8px 0"><a href="/guide/security/">?? Безопасность VPN</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Вопросы по конфиденциальности?</h3>
+          <p class="small muted">Мы готовы ответить на любые вопросы о защите ваших данных и обеспечении анонимности.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','privacy_sidebar_safenet')" rel="noopener nofollow">SAFENET?VPN</a>
+            <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','privacy_sidebar_normvpn')" rel="noopener nofollow">Norm VPN</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ФУТЕР -->
+    <footer class="muted small" style="margin:24px 0;">
+      © SAFENET?VPN. Политика конфиденциальности действует с 21 августа 2025 года. Ваша конфиденциальность — наш приоритет.
+    </footer>
+  </div>
+
+  <!-- SCHEMA.ORG РАЗМЕТКА -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Политика конфиденциальности — SAFENET-VPN",
+    "description": "Официальная Политика конфиденциальности SAFENET-VPN со строгой политикой отсутствия логов. Защита анонимности и соответствие международным стандартам.",
+    "url": "https://dostup-plus.github.io/legal/privacy/",
+    "datePublished": "2025-08-21",
+    "dateModified": "2025-08-21",
+    "inLanguage": "ru-RU",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SAFENET-VPN",
+      "url": "https://dostup-plus.github.io/"
+    },
+    "mainEntity": {
+      "@type": "Article",
+      "headline": "Политика конфиденциальности SAFENET-VPN",
+      "description": "Строгая политика отсутствия логов и защита анонимности пользователей VPN"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://dostup-plus.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Правовая информация",
+        "item": "https://dostup-plus.github.io/legal/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Политика конфиденциальности",
+        "item": "https://dostup-plus.github.io/legal/privacy/"
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
+
