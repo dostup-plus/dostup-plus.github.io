@@ -1,941 +1,463 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFENET-VPN | Надежный доступ к YouTube, Netflix и заблокированным сайтам в России</title>
-    <meta name="description" content="SAFENET-VPN - простое решение для доступа к YouTube, Netflix и социальным сетям. 126?/месяц, скидка 15% новым пользователям. Поддержка всех устройств в Telegram.">
-    
-    <!-- ВАЖНО: Замените на ваш реальный домен -->
-    
-    
-    <!-- Open Graph для социальных сетей -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SAFENET-VPN - Свободный интернет без ограничений">
-    <meta property="og:description" content="Доступ к YouTube, Netflix и соцсетям на всех устройствах. 126?/месяц, первый месяц со скидкой 15%">
-    <meta property="og:image" content="https://dostup-plus.github.io/index.html/images/og-safenet.jpg">
-    <meta property="og:url" content="https://dostup-plus.github.io/index.html/">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://dostup-plus.github.io/index.html/images/og-safenet.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta charset="utf-8">
+  <title>Полное руководство по VPN — от основ до экспертного уровня | SAFENET?VPN</title>
+  <meta name="description" content="Изучите VPN с нуля: что такое VPN, как работает, какой выбрать, протоколы безопасности, юрисдикции. Персонализированные пути обучения для новичков и экспертов с практическими примерами.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="robots" content="index,follow">
 
-      <!-- RSS лента — ДОБАВИТЬ СЮДА -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Полное руководство по VPN — от основ до экспертного уровня">
+  <meta property="og:description" content="Всё о VPN: принципы работы, выбор провайдера, протоколы, безопасность. Персонализированные образовательные маршруты для любого уровня подготовки.">
+  <meta property="og:url" content="https://dostup-plus.github.io/guide/">
+  <meta property="og:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+  <meta property="og:site_name" content="SAFENET-VPN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Полное руководство по VPN — от основ до экспертного уровня">
+  <meta name="twitter:description" content="Изучите VPN: принципы работы, выбор, протоколы, безопасность. Образовательные маршруты от новичка до эксперта.">
+  <meta name="twitter:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- RSS лента — ДОБАВИТЬ СЮДА -->
   <link rel="alternate" type="application/rss+xml" title="SAFENET-VPN — Руководства по VPN" href="/rss.xml">
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103602117', 'ym');
-
-        ym(103602117, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
-    <!-- Schema.org разметка -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "SAFENET-VPN",
-        "description": "VPN-сервис для обеспечения безопасного доступа к интернет-ресурсам",
-        "brand": {
-            "@type": "Brand",
-            "name": "SAFENET-VPN"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "126",
-            "priceCurrency": "RUB",
-            "availability": "https://schema.org/InStock",
-            "url": "https://t.me/SafeNetVpn_bot?start=afrrica"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "127"
-        }
+  <style>
+    :root{
+      --bg:#0b1020; --card:#11183a; --text:#e9eefc; --muted:#aab3d9; --accent:#4da3ff; --accent-2:#7de2d1; --ok:#29c773; --warn:#ffb020; --err:#ff5c5c;
     }
-    </script>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1050px;margin:0 auto;padding:20px}
+    .breadcrumbs{font-size:.9rem;color:var(--muted);margin:12px 0}
+    .breadcrumbs a{color:var(--muted)}
+    .hero{background:linear-gradient(135deg,rgba(77,163,255,.15),rgba(125,226,209,.12));border:1px solid rgba(125,226,209,.25);border-radius:16px;padding:28px;margin:16px 0}
+    .hero h1{margin:0 0 10px 0;font-size:2rem}
+    .hero p{margin:0 0 16px 0;color:var(--muted)}
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{display:inline-block;background:var(--accent);color:#061229;padding:12px 16px;border-radius:10px;font-weight:700}
+    .btn.secondary{background:transparent;border:1px solid var(--accent);color:var(--text)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px}
+    h2{margin-top:28px}
+    h3{margin-top:20px}
+    .badge{display:inline-block;background:rgba(77,163,255,.15);border:1px solid rgba(77,163,255,.4);color:#cfe5ff;padding:2px 8px;border-radius:999px;font-size:.8rem}
+    .note{border-left:3px solid var(--accent-2);padding-left:12px;color:#cfe5ff}
+    .warn{border-left:3px solid var(--warn);padding-left:12px}
+    .ok{color:var(--ok);font-weight:600}
+    ul.check>li::marker{content:"? ";color:var(--ok)}
+    .also ul{columns:2;gap:24px}
+    @media(max-width:680px){.also ul{columns:1}}
+    .muted{color:var(--muted)}
+    .footer-cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .small{font-size:.9rem}
+    .guide-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin:20px 0}
+    .guide-card{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;background:rgba(17,24,58,.3);transition:border-color .2s;position:relative}
+    .guide-card:hover{border-color:var(--accent)}
+    .guide-card h3{margin:0 0 8px 0;color:var(--accent)}
+    .guide-card .desc{color:var(--muted);font-size:.9rem;margin:8px 0 12px 0}
+    .guide-card .meta{font-size:.8rem;color:var(--muted);margin:8px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .guide-card .meta span{background:rgba(77,163,255,.1);padding:2px 6px;border-radius:4px}
+    .btn-card{display:inline-block;background:var(--accent);color:#061229;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
+    .btn-card.secondary{background:transparent;border:1px solid var(--muted);color:var(--muted)}
+    .beginner{background:linear-gradient(135deg,rgba(41,199,115,.1),rgba(125,226,209,.08));border-color:var(--ok)}
+    .beginner::before{content:"?? Для новичков";position:absolute;top:-8px;right:12px;background:var(--ok);color:#061229;font-size:.75rem;padding:2px 8px;border-radius:999px;font-weight:600}
+    .advanced{background:linear-gradient(135deg,rgba(255,176,32,.1),rgba(255,176,32,.05));border-color:var(--warn)}
+    .advanced::before{content:"?? Продвинутый";position:absolute;top:-8px;right:12px;background:var(--warn);color:#061229;font-size:.75rem;padding:2px 8px;border-radius:999px;font-weight:600}
+    .coming-soon{opacity:.7;border-style:dashed}
+    .coming-soon .btn-card{background:var(--muted);opacity:.7}
+    .levels{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:16px 0}
+    @media(max-width:720px){.levels{grid-template-columns:1fr}}
+    .level-card{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;text-align:center}
+    .level-card h4{margin:0 0 8px 0;color:var(--accent-2)}
+    .level-card .icon{font-size:2rem;margin-bottom:8px}
+    .key-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0}
+    .key-point-card{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;background:rgba(17,24,58,.35)}
+    .key-point-card h4{margin:0 0 8px 0;color:var(--accent-2)}
+    .roadmap{background:rgba(17,24,58,.4);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px;margin:16px 0}
+    .roadmap ol{margin:0;padding-left:20px}
+    .roadmap li{margin:8px 0;padding:4px 0}
+    .path-list{counter-reset: step; display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+    @media(max-width:700px){.path-list{grid-template-columns:1fr}}
+    .path-item{border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;background:rgba(17,24,58,.35);position:relative;padding-left:46px}
+    .path-item::before{counter-increment: step; content: counter(step); position:absolute; left:12px; top:12px; width:24px; height:24px; border-radius:50%; background:var(--accent); color:#061229; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem}
+  </style>
 
-    <style>
-        /* CSS Variables для легкой настройки цветов */
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --success: #059669;
-            --danger: #dc2626;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(103602117, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  <!-- /Yandex.Metrika -->
 
-        /* Базовые стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Кнопки */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--success);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary:hover {
-            background: #047857;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Header */
-        .header {
-            background: var(--bg-white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .price-highlight {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1rem 2rem;
-            border-radius: 1rem;
-            margin: 2rem auto;
-            max-width: 400px;
-            backdrop-filter: blur(10px);
-        }
-
-        .price-original {
-            text-decoration: line-through;
-            opacity: 0.7;
-            font-size: 1rem;
-        }
-
-        .price-current {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fbbf24;
-            display: block;
-        }
-
-        .hero-cta {
-            margin-top: 2rem;
-        }
-
-        .hero .btn-primary {
-            font-size: 1.2rem;
-            padding: 1rem 2rem;
-            margin: 0 0.5rem;
-        }
-
-        /* Общие стили для секций */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section.light {
-            background: var(--bg-light);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Сетки */
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        }
-
-        /* Карточки */
-        .card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .problem-card {
-            border-left: 4px solid var(--danger);
-        }
-
-        .problem-card h4 {
-            color: var(--danger);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card {
-            text-align: center;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .device-card {
-            text-align: center;
-        }
-
-        .device-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* FAQ */
-        .faq-item {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 1rem;
-            border-left: 4px solid var(--primary);
-        }
-
-        .faq-item h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer h4 {
-            margin-bottom: 1rem;
-            color: #f9fafb;
-        }
-
-        .footer a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
-
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Disclaimer */
-        .disclaimer {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin: 2rem 0;
-            font-size: 0.9rem;
-            color: #92400e;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 2rem 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-
-    <!-- Organization Schema (добавить перед закрывающим     <!-- Updated: 2025-08-22 17:47 MSK -->
-
-<link rel="canonical" href="https://dostup-plus.github.io/">
-</head>) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "SAFENET-VPN",
-  "url": "https://dostup-plus.github.io/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://dostup-plus.github.io/images/og-safenet.jpg",
-    "width": 1200,
-    "height": 630
-  },
-  "description": "Образовательный проект о VPN с экспертизой в области банковских приложений, обхода DPI и корпоративной безопасности",
-  "foundingDate": "2017",
-  "sameAs": [
-    "https://t.me/SafeNetVpn_bot",
-    "https://t.me/normwpn_bot"
-  ],
-  "areaServed": "RU",
-  "knowsAbout": [
-    "VPN технологии",
-    "Банковские приложения",
-    "Обход DPI",
-    "Корпоративная безопасность",
-    "Стриминговые сервисы"
-  ]
-}
-</script
-
-    <meta name="google-site-verification" content="KN4p7cjII_CY39DR7DZaWzP-u5ITGEl2PXBswtSk9z0" />
-    
-    <!-- Updated: 2025-08-22 17:47 MSK -->
-<link rel="canonical" href="https://dostup-plus.github.io/">
+<link rel="canonical" href="https://dostup-plus.github.io/guide/">
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <a href="/" class="logo">??? SAFENET-VPN</a>
-            <ul class="nav-links">
-                <li><a href="#features">Преимущества</a></li>
-                <li><a href="#devices">Устройства</a></li>
-                <li><a href="#faq">Вопросы</a></li>
-                <li><a href="/guide/">Руководства</a></li>
-                <li>
-                    <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="btn btn-primary"
-                       onclick="ym(103602117,'reachGoal','nav_connect')">
-                       Подключиться
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> › <span>Руководства</span>
+    </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Верните свободу интернета с SAFENET-VPN</h1>
-            <p class="hero-subtitle">
-                Смотрите YouTube, пользуйтесь Netflix и социальными сетями без ограничений. 
-                Простая установка на любые устройства с поддержкой в Telegram.
-            </p>
-            
-            <div class="price-highlight">
-                <div class="price-original">Обычная цена: 148?/мес</div>
-                <div class="price-current">126?/месяц</div>
-                <div style="margin-top: 0.5rem;">
-                    <strong>Первый месяц всего 107?</strong> (скидка 15%)
-                </div>
-            </div>
-
-            <div class="hero-cta">
-                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-                   target="_blank" 
-                   rel="noopener" 
-                   class="btn btn-primary"
-                   onclick="ym(103602117,'reachGoal','hero_connect')">
-                    ?? Подключить SAFENET-VPN сейчас
-                </a>
-                <a href="#problems" class="btn btn-outline">Узнать подробнее</a>
-            </div>
-        </div>
+      <span class="badge">Образовательный центр</span>
+      <h1>Полное руководство по VPN — от основ до экспертного уровня</h1>
+      <p>Изучите VPN с нуля или углубите знания: принципы работы, протоколы шифрования, выбор провайдера, юрисдикции, настройка безопасности. Персонализированные образовательные маршруты, практические советы и пошаговые инструкции для любого уровня подготовки.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','guide_main_cta')" rel="noopener nofollow">Применить знания на практике</a>
+        <a class="btn secondary" href="#learning-levels" onclick="ym(103602117,'reachGoal','guide_levels_start')">Выбрать уровень изучения</a>
+      </div>
+      <p class="muted small">SAFENET?VPN: теория + практика • От 126?/мес (первый месяц 107?) • Консультации 24/7</p>
     </section>
 
-    <!-- Problems Section -->
-    <section class="section light" id="problems">
-        <div class="container">
-            <h2 class="section-title">Знакомые проблемы?</h2>
-            <p class="section-subtitle">
-                Мы понимаем ваши сложности и предлагаем простое решение
-            </p>
-            
-            <div class="grid grid-3">
-                <div class="card problem-card">
-                    <h4>?? YouTube не работает</h4>
-                    <p>Видео не загружаются, каналы недоступны, реклама показывается некорректно</p>
-                </div>
-                
-                <div class="card problem-card">
-                    <h4>?? Netflix и стриминги заблокированы</h4>
-                    <p>Любимые сериалы и фильмы стали недоступны, подписки не работают</p>
-                </div>
-                
-                <div class="card problem-card">
-                    <h4>?? Социальные сети тормозят</h4>
-                    <p>Instagram, Facebook, Twitter загружаются медленно или вообще не открываются</p>
-                </div>
-                
-                <div class="card problem-card">
-                    <h4>?? Рабочие сервисы недоступны</h4>
-                    <p>LinkedIn, зарубежные CRM, облачные платформы стали недоступны для работы</p>
-                </div>
-                
-                <div class="card problem-card">
-                    <h4>?? Беспокоитесь о приватности</h4>
-                    <p>Хотите защитить свои данные и обеспечить анонимность в сети</p>
-                </div>
-                
-                <div class="card problem-card">
-                    <h4>?? Ограничения растут</h4>
-                    <p>Каждый день появляются новые блокировки привычных сервисов</p>
-                </div>
+    <div class="grid">
+      <main>
+        <section class="card">
+          <h2>Зачем изучать VPN в современном мире</h2>
+          <p>VPN — это не просто инструмент для «обхода блокировок». Это комплексная технология, которая влияет на приватность, безопасность и доступность интернета. В эпоху массовой слежки и кибератак понимание принципов работы VPN становится критически важным навыком.</p>
+          
+          <div class="key-points">
+            <div class="key-point-card">
+              <h4>??? Защита приватности</h4>
+              <p class="small">Скрывает ваш реальный IP и шифрует трафик от провайдера, хакеров и рекламодателей.</p>
+            </div>
+            <div class="key-point-card">
+              <h4>?? Обход блокировок</h4>
+              <p class="small">Открывает доступ к заблокированным сайтам, сервисам и стриминговым платформам.</p>
+            </div>
+            <div class="key-point-card">
+              <h4>?? Безопасность Wi-Fi</h4>
+              <p class="small">Защищает данные в публичных Wi-Fi сетях, где информация может быть перехвачена.</p>
+            </div>
+            <div class="key-point-card">
+              <h4>?? Экономия средств</h4>
+              <p class="small">Позволяет находить более выгодные предложения на билеты и товары, меняя регион.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="learning-levels" class="card">
+          <h2>Выберите свой путь изучения</h2>
+          <div class="levels">
+            <div class="level-card">
+              <div class="icon">??</div>
+              <h4>Новичок</h4>
+              <p class="small">Никогда не использовали VPN. Хотите понять основы и начать безопасно.</p>
+            </div>
+            <div class="level-card">
+              <div class="icon">?</div>
+              <h4>Пользователь</h4>
+              <p class="small">Уже используете VPN, но хотите выбрать лучший вариант и оптимизировать настройки.</p>
+            </div>
+            <div class="level-card">
+              <div class="icon">??</div>
+              <h4>Эксперт</h4>
+              <p class="small">Разбираетесь в технологиях, нужны детали о протоколах, криптографии, юрисдикциях.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Доступные материалы</h2>
+          <div class="guide-cards">
+            <div class="guide-card beginner">
+              <h3>?? Основы VPN</h3>
+              <div class="desc">Что такое VPN, как работает туннелирование, зачем нужно шифрование. Простым языком с наглядными примерами для полных новичков.</div>
+              <div class="meta">
+                <span>15 мин чтения</span>
+                <span>200k+ запросов</span>
+                <span>Определения</span>
+              </div>
+              <a href="/guide/vpn-fundamentals/" class="btn-card" onclick="ym(103602117,'reachGoal','guide_card_fundamentals')">Изучить основы</a>
             </div>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-primary);">
-                    <strong>SAFENET-VPN решает все эти проблемы за 5 минут</strong>
-                </p>
-                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-                   target="_blank" 
-                   rel="noopener" 
-                   class="btn btn-primary"
-                   onclick="ym(103602117,'reachGoal','problems_connect')">
-                    Решить проблемы прямо сейчас
-                </a>
+            <div class="guide-card beginner">
+              <h3>?? Выбор VPN провайдера</h3>
+              <div class="desc">Критерии безопасности, юрисдикции, протоколы, логирование. Практический чек-лист для оценки любого VPN сервиса.</div>
+              <div class="meta">
+                <span>20 мин чтения</span>
+                <span>150k+ запросов</span>
+                <span>Чек-лист</span>
+              </div>
+              <a href="/guide/selection-criteria/" class="btn-card" onclick="ym(103602117,'reachGoal','guide_card_selection')">Научиться выбирать</a>
             </div>
+
+            <div class="guide-card coming-soon advanced">
+              <h3>?? Протоколы и шифрование</h3>
+              <div class="desc">WireGuard vs OpenVPN vs IKEv2. AES-256, ChaCha20, эллиптические кривые. Технические детали для понимания безопасности.</div>
+              <div class="meta">
+                <span>25 мин чтения</span>
+                <span>Криптография</span>
+                <span>Сравнение</span>
+              </div>
+              <a href="#" class="btn-card" onclick="ym(103602117,'reachGoal','guide_card_protocols_soon')">Скоро</a>
+            </div>
+
+            <div class="guide-card coming-soon advanced">
+              <h3>?? Юрисдикции и законы</h3>
+              <div class="desc">Где базируются VPN провайдеры, влияние местных законов, 5/9/14 Eyes альянсы, субпоены и логирование.</div>
+              <div class="meta">
+                <span>20 мин чтения</span>
+                <span>Правовые аспекты</span>
+                <span>Приватность</span>
+              </div>
+              <a href="#" class="btn-card" onclick="ym(103602117,'reachGoal','guide_card_jurisdiction_soon')">Скоро</a>
+            </div>
+
+            <div class="guide-card coming-soon">
+              <h3>??? Безопасность и утечки</h3>
+              <div class="desc">Kill switch, DNS leak protection, IPv6 утечки, WebRTC. Как защититься от всех видов утечек данных.</div>
+              <div class="meta">
+                <span>18 мин чтения</span>
+                <span>Защита от утечек</span>
+                <span>Практика</span>
+              </div>
+              <a href="#" class="btn-card" onclick="ym(103602117,'reachGoal','guide_card_security_soon')">Скоро</a>
+            </div>
+
+            <div class="guide-card coming-soon">
+              <h3>?? Оптимизация скорости</h3>
+              <div class="desc">Выбор серверов, протоколов, портов. Split tunneling, настройки MTU, оптимизация для игр и стриминга.</div>
+              <div class="meta">
+                <span>15 мин чтения</span>
+                <span>Производительность</span>
+                <span>Игры и стриминг</span>
+              </div>
+              <a href="#" class="btn-card" onclick="ym(103602117,'reachGoal','guide_card_speed_soon')">Скоро</a>
+            </div>
+          </div>
+
+          <div class="note">
+            <strong>В разработке:</strong> материалы по корпоративным VPN, самостоятельной настройке серверов, Tor + VPN, VPN для бизнеса. Напишите в <a href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','guide_request_topic')">бот</a>, какая тема интересует больше всего.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Рекомендуемые образовательные маршруты</h2>
+          <div class="roadmap">
+            <h3>?? Путь новичка (30-45 минут)</h3>
+            <ol>
+              <li><strong>Основы:</strong> <a href="/guide/vpn-fundamentals/" onclick="ym(103602117,'reachGoal','guide_roadmap_fundamentals')">Что такое VPN простыми словами</a> — принципы работы, применение, плюсы и минусы</li>
+              <li><strong>Выбор:</strong> <a href="/guide/selection-criteria/" onclick="ym(103602117,'reachGoal','guide_roadmap_selection')">Как выбрать надежный VPN</a> — критерии безопасности, на что обращать внимание</li>
+              <li><strong>Практика:</strong> <a href="/devices/" onclick="ym(103602117,'reachGoal','guide_roadmap_devices')">Настройка на вашем устройстве</a> — пошаговые инструкции</li>
+              <li><strong>Проверка:</strong> <a href="/diagnostics/ip-check/" onclick="ym(103602117,'reachGoal','guide_roadmap_check')">Тест на утечки</a> — убедитесь, что всё работает правильно</li>
+            </ol>
+          </div>
+          
+          <div class="roadmap">
+            <h3>? Путь опытного пользователя (45-60 минут)</h3>
+            <ol>
+              <li><strong>Повторение основ:</strong> освежите знания о <a href="/guide/vpn-fundamentals/">принципах VPN</a></li>
+              <li><strong>Глубокий анализ:</strong> изучите <a href="/guide/selection-criteria/">критерии выбора провайдера</a></li>
+              <li><strong>Протоколы:</strong> сравните WireGuard, OpenVPN, IKEv2 (скоро)</li>
+              <li><strong>Безопасность:</strong> настройка kill switch, DNS leak protection (скоро)</li>
+              <li><strong>Оптимизация:</strong> <a href="/streaming/">стриминг</a> и решение <a href="/troubleshooting/not-working/">проблем</a></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Практическое применение знаний</h2>
+          <p>Теория без практики бесполезна. После изучения материалов обязательно примените знания на реальных задачах:</p>
+          
+          <div class="path-list">
+            <div class="path-item">
+              <strong>Настройте VPN</strong><br>
+              Используйте <a href="/devices/">пошаговые инструкции</a> для вашей платформы
+            </div>
+            <div class="path-item">
+              <strong>Проверьте безопасность</strong><br>
+              Протестируйте с помощью <a href="/diagnostics/ip-check/">проверки утечек</a>
+            </div>
+            <div class="path-item">
+              <strong>Оптимизируйте для стриминга</strong><br>
+              Настройте доступ к <a href="/streaming/netflix/">Netflix</a>, <a href="/streaming/youtube/">YouTube</a>
+            </div>
+            <div class="path-item">
+              <strong>Решайте проблемы</strong><br>
+              Используйте <a href="/troubleshooting/not-working/">раздел устранения неполадок</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Частые вопросы по изучению VPN</h2>
+          
+          <h3>Сколько времени нужно, чтобы разобраться в VPN?</h3>
+          <p>Для базового понимания достаточно 30-45 минут. Чтобы стать уверенным пользователем — 2-3 часа изучения и практики. Для экспертного уровня потребуется несколько дней.</p>
+
+          <h3>Какие материалы читать в первую очередь?</h3>
+          <p>Начните с <a href="/guide/vpn-fundamentals/">основ VPN</a>, затем изучите <a href="/guide/selection-criteria/">критерии выбора</a>. После этого переходите к практике — настройке на ваших устройствах.</p>
+
+          <h3>Нужно ли разбираться в технических деталях?</h3>
+          <p>Базовое понимание принципов работы поможет избежать ошибок при выборе и настройке. Глубокие технические знания нужны только для специальных задач.</p>
+
+          <h3>Как проверить, что изученное работает?</h3>
+          <p>Используйте <a href="/diagnostics/ip-check/">инструменты проверки</a> для тестирования утечек, измеряйте скорость до и после подключения VPN, проверяйте доступность заблокированных сайтов.</p>
+
+          <h3>Где найти актуальную информацию о новых угрозах?</h3>
+          <p>Следите за блогами крупных VPN провайдеров, специализированными форумами по безопасности, отчетами исследователей. Мы регулярно обновляем материалы.</p>
+
+          <h3>Стоит ли изучать настройку собственного VPN сервера?</h3>
+          <p>Для большинства пользователей коммерческие решения удобнее и безопаснее. Собственный сервер оправдан для специфических корпоративных задач или обучения.</p>
+        </section>
+
+        <section class="card also">
+          <h2>Практические материалы</h2>
+          <ul>
+            <li><a href="/devices/">VPN для всех устройств — Windows, Android, iPhone, Smart TV</a></li>
+            <li><a href="/streaming/">VPN для стриминга — Netflix, YouTube, Disney+</a></li>
+            <li><a href="/troubleshooting/not-working/">Решение проблем с VPN — диагностика и исправление</a></li>
+            <li><a href="/diagnostics/ip-check/">Проверка IP адреса и утечек — онлайн тесты</a></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <div class="footer-cta">
+            <div>
+              <h3>От теории к практике: SAFENET?VPN</h3>
+              <p class="muted">Применяйте полученные знания на надежном сервисе. Консультации по настройке, от 126?/мес (первый месяц 107?).</p>
+            </div>
+            <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','guide_footer_cta')" rel="noopener nofollow">Начать практику</a>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <div class="card">
+          <h3>?? Начать изучение</h3>
+          <ul class="small">
+            <li><a href="/guide/vpn-fundamentals/" onclick="ym(103602117,'reachGoal','guide_sidebar_fundamentals')"><strong>Основы VPN</strong> — что это и как работает</a></li>
+            <li><a href="/guide/selection-criteria/" onclick="ym(103602117,'reachGoal','guide_sidebar_selection')"><strong>Выбор провайдера</strong> — критерии оценки</a></li>
+            <li class="muted">Протоколы и шифрование — скоро</li>
+            <li class="muted">Юрисдикции и законы — скоро</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section" id="features">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают SAFENET-VPN</h2>
-            <p class="section-subtitle">
-                Простое и надежное решение для свободного доступа к интернету
-            </p>
-            
-            <div class="grid grid-3">
-                <div class="card feature-card">
-                    <div class="feature-icon">?</div>
-                    <h3>Высокая скорость</h3>
-                    <p>Смотрите видео в 4K, играйте онлайн без задержек. Оптимизированные серверы для максимальной производительности.</p>
-                </div>
-                
-                <div class="card feature-card">
-                    <div class="feature-icon">??</div>
-                    <h3>Простая установка</h3>
-                    <p>Подробные инструкции в Telegram-боте для каждого устройства. Настройка займет всего несколько минут.</p>
-                </div>
-                
-                <div class="card feature-card">
-                    <div class="feature-icon">???</div>
-                    <h3>Надежная защита</h3>
-                    <p>Современные протоколы шифрования защищают ваши данные от перехвата и слежки.</p>
-                </div>
-                
-                <div class="card feature-card">
-                    <div class="feature-icon">??</div>
-                    <h3>Поддержка 24/7</h3>
-                    <p>Круглосуточная помощь в Telegram. Поможем с установкой, настройкой и решением любых вопросов.</p>
-                </div>
-                
-                <div class="card feature-card">
-                    <div class="feature-icon">??</div>
-                    <h3>Честная цена</h3>
-                    <p>Всего 126? в месяц без скрытых платежей. Скидка 15% для новых пользователей.</p>
-                </div>
-                
-                <div class="card feature-card">
-                    <div class="feature-icon">??</div>
-                    <h3>Работает везде</h3>
-                    <p>Стабильное соединение в любой точке мира. Доступ к любым заблокированным ресурсам.</p>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Нужна консультация?</h3>
+          <p class="small muted">Поможем разобраться в сложных вопросах, подберем оптимальные настройки под ваши задачи.</p>
+          <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','guide_sidebar_help')" rel="noopener nofollow">Получить консультацию</a>
         </div>
-    </section>
-
-    <!-- Devices Section -->
-    <section class="section light" id="devices">
-        <div class="container">
-            <h2 class="section-title">Работает на всех устройствах</h2>
-            <p class="section-subtitle">
-                Одна подписка для всех ваших устройств с подробными инструкциями
-            </p>
-            
-            <div class="grid grid-3">
-                <a href="/devices/android/" class="card device-card">
-                    <div class="device-icon">??</div>
-                    <h4>Смартфоны</h4>
-                    <p>iPhone и Android</p>
-                </a>
-                
-                <a href="/devices/windows/" class="card device-card">
-                    <div class="device-icon">??</div>
-                    <h4>Компьютеры</h4>
-                    <p>Windows, macOS, Linux</p>
-                </a>
-                
-                <a href="/devices/smart-tv/" class="card device-card">
-                    <div class="device-icon">??</div>
-                    <h4>Smart TV</h4>
-                    <p>Android TV, Apple TV</p>
-                </a>
-                
-                <a href="/devices/tablets/" class="card device-card">
-                    <div class="device-icon">??</div>
-                    <h4>Планшеты</h4>
-                    <p>iPad и Android</p>
-                </a>
-                
-                <a href="/devices/routers/" class="card device-card">
-                    <div class="device-icon">??</div>
-                    <h4>Роутеры</h4>
-                    <p>Защита всей домашней сети</p>
-                </a>
-                
-                <a href="/devices/gaming/" class="card device-card">
-                    <div class="device-icon">??</div>
-                    <h4>Игровые консоли</h4>
-                    <p>PlayStation, Xbox, Nintendo</p>
-                </a>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="margin-bottom: 1rem;">Все инструкции по установке доступны в нашем Telegram-боте</p>
-                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-                   target="_blank" 
-                   rel="noopener" 
-                   class="btn btn-primary"
-                   onclick="ym(103602117,'reachGoal','devices_connect')">
-                    Получить инструкции в Telegram
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Educational Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Полезные материалы</h2>
-            <p class="section-subtitle">
-                Изучайте основы интернет-безопасности и цифровой приватности
-            </p>
-            
-            <div class="grid grid-3">
-                <a href="/guide/vpn-fundamentals/" class="card feature-card">
-                    <h3>Что такое VPN и как он работает</h3>
-                    <p>Подробное руководство по принципам работы VPN-технологий простым языком.</p>
-                </a>
-                
-                <a href="/guide/selection-criteria/" class="card feature-card">
-                    <h3>Как выбрать надежный VPN</h3>
-                    <p>Критерии выбора VPN-сервиса: безопасность, скорость, совместимость.</p>
-                </a>
-                
-                <a href="/devices/" class="card feature-card">
-                    <h3>Инструкции по устройствам</h3>
-                    <p>Пошаговые руководства по установке VPN на различные устройства.</p>
-                </a>
-                
-                <a href="/diagnostics/" class="card feature-card">
-                    <h3>Проверка безопасности</h3>
-                    <p>Инструменты для проверки IP-адреса, DNS-утечек и эффективности VPN.</p>
-                </a>
-                
-                <a href="/guide/protocols/" class="card feature-card">
-                    <h3>Протоколы VPN</h3>
-                    <p>Сравнение WireGuard, OpenVPN, IKEv2 и других протоколов.</p>
-                </a>
-                
-                <a href="/comparisons/" class="card feature-card">
-                    <h3>VPN vs альтернативы</h3>
-                    <p>Прокси, Smart DNS и другие методы - что выбрать.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section light" id="faq">
-        <div class="container">
-            <h2 class="section-title">Ответы на частые вопросы</h2>
-            
-            <div class="grid grid-2">
-                <div class="faq-item">
-                    <h4>Как быстро можно начать пользоваться?</h4>
-                    <p>Подключение занимает 3-5 минут. Переходите в Telegram-бот, выбираете свое устройство, оплачиваете и получаете инструкции по установке.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>Сколько устройств можно подключить?</h4>
-                    <p>Одна подписка работает на всех ваших устройствах: телефонах, планшетах, компьютерах и даже Smart TV.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>Что если возникнут проблемы?</h4>
-                    <p>Наша поддержка работает 24/7 в Telegram. Поможем с установкой, настройкой и решением любых технических вопросов.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>Как получить скидку 15%?</h4>
-                    <p>Скидка применяется автоматически при первой оплате через Telegram-бот. Первый месяц будет стоить 107? вместо 126?.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>Можно ли отменить подписку?</h4>
-                    <p>Да, вы можете отменить подписку в любой момент через Telegram-бот. Никаких штрафов или комиссий.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>Безопасно ли использовать VPN?</h4>
-                    <p>VPN повышает вашу безопасность в интернете, шифруя трафик. Используйте сервис ответственно и в соответствии с законодательством.</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-                   target="_blank" 
-                   rel="noopener" 
-                   class="btn btn-primary"
-                   onclick="ym(103602117,'reachGoal','faq_connect')">
-                    Задать вопрос в Telegram
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Готовы вернуть свободу интернета?</h2>
-            <p>Подключайтесь к SAFENET-VPN и получите доступ ко всем заблокированным сайтам уже сегодня</p>
-            
-            <div style="margin: 2rem 0;">
-                <div style="font-size: 1.5rem; margin-bottom: 1rem;">
-                    <span style="text-decoration: line-through; opacity: 0.7;">148?</span>
-                    <strong style="color: #fbbf24;"> 126?/месяц</strong>
-                </div>
-                <div style="font-size: 1.1rem;">
-                    Первый месяц всего <strong>107?</strong> со скидкой 15%
-                </div>
-            </div>
-            
-            <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-               target="_blank" 
-               rel="noopener" 
-               class="btn btn-primary" 
-               style="font-size: 1.3rem; padding: 1rem 2rem;"
-               onclick="ym(103602117,'reachGoal','final_cta')">
-                ?? Подключить SAFENET-VPN в Telegram
-            </a>
-            
-            <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.9;">
-                ? Мгновенное подключение • ? Инструкции для всех устройств • ? Поддержка 24/7
-            </div>
-        </div>
-    </section>
-
-    <!-- Disclaimer -->
-    <section style="padding: 2rem 0;">
-        <div class="container">
-            <div class="disclaimer">
-                <strong>Важно:</strong> Информация на сайте носит образовательный характер. Пользователи несут личную ответственность за соблюдение законодательства своей страны при использовании VPN-технологий.
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h4>SAFENET-VPN</h4>
-                    <p>Надежное решение для свободного и безопасного доступа к интернету.</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-                           target="_blank" 
-                           rel="noopener" 
-                           class="btn btn-primary"
-                           onclick="ym(103602117,'reachGoal','footer_connect')">
-                            Подключиться в Telegram
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Руководства</h4>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="/guide/vpn-fundamentals/">Основы VPN</a>
-                        <a href="/guide/selection-criteria/">Выбор VPN</a>
-                        <a href="/guide/privacy-security/">Цифровая приватность</a>
-                        <a href="/devices/">Установка на устройства</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Поддержка</h4>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="/faq/">Частые вопросы</a>
-                        <a href="/diagnostics/">Проверка подключения</a>
-                        <a href="https://t.me/SafeNetVpn_bot?start=afrrica" target="_blank" rel="noopener">Техподдержка в Telegram</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Информация</h4>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="/legal/privacy/">Политика конфиденциальности</a>
-                        <a href="/legal/terms/">Условия использования</a>
-                        <a href="/legal/disclaimer/">Правовая информация</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 SAFENET-VPN. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating CTA -->
-    <div class="floating-cta">
-        <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
-           target="_blank" 
-           rel="noopener" 
-           class="btn btn-primary" 
-           title="Подключить SAFENET-VPN"
-           onclick="ym(103602117,'reachGoal','floating_cta')">
-            ?? Подключить
-        </a>
+      </aside>
     </div>
 
-    <script>
-        // Плавная прокрутка для якорных ссылок
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <footer class="muted small" style="margin:24px 0;">
+      © SAFENET?VPN. Образовательные материалы регулярно обновляются.
+    </footer>
+  </div>
 
-        // Отслеживание времени на странице для Яндекс.Метрики
-        let startTime = Date.now();
-        window.addEventListener('beforeunload', function() {
-            let timeSpent = Math.round((Date.now() - startTime) / 1000);
-            if (timeSpent > 30) {
-                ym(103602117, 'reachGoal', 'engaged_visitor', {time: timeSpent});
-            }
-        });
+  <!-- Schema.org JSON-LD: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Полное руководство по VPN — от основ до экспертного уровня",
+    "description": "Образовательные материалы по VPN: принципы работы, выбор провайдера, протоколы безопасности, персонализированные маршруты обучения для любого уровня подготовки.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 2,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Article",
+            "name": "Что такое VPN простыми словами",
+            "url": "https://dostup-plus.github.io/guide/vpn-fundamentals/",
+            "description": "Основы VPN: принципы работы, применение, преимущества и недостатки"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Article",
+            "name": "Как выбрать надежный VPN",
+            "url": "https://dostup-plus.github.io/guide/selection-criteria/",
+            "description": "Критерии выбора VPN провайдера: безопасность, юрисдикции, протоколы, логирование"
+          }
+        }
+      ]
+    }
+  }
+  </script>
 
-        // Отслеживание скролла до конца страницы
-        let scrollTracked = false;
-        window.addEventListener('scroll', function() {
-            if (scrollTracked) return;
-            
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-                ym(103602117, 'reachGoal', 'page_bottom_reached');
-                scrollTracked = true;
-            }
-        });
-    </script>
+  <!-- Schema.org JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Сколько времени нужно, чтобы разобраться в VPN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Для базового понимания достаточно 30-45 минут. Чтобы стать уверенным пользователем — 2-3 часа изучения и практики. Для экспертного уровня потребуется несколько дней."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какие материалы читать в первую очередь?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Начните с основ VPN, затем изучите критерии выбора провайдера. После этого переходите к практике — настройке на ваших устройствах."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Нужно ли разбираться в технических деталях?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Базовое понимание принципов работы поможет избежать ошибок при выборе и настройке. Глубокие технические знания нужны только для специальных задач."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как проверить, что изученное работает?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Используйте инструменты проверки для тестирования утечек, измеряйте скорость до и после подключения VPN, проверяйте доступность заблокированных сайтов."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://dostup-plus.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Руководства",
+        "item": "https://dostup-plus.github.io/guide/"
+      }
+    ]
+  }
+  </script>
 </body>
 </html>
-
-<!-- Test update: 2025-08-22 14:16 MSK -->
 
