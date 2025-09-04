@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN для iPhone 2025 - Установка и настройка на iOS | SAFENET-VPN</title>
+    <meta name="description" content="Как установить VPN на iPhone и iPad: пошаговая инструкция для iOS 12-17, лучшие приложения из App Store, настройка безопасности, решение проблем. Быстрая установка SAFENET-VPN за 3 минуты.">
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VPN для iPhone 2025 - Установка и настройка на iOS">
+    <meta property="og:description" content="Полное руководство по установке VPN на iPhone: приложения, настройки, безопасность, совместимость с iOS 17.">
+    <meta property="og:url" content="https://dostup-plus.github.io/devices/ios/">
+    <meta property="og:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+      <!-- RSS лента — ДОБАВИТЬ СЮДА -->
+  <link rel="alternate" type="application/rss+xml" title="SAFENET-VPN — Руководства по VPN" href="/rss.xml">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103602117', 'ym');
+        ym(103602117, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    
+    <!-- Schema.org разметка для инструкции -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Как установить VPN на iPhone",
+        "description": "Пошаговая инструкция по установке и настройке VPN на iPhone и iPad",
+        "image": "https://dostup-plus.github.io/images/og-safenet.jpg",
+        "totalTime": "PT5M",
+        "supply": [
+            {
+                "@type": "HowToSupply",
+                "name": "iPhone или iPad с iOS 12 или новее"
+            },
+            {
+                "@type": "HowToSupply", 
+                "name": "Подключение к Wi-Fi или мобильной сети"
+            },
+            {
+                "@type": "HowToSupply",
+                "name": "Apple ID для скачивания приложений"
+            }
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Получение настроек VPN",
+                "text": "Подключитесь к SAFENET-VPN через Telegram-бот для получения конфигурации",
+                "url": "https://dostup-plus.github.io/devices/ios/#step1"
+            },
+            {
+                "@type": "HowToStep", 
+                "name": "Скачивание приложения",
+                "text": "Установите рекомендуемое VPN-приложение из App Store",
+                "url": "https://dostup-plus.github.io/devices/ios/#step2"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Настройка подключения", 
+                "text": "Импортируйте конфигурацию и активируйте VPN-профиль",
+                "url": "https://dostup-plus.github.io/devices/ios/#step3"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #059669;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --apple-blue: #007AFF;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content */
+        .content {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem 0;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Special blocks */
+        .highlight-box {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .apple-box {
+            background: #e6f3ff;
+            border-left: 4px solid var(--apple-blue);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .toc {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .toc h4 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Step-by-step guide */
+        .step {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--apple-blue);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .step h3 {
+            color: var(--apple-blue);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        /* iOS versions compatibility */
+        .ios-versions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .ios-version {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .ios-version.supported {
+            border-color: var(--success);
+            background: #f0fdf4;
+        }
+
+        .ios-version.limited {
+            border-color: var(--warning);
+            background: #fffbeb;
+        }
+
+        .ios-version.unsupported {
+            border-color: var(--danger);
+            background: #fef2f2;
+        }
+
+        /* Apps grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .app-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .app-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-card h4 {
+            color: var(--apple-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .app-rating {
+            color: #fbbf24;
+            margin: 0.5rem 0;
+        }
+
+        /* Settings paths */
+        .settings-path {
+            background: #f5f5f7;
+            border: 1px solid #d1d1d6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.95rem;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: var(--apple-blue);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--success);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #047857;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-apple {
+            background: var(--apple-blue);
+        }
+
+        .btn-apple:hover {
+            background: #0056cc;
+        }
+
+        .cta-box {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .cta-box h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Troubleshooting */
+        .troubleshoot {
+            background: #fef2f2;
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .troubleshoot h4 {
+            color: var(--danger);
+            margin-bottom: 1rem;
+        }
+
+        /* Related articles */
+        .related-articles {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .related-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .related-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .related-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .related-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .related-card a:hover {
+            text-decoration: underline;
+        }
+
+        .related-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .apps-grid,
+            .ios-versions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+<link rel="canonical" href="https://dostup-plus.github.io/devices\ios/">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">??? SAFENET-VPN</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="/">Главная</a> / <a href="/devices/">Устройства</a> / iPhone (iOS)
+        </div>
+
+        <article class="content">
+            <h1>VPN для iPhone: установка и настройка 2025</h1>
+            
+            <div class="highlight-box">
+                <strong>Быстрый старт:</strong> Подключите <a href="https://t.me/SafeNetVpn_bot?start=afrrica" target="_blank" rel="noopener" onclick="ym(103602117,'reachGoal','ios_quick_start')">SAFENET-VPN в Telegram</a> и получите готовую конфигурацию для вашего iPhone за 3 минуты. Поддерживаются все модели iPhone от 6s и iPad от Air 2.
+            </div>
+
+            <div class="toc">
+                <h4>?? Содержание руководства</h4>
+                <ul>
+                    <li><a href="#why-ios">Зачем VPN на iPhone</a></li>
+                    <li><a href="#compatibility">Совместимость с iOS</a></li>
+                    <li><a href="#installation">Установка SAFENET-VPN</a></li>
+                    <li><a href="#apps">Лучшие VPN-приложения</a></li>
+                    <li><a href="#manual-setup">Ручная настройка</a></li>
+                    <li><a href="#security">Настройки безопасности</a></li>
+                    <li><a href="#troubleshooting">Решение проблем</a></li>
+                    <li><a href="#tips">Советы для iOS</a></li>
+                </ul>
+            </div>
+
+            <h2 id="why-ios">Зачем нужен VPN на iPhone</h2>
+            <p>iPhone считается одним из самых безопасных смартфонов, но даже устройства Apple нуждаются в дополнительной защите приватности, особенно в России:</p>
+
+            <h3>Ограничения App Store в России</h3>
+            <p>Apple удалила из российского App Store множество приложений:</p>
+            <ul>
+                <li><strong>Социальные сети:</strong> Instagram, Facebook, Twitter официальные приложения</li>
+                <li><strong>Новостные приложения:</strong> BBC, CNN, многие независимые СМИ</li>
+                <li><strong>VPN-сервисы:</strong> большинство популярных VPN удалены</li>
+                <li><strong>Мессенджеры:</strong> некоторые функции Telegram ограничены</li>
+            </ul>
+
+            <h3>Блокировки контента на iPhone</h3>
+            <p>На iPhone особенно заметны ограничения доступа к контенту:</p>
+            <ul>
+                <li><strong>YouTube</strong> — замедление видео, ограничения на стримы</li>
+                <li><strong>Netflix</strong> — урезанная библиотека фильмов и сериалов</li>
+                <li><strong>Apple Music</strong> — недоступность некоторых исполнителей</li>
+                <li><strong>Подкасты</strong> — блокировка независимых подкастов</li>
+            </ul>
+
+            <div class="apple-box">
+                <strong>Факт:</strong> В 2021 году Apple выполнила 93% запросов российских властей на предоставление пользовательских данных, что составило более 1,500 запросов.
+            </div>
+
+            <h2 id="compatibility">Совместимость VPN с iOS</h2>
+            <p>SAFENET-VPN поддерживает все современные версии iOS и устройства Apple:</p>
+
+            <div class="ios-versions">
+                <div class="ios-version supported">
+                    <h4>iOS 15-17</h4>
+                    <p>? Полная поддержка</p>
+                    <p>Все функции VPN</p>
+                </div>
+                <div class="ios-version supported">
+                    <h4>iOS 13-14</h4>
+                    <p>? Полная поддержка</p>
+                    <p>Стабильная работа</p>
+                </div>
+                <div class="ios-version limited">
+                    <h4>iOS 12</h4>
+                    <p>?? Ограниченная</p>
+                    <p>Основные функции</p>
+                </div>
+                <div class="ios-version unsupported">
+                    <h4>iOS 11 и ниже</h4>
+                    <p>? Не поддерживается</p>
+                    <p>Обновите систему</p>
+                </div>
+            </div>
+
+            <h3>Поддерживаемые устройства</h3>
+            <ul>
+                <li><strong>iPhone:</strong> 6s, SE, 7, 8, X, XR, XS, 11, 12, 13, 14, 15 и все модели Plus/Pro/Max</li>
+                <li><strong>iPad:</strong> Air 2 и новее, mini 4 и новее, все модели Pro</li>
+                <li><strong>iPod touch:</strong> 7-го поколения</li>
+            </ul>
+
+            <h2 id="installation">Установка SAFENET-VPN на iPhone</h2>
+
+            <div class="step" id="step1">
+                <div class="step-number">1</div>
+                <h3>Подключение к SAFENET-VPN</h3>
+                <p>Получите персональные настройки через Telegram-бот:</p>
+                <ol>
+                    <li>Откройте Safari и перейдите: <a href="https://t.me/SafeNetVpn_bot?start=afrrica" target="_blank" rel="noopener">t.me/SafeNetVpn_bot</a></li>
+                    <li>Нажмите <strong>"Открыть в Telegram"</strong></li>
+                    <li>В боте нажмите <strong>"Запустить"</strong></li>
+                    <li>Выберите <strong>"iPhone"</strong> или <strong>"iPad"</strong></li>
+                    <li>Выберите тариф (скидка 15% на первый месяц)</li>
+                    <li>Оплатите через Apple Pay или банковскую карту</li>
+                </ol>
+            </div>
+
+            <div class="step" id="step2">
+                <div class="step-number">2</div>
+                <h3>Получение конфигурации</h3>
+                <p>После оплаты бот отправит вам:</p>
+                <ul>
+                    <li><strong>Ссылку на приложение</strong> в App Store (если доступно)</li>
+                    <li><strong>Файл конфигурации</strong> для импорта</li>
+                    <li><strong>QR-код</strong> для быстрой настройки</li>
+                    <li><strong>Инструкции</strong> для вашей версии iOS</li>
+                </ul>
+            </div>
+
+            <div class="step" id="step3">
+                <div class="step-number">3</div>
+                <h3>Установка VPN-приложения</h3>
+                <p>Выберите один из способов установки:</p>
+                
+                <h4>Способ А: Через App Store (рекомендуется)</h4>
+                <ol>
+                    <li>Перейдите по ссылке от бота в App Store</li>
+                    <li>Скачайте рекомендуемое приложение</li>
+                    <li>Откройте приложение после установки</li>
+                </ol>
+
+                <h4>Способ Б: Встроенный VPN iOS</h4>
+                <div class="settings-path">
+                    Настройки > Основные > VPN и управление устройством > VPN
+                </div>
+            </div>
+
+            <div class="step" id="step4">
+                <div class="step-number">4</div>
+                <h3>Импорт настроек и подключение</h3>
+                <p>Настройте подключение одним из способов:</p>
+                
+                <h4>Импорт через файл:</h4>
+                <ol>
+                    <li>Откройте файл конфигурации от SAFENET-VPN</li>
+                    <li>Нажмите <strong>"Поделиться"</strong> > <strong>"Скопировать в [VPN-приложение]"</strong></li>
+                    <li>Подтвердите импорт профиля</li>
+                    <li>Нажмите <strong>"Подключиться"</strong></li>
+                    <li>Введите пароль iPhone или используйте Face ID/Touch ID</li>
+                </ol>
+            </div>
+
+            <div class="cta-box">
+                <h4>Готовы защитить свой iPhone?</h4>
+                <p>SAFENET-VPN обеспечит максимальную безопасность и скорость на вашем iPhone. Первый месяц со скидкой 15%!</p>
+                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="btn btn-apple"
+                   onclick="ym(103602117,'reachGoal','ios_main_cta')">
+                   ?? Подключить SAFENET-VPN для iPhone
+                </a>
+                <div style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">
+                    ? Совместимо с iOS 12-17 • ? Поддержка 24/7 • ? Без логов
+                </div>
+            </div>
+
+            <h2 id="apps">Лучшие VPN-приложения для iOS</h2>
+            <p>Обзор VPN-приложений, доступных в App Store:</p>
+
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-icon">??</div>
+                    <h4>OpenVPN Connect</h4>
+                    <div class="app-rating">???? 4.2</div>
+                    <p><strong>Официальный</strong> клиент OpenVPN с полной поддержкой всех функций протокола.</p>
+                    <p><strong>Плюсы:</strong> Надежный, много настроек</p>
+                    <p><strong>Минусы:</strong> Сложный интерфейс</p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">?</div>
+                    <h4>WireGuard</h4>
+                    <div class="app-rating">????? 4.7</div>
+                    <p><strong>Современный</strong> VPN-протокол с отличной производительностью и простым интерфейсом.</p>
+                    <p><strong>Плюсы:</strong> Очень быстрый, экономит батарею</p>
+                    <p><strong>Минусы:</strong> Меньше серверов</p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">???</div>
+                    <h4>strongSwan VPN</h4>
+                    <div class="app-rating">???? 4.0</div>
+                    <p><strong>IKEv2/IPSec</strong> клиент с высоким уровнем безопасности и стабильностью.</p>
+                    <p><strong>Плюсы:</strong> Очень надежный, быстрое переподключение</p>
+                    <p><strong>Минусы:</strong> Требует настройки</p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">??</div>
+                    <h4>Встроенный VPN iOS</h4>
+                    <div class="app-rating">??? 3.9</div>
+                    <p><strong>Системный</strong> VPN-клиент, интегрированный в iOS без дополнительных приложений.</p>
+                    <p><strong>Плюсы:</strong> Не занимает место, всегда доступен</p>
+                    <p><strong>Минусы:</strong> Базовый функционал</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>Важно:</strong> Многие популярные VPN-приложения удалены из российского App Store. Если у вас аккаунт с другим регионом, доступно больше приложений. SAFENET-VPN работает с любыми доступными клиентами.
+            </div>
+
+            <h2 id="manual-setup">Ручная настройка VPN на iPhone</h2>
+            <p>Пошаговая инструкция настройки через системные настройки iOS:</p>
+
+            <h3>Настройка IKEv2 (рекомендуется для iPhone)</h3>
+            <div class="settings-path">
+                Настройки > Основные > VPN и управление устройством > VPN > Добавить конфигурацию VPN
+            </div>
+
+            <ol>
+                <li>Выберите тип: <strong>IKEv2</strong></li>
+                <li>Заполните поля данными от SAFENET-VPN:
+                    <ul>
+                        <li><strong>Описание:</strong> SAFENET-VPN</li>
+                        <li><strong>Сервер:</strong> (IP-адрес от бота)</li>
+                        <li><strong>Удаленный ID:</strong> (домен сервера)</li>
+                        <li><strong>Локальный ID:</strong> (ваш логин)</li>
+                        <li><strong>Имя пользователя:</strong> (ваш логин)</li>
+                        <li><strong>Пароль:</strong> (ваш пароль)</li>
+                    </ul>
+                </li>
+                <li>Нажмите <strong>"Готово"</strong></li>
+                <li>Включите переключатель <strong>"Статус"</strong></li>
+            </ol>
+
+            <h2 id="security">Настройки безопасности iOS VPN</h2>
+
+            <h3>VPN по требованию (On-Demand)</h3>
+            <p>Автоматически подключается к VPN при доступе к интернету:</p>
+            <div class="settings-path">
+                Настройки > VPN > Подключаться по требованию
+            </div>
+
+            <h3>Приватный DNS</h3>
+            <p>Использует зашифрованные DNS-запросы:</p>
+            <div class="settings-path">
+                Настройки > Wi-Fi > DNS > Настроить DNS
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Протокол</th>
+                        <th>Скорость</th>
+                        <th>Стабильность</th>
+                        <th>Батарея</th>
+                        <th>Рекомендация</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>WireGuard</strong></td>
+                        <td>?????</td>
+                        <td>????</td>
+                        <td>?????</td>
+                        <td>Лучший для iOS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IKEv2/IPSec</strong></td>
+                        <td>????</td>
+                        <td>?????</td>
+                        <td>????</td>
+                        <td>Встроенный в iOS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OpenVPN</strong></td>
+                        <td>????</td>
+                        <td>?????</td>
+                        <td>???</td>
+                        <td>Универсальный</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="troubleshooting">Решение частых проблем на iOS</h2>
+
+            <div class="troubleshoot">
+                <h4>?? VPN не подключается на iPhone</h4>
+                <p><strong>Специфичные решения для iOS:</strong></p>
+                <ul>
+                    <li><strong>Перезапустите сетевые настройки:</strong> Настройки > Основные > Перенос или сброс iPhone > Сброс > Сбросить настройки сети</li>
+                    <li><strong>Обновите iOS:</strong> Настройки > Основные > Обновление ПО</li>
+                    <li><strong>Проверьте ограничения:</strong> Настройки > Экранное время > Ограничения контента</li>
+                    <li><strong>Удалите старые профили VPN:</strong> Настройки > Основные > VPN > Удалить неиспользуемые</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot">
+                <h4>?? Приложения не работают с VPN</h4>
+                <p><strong>Решения для популярных приложений:</strong></p>
+                <ul>
+                    <li><strong>Сбербанк Онлайн:</strong> Добавьте в исключения VPN или используйте российский сервер</li>
+                    <li><strong>Тинькофф:</strong> Отключайте VPN для входа, включайте после авторизации</li>
+                    <li><strong>Netflix:</strong> Используйте специализированные серверы для стриминга</li>
+                    <li><strong>Игры:</strong> Выбирайте серверы с низким пингом</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot">
+                <h4>?? VPN быстро разряжает iPhone</h4>
+                <p><strong>Оптимизация батареи:</strong></p>
+                <ul>
+                    <li><strong>Используйте IKEv2 или WireGuard</strong> — самые энергоэффективные</li>
+                    <li><strong>Отключите "Подключаться по требованию"</strong> если не критично</li>
+                    <li><strong>Проверьте фоновые приложения:</strong> Настройки > Основные > Обновление контента</li>
+                    <li><strong>Используйте режим энергосбережения</strong> при необходимости</li>
+                </ul>
+            </div>
+
+            <h2 id="tips">Полезные советы для VPN на iPhone</h2>
+
+            <h3>Максимальная производительность</h3>
+            <ul>
+                <li><strong>Используйте Control Center:</strong> Добавьте VPN в Пункт управления для быстрого включения</li>
+                <li><strong>Создайте ярлык Siri:</strong> "Привет Siri, включи VPN" через приложение Команды</li>
+                <li><strong>Настройте автоматизацию:</strong> Автоматическое включение VPN при подключении к Wi-Fi</li>
+                <li><strong>Мониторьте трафик:</strong> Настройки > Сотовая связь > Системные службы</li>
+            </ul>
+
+            <h3>Интеграция с экосистемой Apple</h3>
+            <ul>
+                <li><strong>Синхронизация через iCloud:</strong> VPN-профили синхронизируются между устройствами</li>
+                <li><strong>Handoff:</strong> Переключение VPN между iPhone, iPad и Mac</li>
+                <li><strong>Family Sharing:</strong> Поделитесь настройками VPN с семьей</li>
+                <li><strong>Screen Time:</strong> Мониторьте использование VPN-приложений</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>Профессиональный совет:</strong> Создайте несколько VPN-профилей для разных задач: "Работа" (российский сервер), "Стриминг" (европейский сервер), "Максимальная анонимность" (дальний сервер). Переключайтесь между ними в зависимости от потребностей.
+            </div>
+        </article>
+
+        <div class="related-articles">
+            <h3>?? Читайте также</h3>
+            <div class="related-grid">
+                <div class="related-card">
+                    <h4><a href="/devices/android/">VPN для Android</a></h4>
+                    <p>Сравнение установки VPN на Android и iOS устройствах.</p>
+                </div>
+                
+                <div class="related-card">
+                    <h4><a href="/streaming/youtube/">VPN для YouTube</a></h4>
+                    <p>Как смотреть YouTube на iPhone без ограничений и замедлений.</p>
+                </div>
+                
+                <div class="related-card">
+                    <h4><a href="/devices/macos/">VPN для Mac</a></h4>
+                    <p>Синхронизация VPN между iPhone и компьютером Mac.</p>
+                </div>
+                
+                <div class="related-card">
+                    <h4><a href="/guide/protocols/">VPN протоколы</a></h4>
+                    <p>Какой протокол VPN лучше выбрать для iPhone: IKEv2, OpenVPN или WireGuard.</p>
+                </div>
+                
+                <div class="related-card">
+                    <h4><a href="/security/privacy/">Приватность iOS</a></h4>
+                    <p>Комплексная защита приватности на iPhone и iPad.</p>
+                </div>
+                
+                <div class="related-card">
+                    <h4><a href="/troubleshooting/slow-speed/">Медленный VPN</a></h4>
+                    <p>Как ускорить VPN на iPhone и решить проблемы с производительностью.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Отслеживание взаимодействий для iOS
+        let startTime = Date.now();
+        let installationViewed = false;
+        let appsViewed = false;
+
+        // Отслеживание времени чтения
+        window.addEventListener('beforeunload', function() {
+            let timeSpent = Math.round((Date.now() - startTime) / 1000);
+            if (timeSpent > 180) {
+                ym(103602117, 'reachGoal', 'ios_guide_complete_read', {time: timeSpent});
+            } else if (timeSpent > 60) {
+                ym(103602117, 'reachGoal', 'ios_guide_partial_read', {time: timeSpent});
+            }
+        });
+
+        // Отслеживание просмотра ключевых секций
+        window.addEventListener('scroll', function() {
+            // Секция установки
+            if (!installationViewed) {
+                const installSection = document.getElementById('installation');
+                if (installSection) {
+                    const rect = installSection.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                        ym(103602117, 'reachGoal', 'ios_installation_viewed');
+                        installationViewed = true;
+                    }
+                }
+            }
+
+            // Секция приложений
+            if (!appsViewed) {
+                const appsSection = document.getElementById('apps');
+                if (appsSection) {
+                    const rect = appsSection.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                        ym(103602117, 'reachGoal', 'ios_apps_viewed');
+                        appsViewed = true;
+                    }
+                }
+            }
+        });
+
+        // Определение устройства пользователя
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+        if (isIOS) {
+            ym(103602117, 'reachGoal', 'ios_user_on_ios_guide');
+            
+            // Показать дополнительную подсказку для iOS пользователей
+            const iosHint = document.createElement('div');
+            iosHint.innerHTML = `
+                <div style="background: #e6f3ff; border: 1px solid #007AFF; border-radius: 8px; padding: 1rem; margin: 1rem 0; text-align: center;">
+                    <strong>?? Вы читаете с iPhone!</strong><br>
+                    Можете сразу перейти к установке SAFENET-VPN
+                </div>
+            `;
+            document.querySelector('.toc').after(iosHint);
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>О проекте SAFENET-VPN — экспертная команда и миссия безопасного интернета 2025 | SAFENET?VPN</title>
+  <meta name="description" content="Узнайте о команде SAFENET-VPN: 8 лет экспертизы, уникальные контентные кластеры, революционный банковский VPN и миссия безопасного интернета в 2025 году.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="robots" content="index,follow">
+  
+  <!-- Open Graph обязательно -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="О проекте SAFENET-VPN — экспертная команда и миссия 2025">
+  <meta property="og:description" content="Команда экспертов с 8-летним опытом создает уникальные VPN-решения: банковские приложения, обход DPI, Яндекс-экосистема.">
+  <meta property="og:url" content="https://dostup-plus.github.io/about/">
+  <meta property="og:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+  <meta property="og:site_name" content="SAFENET-VPN">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="О проекте SAFENET-VPN — экспертная команда и миссия 2025">
+  <meta name="twitter:description" content="8 лет экспертизы, уникальные решения для банков и бизнеса">
+  <meta name="twitter:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+
+  <!-- Иконки -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="SAFENET-VPN — Руководства по VPN" href="/rss.xml">
+
+  <style>
+    :root{
+      --bg:#0b1020; --card:#11183a; --text:#e9eefc; --muted:#aab3d9;
+      --accent:#4da3ff; --accent-2:#7de2d1; --ok:#29c773; --warn:#ffb020; --err:#ff5c5c;
+    }
+
+    /* КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ ПРОБЛЕМЫ С КНОПКАМИ */
+    .btn.norm::before, .btn-card.norm::before,
+    .btn.alternative::before, .btn-card.alternative::before { 
+      content: none !important; 
+    }
+
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .breadcrumbs{font-size:14px;color:var(--muted);margin-bottom:12px}
+    .breadcrumbs a{color:var(--muted)}
+    .hero{background:linear-gradient(180deg,rgba(77,163,255,.08),rgba(125,226,209,.05));border:1px solid rgba(77,163,255,.15);padding:24px;border-radius:14px;margin-bottom:20px}
+    .badge{display:inline-block;background:rgba(77,163,255,.15);color:var(--accent);padding:4px 10px;border-radius:999px;font-size:12px;margin-bottom:8px}
+    h1{font-size:28px;margin:6px 0 8px}
+    .hero p{margin:8px 0}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{display:inline-block;background:var(--accent);color:#071225;padding:10px 14px;border-radius:10px;font-weight:600}
+    .btn.secondary{background:transparent;border:1px solid rgba(77,163,255,.4);color:var(--text)}
+    .btn.norm{background:var(--accent-2);color:#042a27}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px;margin-bottom:16px}
+    h2{font-size:22px;margin:0 0 10px}
+    h3{font-size:18px;margin:16px 0 8px}
+    .list{margin:0;padding-left:18px}
+    .note{background:rgba(41,199,115,.12);border:1px solid rgba(41,199,115,.35);padding:12px;border-radius:12px;margin:12px 0}
+    .warn{background:rgba(255,176,32,.12);border:1px solid rgba(255,176,32,.35);padding:12px;border-radius:12px;margin:12px 0}
+    .also ul{columns:2;gap:18px;margin:0;padding-left:18px}
+    .footer-cta{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+    .toc ol{margin:8px 0 0;padding-left:18px}
+    .quick-test{background:linear-gradient(180deg,rgba(125,226,209,.08),transparent);border:1px dashed rgba(125,226,209,.35);padding:16px;border-radius:12px;margin:12px 0}
+    .btn-test{display:inline-block;background:transparent;border:1px solid var(--accent-2);color:var(--accent-2);padding:9px 12px;border-radius:10px;font-weight:600}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:16px 0}
+    .stat{text-align:center;padding:12px;background:rgba(77,163,255,.08);border-radius:10px}
+    .stat-num{font-size:24px;font-weight:700;color:var(--accent)}
+    .stat-label{font-size:12px;color:var(--muted)}
+    footer{margin-top:22px}
+
+    /* Адаптивность */
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+    @media (max-width: 720px){ .footer-cta{flex-direction:column;align-items:flex-start} .stats{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 680px){ .also ul{columns:1} }
+    @media (max-width: 640px){ .cta-row{flex-direction:column;align-items:stretch} .stats{grid-template-columns:1fr} }
+  </style>
+
+  <!-- Yandex.Metrika -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(103602117, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  </script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103602117', 'ym');
+
+    ym(103602117, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+<link rel="canonical" href="https://dostup-plus.github.io/about/">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Навигация">
+      <a href="/">Главная</a> › <span>О проекте</span>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="badge">О проекте</span>
+      <h1>О проекте SAFENET-VPN — экспертная команда и миссия безопасного интернета 2025</h1>
+      <p>Мы создаём образовательный проект о VPN без мифов и маркетинговой шумихи. 8 лет практического опыта, уникальные решения для банков и бизнеса, революционные контентные кластеры с минимальной конкуренцией.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" rel="nofollow noopener" onclick="ym(103602117,'reachGoal','about_main_safenet')">SAFENET?VPN</a>
+        <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" rel="nofollow noopener" onclick="ym(103602117,'reachGoal','about_main_normvpn')">Norm VPN</a>
+        <a class="btn secondary" href="#mission">К миссии проекта</a>
+      </div>
+      <p class="muted small">От 126?/мес • первый месяц 107? (скидка 15%)</p>
+    </section>
+
+    <div class="grid">
+      <main>
+
+        <section id="mission" class="card">
+          <h2>?? Миссия и революционный подход</h2>
+          <p>SAFENET-VPN — первый образовательный проект, который покрывает реальные пробелы русскоязычного интернета в области VPN. Мы не просто рекламируем сервисы, а создаём уникальные контентные кластеры с практической ценностью.</p>
+          
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">34</div>
+              <div class="stat-label">страницы</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">8+</div>
+              <div class="stat-label">лет опыта</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">5</div>
+              <div class="stat-label">уникальных кластеров</div>
+            </div>
+          </div>
+
+          <p>Наша философия: <strong>практичность вместо общих советов</strong>, <strong>честность о рисках и ограничениях</strong>, <strong>актуальность с пометкой "2025"</strong>.</p>
+        </section>
+
+        <section id="achievements" class="card">
+          <h2>?? Уникальные достижения проекта</h2>
+          <p>За период развития мы создали контентные кластеры, которых ранее не существовало в комплексном виде:</p>
+          
+          <h3>?? Банковский кластер — революция в нише</h3>
+          <ul class="list">
+            <li><strong>Сбербанк:</strong> самые сложные блокировки, обходные методы</li>
+            <li><strong>Тинькофф:</strong> умеренная сложность, стабильные решения</li>
+            <li><strong>Альфа-Банк:</strong> лояльная политика, простые настройки</li>
+            <li><strong>ВТБ:</strong> государственный банк, специфические требования</li>
+            <li><strong>Специализированный тест:</strong> <a href="/diagnostics/banking-check/">проверка VPN для банков</a></li>
+          </ul>
+
+          <h3>?? Бизнес и технические кластеры</h3>
+          <ul class="list">
+            <li><strong>Фриланс:</strong> <a href="/business/freelance/">VPN для Upwork, Fiverr, защита данных клиентов</a></li>
+            <li><strong>DPI-обход:</strong> <a href="/guide/dpi-bypass-2025/">актуальные методы российских провайдеров 2025</a></li>
+            <li><strong>Яндекс-экосистема:</strong> <a href="/devices/yandex-ecosystem/">VPN для Станции и умного дома</a></li>
+            <li><strong>Apple Silicon:</strong> <a href="/devices/macos/">оптимизация для M1/M2/M3</a></li>
+          </ul>
+        </section>
+
+        <section id="expertise" class="card">
+          <h2>?? Экспертиза и методология</h2>
+          <p>Наша команда обладает глубокими знаниями в области сетевых технологий и практическим опытом тестирования VPN-сервисов в реальных сценариях использования.</p>
+          
+          <h3>Области экспертизы:</h3>
+          <ul class="list">
+            <li><strong>Протоколы:</strong> WireGuard, OpenVPN, IKEv2, обход DPI</li>
+            <li><strong>Платформы:</strong> Windows, macOS (Apple Silicon), Android, iOS, Smart TV, роутеры</li>
+            <li><strong>Сценарии:</strong> банкинг, стриминг, корпоративная работа, фриланс</li>
+            <li><strong>Безопасность:</strong> утечки DNS/IP, kill switch, шифрование</li>
+          </ul>
+
+          <div class="quick-test">
+            <h3>? Наши диагностические инструменты</h3>
+            <p class="muted small">Проверьте эффективность вашего VPN прямо сейчас</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn-test" href="/diagnostics/ip-check/" onclick="ym(103602117,'reachGoal','about_test_ip')">Проверка IP</a>
+              <a class="btn-test" href="/diagnostics/banking-check/" onclick="ym(103602117,'reachGoal','about_test_banking')">Банковский тест</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="transparency" class="card">
+          <h2>?? Прозрачность и E-A-T принципы</h2>
+          <p>Мы придерживаемся высоких стандартов экспертности, авторитетности и доверия (E-A-T), признанных поисковыми системами как ключевые факторы качества контента.</p>
+          
+          <div class="note">
+            <strong>?? Наш подход к монетизации:</strong> Проект поддерживается партнёрскими программами с SAFENET-VPN и Norm VPN. Это позволяет нам предоставлять контент бесплатно, сохраняя объективность в оценках и рекомендациях.
+          </div>
+
+          <h3>Принципы работы:</h3>
+          <ul class="list">
+            <li><strong>Честность:</strong> указываем реальные ограничения и риски</li>
+            <li><strong>Актуальность:</strong> регулярно обновляем технические гайды</li>
+            <li><strong>Практичность:</strong> пошаговые инструкции вместо теории</li>
+            <li><strong>Безопасность:</strong> юридические disclaimer'ы для рискованных тем</li>
+          </ul>
+
+          <div class="warn">
+            <strong>?? Правовой дисклеймер:</strong> Использование VPN должно соответствовать законодательству вашей юрисдикции. Мы предоставляем информацию в образовательных целях и не несём ответственности за неправомерное использование.
+          </div>
+        </section>
+
+        <section id="future" class="card">
+          <h2>?? Планы развития 2025</h2>
+          <p>Проект активно развивается согласно четкой дорожной карте, расширяя уникальные контентные кластеры и повышая практическую ценность для пользователей.</p>
+          
+          <h3>Приоритетные направления:</h3>
+          <ul class="list">
+            <li><strong>Стриминговые сервисы:</strong> Disney+, российские платформы (IVI, Wink, КиноПоиск HD)</li>
+            <li><strong>Корпоративные решения:</strong> VPN для удалённой работы и бизнеса</li>
+            <li><strong>Юрисдикции:</strong> правовые аспекты использования VPN в разных странах</li>
+            <li><strong>Интерактивные инструменты:</strong> тесты скорости и диагностики</li>
+          </ul>
+        </section>
+
+        <section class="card also">
+          <h2>?? Читайте также</h2>
+          <ul>
+            <li><a href="/legal/privacy/">Политика конфиденциальности</a></li>
+            <li><a href="/legal/terms/">Пользовательское соглашение</a></li>
+            <li><a href="/guide/selection-criteria/">Критерии выбора VPN 2025</a></li>
+            <li><a href="/guide/security/">Безопасность и защита от утечек</a></li>
+            <li><a href="/guide/vpn-fundamentals/">Основы VPN технологий</a></li>
+            <li><a href="/banking/">VPN для банковских приложений</a></li>
+            <li><a href="/guide/dpi-bypass-2025/">Обход DPI российских провайдеров</a></li>
+            <li><a href="/devices/yandex-ecosystem/">VPN для Яндекс-экосистемы</a></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <div class="footer-cta">
+            <div>
+              <h3>Готовы присоединиться к безопасному интернету?</h3>
+              <p class="muted small">Выберите проверенное решение от экспертов с 8-летним опытом</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" rel="nofollow noopener" onclick="ym(103602117,'reachGoal','about_footer_safenet')">SAFENET?VPN</a>
+              <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" rel="nofollow noopener" onclick="ym(103602117,'reachGoal','about_footer_normvpn')">Norm VPN</a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card toc">
+          <strong>?? Содержание</strong>
+          <ol>
+            <li><a href="#mission">Миссия и подход</a></li>
+            <li><a href="#achievements">Уникальные достижения</a></li>
+            <li><a href="#expertise">Экспертиза команды</a></li>
+            <li><a href="#transparency">Прозрачность и E-A-T</a></li>
+            <li><a href="#future">Планы развития</a></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>?? Нужна экспертная помощь?</h3>
+          <p class="small muted">Поможем выбрать и настроить VPN под ваши задачи: банкинг, стриминг, бизнес, обход блокировок.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" rel="nofollow noopener" onclick="ym(103602117,'reachGoal','about_sidebar_safenet')">SAFENET?VPN</a>
+            <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" rel="nofollow noopener" onclick="ym(103602117,'reachGoal','about_sidebar_normvpn')">Norm VPN</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="muted small">
+      © SAFENET?VPN, 2025. Информация носит справочный характер и не является юридической консультацией.
+    </footer>
+  </div>
+
+  <!-- Schema.org Organization + AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "О проекте SAFENET-VPN — экспертная команда и миссия 2025",
+    "url": "https://dostup-plus.github.io/about/",
+    "description": "Команда экспертов с 8-летним опытом создает уникальные VPN-решения: банковские приложения, обход DPI, Яндекс-экосистема.",
+    "inLanguage": "ru-RU",
+    "image": "https://dostup-plus.github.io/images/og-safenet.jpg",
+    "datePublished": "2025-08-22",
+    "dateModified": "2025-08-22",
+    "author": {
+      "@type": "Organization",
+      "name": "SAFENET-VPN",
+      "url": "https://dostup-plus.github.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dostup-plus.github.io/images/og-safenet.jpg"
+      },
+      "sameAs": [
+        "https://t.me/SafeNetVpn_bot",
+        "https://t.me/normwpn_bot"
+      ],
+      "foundingDate": "2017",
+      "description": "Образовательный проект о VPN с экспертизой в области банковских приложений, обхода DPI и корпоративной безопасности"
+    }
+  }
+  </script>
+</body>
+</html>
+

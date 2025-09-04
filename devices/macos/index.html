@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>VPN для macOS 2025 — установка на MacBook, iMac (Apple Silicon M1/M2/M3) | SAFENET?VPN</title>
+  <meta name="description" content="Пошаговая установка VPN на macOS Sonoma/Ventura: WireGuard, OpenVPN (Tunnelblick), встроенный IKEv2. Совместимость с Apple Silicon M1/M2/M3, решение проблем производительности.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="VPN для macOS — полная настройка на Apple Silicon 2025">
+  <meta property="og:description" content="Исчерпывающее руководство по VPN на MacBook, iMac с процессорами M1/M2/M3. WireGuard, OpenVPN, встроенные возможности, решение проблем.">
+  <meta property="og:url" content="https://dostup-plus.github.io/devices/macos/">
+  <meta property="og:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+  <meta property="og:site_name" content="SAFENET-VPN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN для macOS — настройка на Apple Silicon">
+  <meta name="twitter:description" content="Полное руководство по VPN на Mac с процессорами M1/M2/M3. Установка, настройка, решение проблем производительности.">
+  <meta name="twitter:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+
+  <!-- Иконки -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="SAFENET-VPN — Руководства по VPN" href="/rss.xml">
+
+  <!-- ЕДИНЫЙ CSS КОД (С ИСПРАВЛЕНИЯМИ) -->
+  <style>
+    /* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ === */
+    :root{
+      --bg:#0b1020; --card:#11183a; --text:#e9eefc; --muted:#aab3d9; 
+      --accent:#4da3ff; --accent-2:#7de2d1; --ok:#29c773; --warn:#ffb020; --err:#ff5c5c;
+      --apple:#007aff;
+    }
+
+    /* === БАЗОВЫЕ СТИЛИ === */
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* === LAYOUT === */
+    .container{max-width:1050px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* === НАВИГАЦИЯ === */
+    .breadcrumbs{font-size:.9rem;color:var(--muted);margin:12px 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    /* === HERO СЕКЦИЯ === */
+    .hero{background:linear-gradient(135deg,rgba(0,122,255,.15),rgba(125,226,209,.12));border:1px solid rgba(0,122,255,.25);border-radius:16px;padding:28px;margin:16px 0}
+    .hero h1{margin:0 0 10px 0;font-size:2rem}
+    .hero p{margin:0 0 16px 0;color:var(--muted)}
+    .badge{display:inline-block;background:rgba(0,122,255,.15);border:1px solid rgba(0,122,255,.4);color:#cce7ff;padding:2px 8px;border-radius:999px;font-size:.8rem}
+
+    /* === КНОПКИ (ПОЛНОСТЬЮ ИСПРАВЛЕНО) === */
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{display:inline-block;background:var(--accent);color:#061229;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn:hover{text-decoration:none;filter:brightness(1.05)}
+    .btn.secondary{background:transparent;border:1px solid var(--accent);color:var(--text)}
+    .btn.norm{background:var(--ok);color:#061229}
+    .btn.apple{background:var(--apple);color:#fff}
+    .btn-card{display:inline-block;background:var(--accent);color:#061229;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
+    .btn-card.norm{background:var(--ok);color:#061229}
+    .btn-card.apple{background:var(--apple);color:#fff}
+    .btn-test{display:inline-block;background:var(--ok);color:#061229;padding:12px 20px;border-radius:10px;font-weight:700;font-size:1rem;margin:8px}
+
+    /* === КАРТОЧКИ === */
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px}
+    
+    /* === ТИПОГРАФИКА === */
+    h2{margin-top:28px}
+    h3{margin-top:20px}
+    .small{font-size:.9rem}
+    .muted{color:var(--muted)}
+    .ok{color:var(--ok);font-weight:600}
+
+    /* === СПЕЦИАЛЬНЫЕ БЛОКИ === */
+    .note{border-left:3px solid var(--accent-2);padding-left:12px;color:#cfe5ff}
+    .warn{border-left:3px solid var(--warn);padding-left:12px}
+    .apple-tip{border-left:3px solid var(--apple);padding-left:12px;background:rgba(0,122,255,.08);border-radius:0 8px 8px 0;padding:12px 12px 12px 16px}
+    
+    /* === СПИСКИ === */
+    ul.check>li::marker{content:"? ";color:var(--ok)}
+    ul.cross>li::marker{content:"? ";color:var(--err)}
+    .also ul{columns:2;gap:24px}
+    @media(max-width:680px){.also ul{columns:1}}
+    
+    /* === TOC === */
+    .toc li{margin:6px 0}
+
+    /* === CTA В ФУТЕРЕ === */
+    .footer-cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+    /* === СЕТКИ КАРТОЧЕК === */
+    .vpn-cards, .method-cards, .version-cards, .problem-cards{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:20px 0
+    }
+    .vpn-card, .method-card, .version-card, .problem-card{
+      border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;background:rgba(17,24,58,.3);transition:border-color .2s;position:relative
+    }
+    .vpn-card:hover, .method-card:hover, .version-card:hover, .problem-card:hover{border-color:var(--accent)}
+    .vpn-card h3, .method-card h3, .version-card h3, .problem-card h3{margin:0 0 8px 0;color:var(--accent)}
+    .vpn-card .desc, .method-card .desc, .version-card .desc, .problem-card .desc{color:var(--muted);font-size:.9rem;margin:8px 0 12px 0}
+    .vpn-card .meta, .method-card .meta, .version-card .meta, .problem-card .meta{
+      font-size:.8rem;color:var(--muted);margin:8px 0;display:flex;flex-wrap:wrap;gap:8px
+    }
+    .vpn-card .meta span, .method-card .meta span, .version-card .meta span, .problem-card .meta span{
+      background:rgba(77,163,255,.1);padding:2px 6px;border-radius:4px
+    }
+
+    /* === МАРКЕРЫ СТАТУСА === */
+    .recommended, .alternative, .native, .fast, .stable, .compatible{position:relative}
+    .recommended::before, .alternative::before, .native::before, .fast::before, .stable::before, .compatible::before{
+      position:absolute;top:-8px;right:12px;font-size:.75rem;padding:2px 8px;border-radius:999px;font-weight:600
+    }
+    .recommended{background:linear-gradient(135deg,rgba(41,199,115,.1),rgba(125,226,209,.08));border-color:var(--ok)}
+    .recommended::before{content:"? Рекомендуем";background:var(--ok);color:#061229}
+    .alternative{background:linear-gradient(135deg,rgba(125,226,209,.1),rgba(77,163,255,.08));border-color:var(--accent-2)}
+    .alternative::before{content:"?? Альтернатива";background:var(--accent-2);color:#061229}
+    .native{background:linear-gradient(135deg,rgba(0,122,255,.1),rgba(0,122,255,.05));border-color:var(--apple)}
+    .native::before{content:"?? Встроенный";background:var(--apple);color:#fff}
+    .native h3{color:var(--apple)}
+    .fast{background:linear-gradient(135deg,rgba(0,122,255,.1),rgba(0,122,255,.05));border-color:var(--apple)}
+    .fast::before{content:"? Быстро";background:var(--apple);color:#fff}
+    .fast h3{color:var(--apple)}
+    .stable{background:linear-gradient(135deg,rgba(41,199,115,.1),rgba(125,226,209,.08));border-color:var(--ok)}
+    .stable::before{content:"? Стабильно";background:var(--ok);color:#061229}
+    .compatible{background:linear-gradient(135deg,rgba(0,122,255,.1),rgba(0,122,255,.05));border-color:var(--apple)}
+    .compatible::before{content:"? Совместимо";background:var(--apple);color:#fff}
+
+    /* КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ ПРОБЛЕМЫ С КНОПКАМИ */
+    .btn.norm::before, .btn-card.norm::before,
+    .btn.alternative::before, .btn-card.alternative::before { 
+      content: none !important; 
+    }
+
+    /* === СПЕЦИАЛЬНЫЕ БЛОКИ === */
+    .quick-test{background:rgba(41,199,115,.08);border:1px solid var(--ok);border-radius:12px;padding:20px;margin:16px 0;text-align:center}
+    .quick-test h3{color:var(--ok);margin:0 0 12px 0}
+
+    /* === ПОШАГОВЫЕ ИНСТРУКЦИИ === */
+    .steps-list{list-style:none;padding:0;margin:16px 0}
+    .steps-list li{display:flex;align-items:flex-start;margin-bottom:15px;color:var(--muted)}
+    .steps-list li strong{color:var(--text)}
+    .steps-list li .idx{
+      width:28px;height:28px;border-radius:50%;background:var(--apple);color:#fff;
+      display:flex;align-items:center;justify-content:center;font-weight:700;
+      margin-right:12px;flex-shrink:0;font-size:.9rem
+    }
+
+    /* === АДАПТИВНОСТЬ === */
+    @media(max-width:640px){
+      .vpn-cards, .method-cards, .version-cards, .problem-cards{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(103602117, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+
+<link rel="canonical" href="https://dostup-plus.github.io/devices\macos/">
+</head>
+<body>
+  <div class="container">
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> › <a href="/devices/">VPN для устройств</a> › <span>VPN для macOS</span>
+    </nav>
+
+    <!-- HERO СЕКЦИЯ -->
+    <section class="hero">
+      <span class="badge">macOS Sonoma / Ventura</span>
+      <h1>VPN для macOS — установка на MacBook, iMac (Apple Silicon M1/M2/M3)</h1>
+      <p>Исчерпывающее руководство по установке и настройке VPN на всех устройствах Apple под управлением macOS. WireGuard, OpenVPN (Tunnelblick), встроенный IKEv2. Полная совместимость с Apple Silicon M1/M2/M3, решение проблем производительности.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','macos_main_safenet')" rel="noopener nofollow">SAFENET?VPN для Mac</a>
+        <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','macos_main_normvpn')" rel="noopener nofollow">Norm VPN</a>
+        <a class="btn secondary" href="#methods" onclick="ym(103602117,'reachGoal','macos_scroll_methods')">Способы настройки</a>
+      </div>
+      <p class="muted small">Apple Silicon оптимизация • Нативные приложения • От 126?/мес (первый месяц 107?)</p>
+    </section>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="grid">
+      <main>
+        <!-- Совместимость с версиями macOS -->
+        <section class="card">
+          <h2>?? Совместимость VPN с версиями macOS и Apple Silicon</h2>
+          <p>Разные версии macOS имеют различные возможности для настройки VPN. Процессоры Apple Silicon M1/M2/M3 требуют нативной поддержки для максимальной производительности.</p>
+
+          <div class="version-cards">
+            <div class="version-card compatible">
+              <h3>?? macOS Sonoma (14.0+)</h3>
+              <div class="desc">Последняя версия с полной поддержкой всех современных VPN-протоколов. Улучшенная интеграция с Network Extension Framework, максимальная производительность на Apple Silicon M3.</div>
+              <div class="meta">
+                <span>WireGuard встроенно</span>
+                <span>M3 оптимизация</span>
+                <span>Network Extensions 2.0</span>
+                <span>Лучшая производительность</span>
+              </div>
+            </div>
+
+            <div class="version-card recommended">
+              <h3>? macOS Ventura (13.0+)</h3>
+              <div class="desc">Стабильная версия с отличной поддержкой VPN и Apple Silicon M1/M2. Рекомендуется для большинства пользователей. Все основные протоколы работают без проблем.</div>
+              <div class="meta">
+                <span>M1/M2 полная поддержка</span>
+                <span>Стабильная работа</span>
+                <span>Все протоколы</span>
+                <span>Рекомендуемая версия</span>
+              </div>
+            </div>
+
+            <div class="version-card stable">
+              <h3>?? macOS Monterey (12.0+)</h3>
+              <div class="desc">Первая версия с полной поддержкой Apple Silicon M1. Основные протоколы работают стабильно, но некоторые новые функции могут отсутствовать.</div>
+              <div class="meta">
+                <span>M1 базовая поддержка</span>
+                <span>Основные протоколы</span>
+                <span>Стабильная база</span>
+                <span>Ограниченные функции</span>
+              </div>
+            </div>
+
+            <div class="version-card alternative">
+              <h3>?? macOS Big Sur и старше</h3>
+              <div class="desc">Старые версии с ограниченной поддержкой современных протоколов. Intel Mac совместимость хорошая, но рекомендуется обновление для лучшей безопасности.</div>
+              <div class="meta">
+                <span>Intel Mac совместимость</span>
+                <span>Ограниченные протоколы</span>
+                <span>Требует обновления</span>
+                <span>Устаревшая безопасность</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="apple-tip">
+            <strong>?? Рекомендация Apple:</strong> Для максимальной безопасности и производительности VPN используйте macOS Ventura или новее на устройствах с Apple Silicon. Это обеспечит нативную поддержку всех современных протоколов.
+          </div>
+        </section>
+
+        <!-- Способы настройки VPN -->
+        <section class="card" id="methods">
+          <h2>?? Способы настройки VPN на macOS</h2>
+          <p>macOS предлагает несколько способов настройки VPN: от простых приложений до продвинутой ручной настройки через Terminal.</p>
+
+          <div class="method-cards">
+            <div class="method-card recommended">
+              <h3>?? VPN-приложения (рекомендуется)</h3>
+              <div class="desc">Самый простой способ — установка нативного приложения VPN-провайдера. Автоматическая настройка, переключение серверов, Kill Switch, защита от утечек. Идеально для большинства пользователей.</div>
+              <div class="meta">
+                <span>Простота установки</span>
+                <span>Автоматические настройки</span>
+                <span>Графический интерфейс</span>
+                <span>Дополнительные функции</span>
+              </div>
+            </div>
+
+            <div class="method-card native">
+              <h3>?? Встроенный VPN-клиент</h3>
+              <div class="desc">macOS имеет встроенную поддержку IKEv2, L2TP/IPSec. Настройка через Системные настройки > Сеть. Подходит для корпоративных VPN и простых подключений.</div>
+              <div class="meta">
+                <span>Встроенная поддержка</span>
+                <span>IKEv2, L2TP</span>
+                <span>Корпоративные профили</span>
+                <span>Без сторонних приложений</span>
+              </div>
+            </div>
+
+            <div class="method-card fast">
+              <h3>? WireGuard (официальное приложение)</h3>
+              <div class="desc">Официальное приложение WireGuard из App Store. Максимальная скорость, современная криптография, минимальное потребление ресурсов. Идеально для Apple Silicon.</div>
+              <div class="meta">
+                <span>Максимальная скорость</span>
+                <span>Apple Silicon оптимизация</span>
+                <span>Современная криптография</span>
+                <span>Минимум ресурсов</span>
+              </div>
+            </div>
+
+            <div class="method-card stable">
+              <h3>?? Tunnelblick (OpenVPN)</h3>
+              <div class="desc">Популярный бесплатный клиент OpenVPN для macOS. Поддерживает .ovpn файлы, имеет расширенные настройки безопасности, Kill Switch, защиту от утечек DNS.</div>
+              <div class="meta">
+                <span>Бесплатный клиент</span>
+                <span>Расширенные настройки</span>
+                <span>Kill Switch</span>
+                <span>Защита от утечек</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Рекомендуемые VPN сервисы -->
+        <section class="card">
+          <h2>??? Лучшие VPN для macOS с Apple Silicon</h2>
+          <p>Выбирайте VPN-сервисы с нативными приложениями для macOS, поддержкой Apple Silicon и современными протоколами для максимальной производительности на Mac.</p>
+          
+          <div class="vpn-cards">
+            <div class="vpn-card recommended">
+              <h3>??? SAFENET?VPN</h3>
+              <div class="desc">Нативное приложение для macOS с полной поддержкой Apple Silicon M1/M2/M3. WireGuard и OpenVPN протоколы, высокая скорость, российские серверы. Техподдержка 24/7 помогает с настройкой на любом Mac.</div>
+              <div class="meta">
+                <span>Нативное приложение</span>
+                <span>Apple Silicon M1/M2/M3</span>
+                <span>WireGuard + OpenVPN</span>
+                <span>Поддержка Mac 24/7</span>
+              </div>
+              <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="btn-card" onclick="ym(103602117,'reachGoal','macos_card_safenet')" rel="noopener nofollow">Скачать для Mac</a>
+              <p class="small muted">От 126?/мес, первый месяц 107? (-15%)</p>
+            </div>
+
+            <div class="vpn-card alternative">
+              <h3>?? Norm VPN</h3>
+              <div class="desc">Качественная альтернатива с хорошим приложением для macOS. Поддержка Apple Silicon, современные протоколы, стабильная работа на Intel и ARM Mac, простая настройка.</div>
+              <div class="meta">
+                <span>macOS приложение</span>
+                <span>Intel + Apple Silicon</span>
+                <span>Современные протоколы</span>
+                <span>Простая настройка</span>
+              </div>
+              <a href="https://t.me/normwpn_bot?start=partner_228691787" class="btn-card norm" onclick="ym(103602117,'reachGoal','macos_card_normvpn')" rel="noopener nofollow">Попробовать Norm VPN</a>
+              <p class="small muted">Партнерские условия через наш канал</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Пошаговая установка WireGuard -->
+        <section class="card" id="wireguard">
+          <h2>? Установка WireGuard на macOS (рекомендуется)</h2>
+          <p>WireGuard — самый современный и быстрый VPN-протокол с отличной поддержкой Apple Silicon. Рекомендуется для большинства пользователей Mac.</p>
+
+          <h3>?? Установка через App Store</h3>
+          <ul class="steps-list">
+            <li><div class="idx">1</div><div><strong>Откройте App Store</strong><br>Найдите и откройте приложение App Store на вашем Mac</div></li>
+            <li><div class="idx">2</div><div><strong>Найдите WireGuard</strong><br>В поиске введите "WireGuard" > выберите официальное приложение от "WireGuard Development Team"</div></li>
+            <li><div class="idx">3</div><div><strong>Установите приложение</strong><br>Нажмите "Получить" > приложение автоматически скачается и установится</div></li>
+            <li><div class="idx">4</div><div><strong>Разрешите сетевые расширения</strong><br>При первом запуске macOS может запросить разрешение в "Системные настройки" > "Защита и безопасность"</div></li>
+          </ul>
+
+          <h3>?? Настройка конфигурации</h3>
+          <ul class="steps-list">
+            <li><div class="idx">5</div><div><strong>Получите конфигурационный файл</strong><br>В личном кабинете SAFENET-VPN или Norm VPN скачайте .conf файл для WireGuard</div></li>
+            <li><div class="idx">6</div><div><strong>Импортируйте конфигурацию</strong><br>В WireGuard нажмите "+" > "Импортировать туннель из файла" > выберите .conf файл</div></li>
+            <li><div class="idx">7</div><div><strong>Настройте автозапуск</strong><br>WireGuard > Preferences > включите "Launch at login" и "Activate on launch"</div></li>
+            <li><div class="idx">8</div><div><strong>Активируйте туннель</strong><br>Выберите импортированный туннель и переведите переключатель в положение "Вкл"</div></li>
+          </ul>
+
+          <div class="quick-test">
+            <h3>? Проверка работы WireGuard на Mac</h3>
+            <p>Убедитесь, что WireGuard правильно настроен и работает на Apple Silicon</p>
+            <a class="btn-test" href="/diagnostics/ip-check/" onclick="ym(103602117,'reachGoal','macos_wireguard_test')">Проверить VPN подключение</a>
+          </div>
+        </section>
+
+        <!-- Настройка встроенного VPN -->
+        <section class="card" id="built-in">
+          <h2>?? Настройка встроенного VPN-клиента macOS</h2>
+          <p>macOS имеет встроенную поддержку нескольких VPN-протоколов без установки сторонних приложений. Подходит для корпоративных VPN и простых подключений.</p>
+
+          <div class="note">
+            <strong>Ограничения встроенного клиента:</strong> Поддерживает только IKEv2, L2TP/IPSec, PPTP. Нет поддержки OpenVPN и WireGuard. Для современных протоколов используйте сторонние приложения.
+          </div>
+
+          <h3>?? Настройка IKEv2 (наиболее безопасный)</h3>
+          <ul class="steps-list">
+            <li><div class="idx">1</div><div><strong>Откройте Системные настройки</strong><br>Нажмите  > Системные настройки (или  > Системные настройки на macOS Monterey и старше)</div></li>
+            <li><div class="idx">2</div><div><strong>Перейдите в раздел "Сеть"</strong><br>Найдите и нажмите на значок "Сеть" в Системных настройках</div></li>
+            <li><div class="idx">3</div><div><strong>Добавьте VPN-подключение</strong><br>Нажмите "+" в левом нижнем углу > Интерфейс: VPN > Тип VPN: IKEv2 > введите название подключения</div></li>
+            <li><div class="idx">4</div><div><strong>Введите настройки сервера</strong><br>Адрес сервера: получите от VPN-провайдера<br>Удаленный ID: обычно совпадает с адресом сервера</div></li>
+            <li><div class="idx">5</div><div><strong>Настройте аутентификацию</strong><br>"Настройки аутентификации" > "Имя пользователя" > введите логин и пароль от VPN</div></li>
+            <li><div class="idx">6</div><div><strong>Дополнительные настройки</strong><br>Отметьте "Показывать статус VPN в строке меню" для удобного переключения</div></li>
+          </ul>
+
+          <div class="apple-tip">
+            <strong>?? Преимущество встроенного клиента:</strong> Не требует установки сторонних приложений, интегрирован с системой безопасности macOS, автоматически управляет маршрутизацией трафика.
+          </div>
+        </section>
+
+        <!-- Решение проблем -->
+        <section class="card">
+          <h2>?? Решение типичных проблем VPN на macOS</h2>
+          <p>Даже на стабильной системе macOS могут возникать проблемы с VPN-подключениями. Разберем самые частые проблемы и способы их решения.</p>
+
+          <div class="problem-cards">
+            <div class="problem-card native">
+              <h3>?? Проблемы с Apple Silicon M1/M2/M3</h3>
+              <div class="desc">Некоторые старые VPN-приложения могут работать нестабильно на Mac с процессорами Apple Silicon из-за эмуляции через Rosetta 2.</div>
+              <div class="meta"><span>Частота: Средняя</span><span>Сложность: Низкая</span></div>
+              <ul class="check" style="margin-top:12px;font-size:.9rem">
+                <li>Используйте только нативные приложения для Apple Silicon</li>
+                <li>Обновите VPN-приложение до последней версии</li>
+                <li>Попробуйте встроенный VPN-клиент macOS</li>
+                <li>Свяжитесь с поддержкой VPN для получения нативной версии</li>
+              </ul>
+            </div>
+
+            <div class="problem-card fast">
+              <h3>?? VPN не подключается</h3>
+              <div class="desc">Проблемы с установкой VPN-соединения могут быть связаны с настройками сети, файрволом macOS или неправильными параметрами подключения.</div>
+              <div class="meta"><span>Частота: Высокая</span><span>Сложность: Средняя</span></div>
+              <ul class="check" style="margin-top:12px;font-size:.9rem">
+                <li>Проверьте интернет-соединение без VPN</li>
+                <li>Временно отключите встроенный файрвол macOS</li>
+                <li>Попробуйте другой VPN-протокол или сервер</li>
+                <li>Перезагрузите Mac и сбросьте сетевые настройки</li>
+              </ul>
+            </div>
+
+            <div class="problem-card stable">
+              <h3>?? Медленная скорость VPN</h3>
+              <div class="desc">Снижение скорости интернета при использовании VPN может быть связано с выбором сервера, протокола или настройками системы.</div>
+              <div class="meta"><span>Частота: Средняя</span><span>Сложность: Средняя</span></div>
+              <ul class="check" style="margin-top:12px;font-size:.9rem">
+                <li>Смените VPN-сервер на ближайший к вам</li>
+                <li>Переключитесь на WireGuard для максимальной скорости</li>
+                <li>Закройте ненужные приложения и загрузки</li>
+                <li>Используйте Ethernet вместо Wi-Fi при возможности</li>
+              </ul>
+            </div>
+
+            <div class="problem-card compatible">
+              <h3>?? Утечки DNS и IPv6</h3>
+              <div class="desc">DNS-запросы или IPv6-трафик могут обходить VPN-туннель, что снижает уровень приватности и безопасности.</div>
+              <div class="meta"><span>Частота: Низкая</span><span>Сложность: Высокая</span></div>
+              <ul class="check" style="margin-top:12px;font-size:.9rem">
+                <li>Используйте VPN с встроенной защитой от утечек</li>
+                <li>Настройте DNS через Системные настройки</li>
+                <li>Проверьте утечки на dnsleaktest.com</li>
+                <li>Отключите IPv6 в сетевых настройках при необходимости</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warn">
+            <strong>?? Для сложных случаев:</strong> Создайте нового пользователя macOS для тестирования VPN. Это поможет определить, связана ли проблема с системными настройками или профилем пользователя.
+          </div>
+        </section>
+
+        <!-- Блок "Читайте также" -->
+        <section class="card also">
+          <h2>Читайте также</h2>
+          <ul>
+            <li><a href="/devices/ios/">VPN для iPhone — экосистема Apple</a></li>
+            <li><a href="/devices/windows/">VPN для Windows — сравнение с Mac</a></li>
+            <li><a href="/troubleshooting/slow-speed/">Медленная скорость VPN — оптимизация</a></li>
+            <li><a href="/guide/protocols/">Протоколы VPN — WireGuard vs OpenVPN</a></li>
+            <li><a href="/diagnostics/ip-check/">Проверка IP и утечек DNS</a></li>
+            <li><a href="/guide/security/">Безопасность VPN — защита от утечек</a></li>
+          </ul>
+        </section>
+
+        <!-- Финальный CTA -->
+        <section class="card">
+          <div class="footer-cta">
+            <div>
+              <h3>Готовы настроить VPN на своем Mac?</h3>
+              <p class="muted">Выбирайте VPN-сервисы с нативными приложениями для macOS, полной поддержкой Apple Silicon и современными протоколами для максимальной производительности.</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn apple" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','macos_footer_safenet')" rel="noopener nofollow">SAFENET?VPN для Mac</a>
+              <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','macos_footer_normvpn')" rel="noopener nofollow">Norm VPN</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- САЙДБАР -->
+      <aside>
+        <div class="card toc" aria-label="Содержание">
+          <strong>Содержание</strong>
+          <ol>
+            <li><a href="#methods">Способы настройки</a></li>
+            <li><a href="#wireguard">WireGuard установка</a></li>
+            <li><a href="#built-in">Встроенный VPN</a></li>
+            <li><a href="#troubleshooting">Решение проблем</a></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>?? Быстрые ссылки</h3>
+          <ul style="list-style:none;padding:0">
+            <li style="margin:8px 0"><a href="/devices/ios/">?? VPN для iPhone</a></li>
+            <li style="margin:8px 0"><a href="/devices/windows/">?? VPN для Windows</a></li>
+            <li style="margin:8px 0"><a href="/diagnostics/ip-check/">? Проверка IP</a></li>
+            <li style="margin:8px 0"><a href="/guide/protocols/">?? Протоколы VPN</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Поддержка для Mac</h3>
+          <p class="small muted">Нужна помощь с настройкой VPN на macOS? Наши эксперты знают особенности Apple Silicon и помогут с любыми проблемами на Mac.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','macos_sidebar_safenet')" rel="noopener nofollow">SAFENET?VPN</a>
+            <a class="btn norm" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','macos_sidebar_normvpn')" rel="noopener nofollow">Norm VPN</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ФУТЕР -->
+    <footer class="muted small" style="margin:24px 0;">
+      © SAFENET?VPN. Информация носит справочный характер. macOS и Apple Silicon — торговые марки Apple Inc.
+    </footer>
+  </div>
+
+  <!-- SCHEMA.ORG РАЗМЕТКА -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "VPN для macOS: установка на MacBook, iMac с Apple Silicon M1/M2/M3 — 2025",
+    "description": "Исчерпывающее руководство по установке VPN на macOS с поддержкой Apple Silicon. WireGuard, OpenVPN, встроенный IKEv2, решение проблем производительности.",
+    "image": "https://dostup-plus.github.io/images/og-safenet.jpg",
+    "totalTime": "PT15M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "RUB",
+      "value": "126"
+    },
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Mac с Apple Silicon M1/M2/M3"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "WireGuard для macOS"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "SAFENET-VPN"
+      },
+      {
+        "@type": "HowToTool", 
+        "name": "Norm VPN"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Выбор метода настройки",
+        "text": "Выберите между нативным приложением VPN, WireGuard из App Store или встроенным клиентом macOS"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Установка и настройка",
+        "text": "Установите выбранное приложение, импортируйте конфигурацию, настройте автозапуск и безопасность"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Тестирование и оптимизация",
+        "text": "Проверьте работу VPN, оптимизируйте настройки для Apple Silicon, решите возможные проблемы"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://dostup-plus.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "VPN для устройств",
+        "item": "https://dostup-plus.github.io/devices/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "VPN для macOS",
+        "item": "https://dostup-plus.github.io/devices/macos/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Поддерживает ли macOS VPN встроенно?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, macOS имеет встроенную поддержку IKEv2, L2TP/IPSec и PPTP протоколов через Системные настройки. Для OpenVPN и WireGuard нужны сторонние приложения."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Работает ли VPN на Mac с Apple Silicon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, современные VPN-приложения полностью совместимы с процессорами M1/M2/M3. Рекомендуется использовать нативные приложения для лучшей производительности и энергоэффективности."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какой протокол VPN лучше для macOS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WireGuard обеспечивает лучшую производительность на macOS, особенно на Apple Silicon. IKEv2 хорош для встроенного клиента. OpenVPN стабилен, но медленнее современных протоколов."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как установить WireGuard на Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Скачайте официальное приложение WireGuard из App Store, импортируйте конфигурационный файл .conf от VPN-провайдера, настройте автозапуск и активируйте туннель."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN на роутере 2025: полная настройка для защиты всего дома пошагово</title>
+    <meta name="description" content="Полная инструкция по настройке VPN на роутере 2025: Keenetic, Asus, TP-Link пошагово. Как выбрать лучший роутер с VPN, настроить WireGuard и OpenVPN для защиты всей семьи дома.">
+    <meta name="keywords" content="vpn роутер настройка дома, настроить vpn на роутере для всего дома, роутер с vpn какой выбрать лучший, keenetic vpn настройка пошагово, asus роутер vpn инструкция, wireguard на роутере, openvpn настройка роутер, vpn роутер для всей семьи, защитить весь дом vpn">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .card-dark {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #10b981;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+        }
+        .router-card {
+            transition: all 0.3s ease;
+        }
+        .router-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+        }
+        .comparison-table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            padding: 12px 16px;
+        }
+        .comparison-table th {
+            background: rgba(16, 185, 129, 0.1);
+            border-bottom: 2px solid #10b981;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: rgba(30, 41, 59, 0.3);
+        }
+        .protocol-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .badge-wireguard {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+        .badge-openvpn {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+        }
+        .speed-bar {
+            height: 8px;
+            background: rgba(75, 85, 99, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .speed-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+    </style>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103602117', 'ym');
+
+    ym(103602117, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+<link rel="canonical" href="https://dostup-plus.github.io/devices\routers/">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-slate-900/90 backdrop-blur-md border-b border-emerald-500/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="https://dostup-plus.github.io/" class="text-2xl font-bold text-gradient">
+                        <i class="fas fa-shield-alt mr-2"></i>Internet Security Hub
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="https://dostup-plus.github.io/guide/" class="nav-link text-gray-300 hover:text-emerald-400">Руководства</a>
+                    <a href="https://dostup-plus.github.io/devices/" class="nav-link text-emerald-400 font-medium">Устройства</a>
+                    <a href="https://dostup-plus.github.io/streaming/" class="nav-link text-gray-300 hover:text-emerald-400">Стриминг</a>
+                    <a href="https://dostup-plus.github.io/troubleshooting/" class="nav-link text-gray-300 hover:text-emerald-400">Решение проблем</a>
+                </div>
+                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="btn-primary px-4 py-2 rounded-lg text-white font-semibold">
+                    <i class="fab fa-telegram mr-2"></i>Подключить VPN
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav class="text-sm">
+            <ol class="flex space-x-2 text-gray-400">
+                <li><a href="https://dostup-plus.github.io/" class="hover:text-emerald-400">Главная</a></li>
+                <li><i class="fas fa-chevron-right mx-2"></i></li>
+                <li><a href="https://dostup-plus.github.io/devices/" class="hover:text-emerald-400">Устройства</a></li>
+                <li><i class="fas fa-chevron-right mx-2"></i></li>
+                <li class="text-emerald-400">VPN на роутере</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                VPN на роутере 2025: <span class="text-gradient">полная настройка для защиты всего дома</span> пошагово
+            </h1>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
+                Как настроить VPN на роутере для всего дома в 2025 году. Пошаговые инструкции для Keenetic, Asus, TP-Link. Выбор лучшего роутера с VPN. Настройка WireGuard и OpenVPN для защиты всей семьи от блокировок и слежки.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="btn-primary px-8 py-4 rounded-xl text-white font-bold text-lg inline-flex items-center">
+                    <i class="fab fa-telegram mr-3"></i>Готовый VPN для роутера за 3 минуты
+                </a>
+                <div class="text-center text-sm text-gray-400">
+                    <div class="font-semibold text-emerald-400">126?/мес</div>
+                    <div>Первый месяц 107?</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="card-dark rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-emerald-400 mb-2">47%</div>
+                <div class="text-gray-300">семей хотят VPN на роутере</div>
+            </div>
+            <div class="card-dark rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-yellow-400 mb-2">15+</div>
+                <div class="text-gray-300">устройств в доме</div>
+            </div>
+            <div class="card-dark rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">73%</div>
+                <div class="text-gray-300">роутеров не поддерживают VPN</div>
+            </div>
+            <div class="card-dark rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-red-400 mb-2">92%</div>
+                <div class="text-gray-300">проблем с настройкой</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Table of Contents -->
+        <div class="card-dark rounded-2xl p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-center text-emerald-400">
+                <i class="fas fa-list mr-3"></i>Содержание статьи
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="#why-vpn-router" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">1. Зачем нужен VPN на роутере</div>
+                    <div class="text-sm text-gray-400">Преимущества для всей семьи</div>
+                </a>
+                <a href="#choose-router" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">2. Какой роутер выбрать</div>
+                    <div class="text-sm text-gray-400">Лучшие модели с VPN 2025</div>
+                </a>
+                <a href="#setup-instructions" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">3. Пошаговая настройка</div>
+                    <div class="text-sm text-gray-400">Все производители</div>
+                </a>
+                <a href="#keenetic-guide" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">4. Keenetic VPN настройка</div>
+                    <div class="text-sm text-gray-400">Пошагово с картинками</div>
+                </a>
+                <a href="#asus-guide" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">5. Asus роутер VPN</div>
+                    <div class="text-sm text-gray-400">AsusWRT и Merlin</div>
+                </a>
+                <a href="#protocols-comparison" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">6. WireGuard vs OpenVPN</div>
+                    <div class="text-sm text-gray-400">Что выбрать на роутере</div>
+                </a>
+                <a href="#family-optimization" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">7. Для всей семьи</div>
+                    <div class="text-sm text-gray-400">Родительский контроль</div>
+                </a>
+                <a href="#troubleshooting" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">8. Решение проблем</div>
+                    <div class="text-sm text-gray-400">Частые ошибки</div>
+                </a>
+                <a href="#speed-optimization" class="block p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition-colors">
+                    <div class="font-semibold mb-2">9. Оптимизация скорости</div>
+                    <div class="text-sm text-gray-400">Максимальная производительность</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Solution -->
+        <div class="hero-gradient rounded-2xl p-8 mb-12 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">
+                <i class="fas fa-rocket mr-3"></i>Не хотите заморачиваться с настройкой?
+            </h2>
+            <p class="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
+                SAFENET-VPN работает на любом роутере через конфигурационные файлы. Получите готовую настройку для вашей модели роутера за 3 minutes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="bg-white text-emerald-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors inline-flex items-center">
+                    <i class="fas fa-download mr-3"></i>Скачать конфигурацию для роутера
+                </a>
+                <div class="text-white/80 text-sm">
+                    ? Работает на всех роутерах • ? Инструкция в комплекте • ? Поддержка 24/7
+                </div>
+            </div>
+        </div>
+
+        <!-- Why VPN Router -->
+        <section id="why-vpn-router" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">
+                <i class="fas fa-home mr-3 text-emerald-400"></i>Зачем нужен VPN на роутере для всего дома в 2025?
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-400">
+                        <i class="fas fa-shield-alt mr-3"></i>Проблемы без VPN на роутере
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-red-400">Каждое устройство настраивать отдельно:</strong>
+                                <div class="text-gray-300 text-sm mt-1">15+ устройств в доме = 15 раз настройка VPN</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-red-400">Smart TV и IoT без защиты:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Умные телевизоры, камеры, колонки остаются без VPN</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-red-400">Лимиты VPN подключений:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Большинство VPN ограничивают до 5-10 устройств одновременно</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-red-400">Забывают включить VPN:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Дети и родители забывают активировать защиту</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times-circle text-red-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-red-400">Разные настройки на устройствах:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Хаос в управлении, разные серверы, протоколы</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-400">
+                        <i class="fas fa-check-circle mr-3"></i>Преимущества VPN на роутере
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-emerald-400">Защита всех устройств автоматически:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Один раз настроили - все защищено навсегда</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-emerald-400">Безлимитные подключения:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Подключайте любое количество устройств</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-emerald-400">Защита Smart TV и IoT:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Телевизоры, камеры, умные колонки под защитой</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-emerald-400">Централизованное управление:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Одна точка настройки для всего дома</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-emerald-400">Родительский контроль:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Управление доступом детей к интернету</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-emerald-400">Экономия денег:</strong>
+                                <div class="text-gray-300 text-sm mt-1">Один VPN аккаунт вместо нескольких</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Family Use Cases -->
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold mb-8 text-center">Сценарии использования VPN роутера для всей семьи</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card-dark rounded-xl p-6">
+                        <div class="text-4xl mb-4 text-center">???????????</div>
+                        <h4 class="text-xl font-bold mb-3 text-emerald-400">Семья с детьми</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• Родители работают удаленно</li>
+                            <li>• Дети учатся онлайн</li>
+                            <li>• Вечером все смотрят YouTube</li>
+                            <li>• Защита от неподходящего контента</li>
+                            <li>• Контроль времени в интернете</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <span class="text-emerald-400 font-bold">Устройств: 12-20</span>
+                        </div>
+                    </div>
+
+                    <div class="card-dark rounded-xl p-6">
+                        <div class="text-4xl mb-4 text-center">??</div>
+                        <h4 class="text-xl font-bold mb-3 text-emerald-400">Умный дом</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• Камеры видеонаблюдения</li>
+                            <li>• Умные колонки и ТВ</li>
+                            <li>• Система "умный дом"</li>
+                            <li>• NAS-сервер для файлов</li>
+                            <li>• Защита IoT от слежки</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <span class="text-emerald-400 font-bold">Устройств: 20-50</span>
+                        </div>
+                    </div>
+
+                    <div class="card-dark rounded-xl p-6">
+                        <div class="text-4xl mb-4 text-center">??</div>
+                        <h4 class="text-xl font-bold mb-3 text-emerald-400">Домашний офис</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• Удаленная работа</li>
+                            <li>• Видеоконференции</li>
+                            <li>• Доступ к корп. ресурсам</li>
+                            <li>• Защита рабочих данных</li>
+                            <li>• Обход географических блокировок</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <span class="text-emerald-400 font-bold">Устройств: 8-15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Economics -->
+            <div class="card-dark rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center text-emerald-400">
+                    <i class="fas fa-calculator mr-3"></i>Экономия с VPN на роутере
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-red-400">? Без роутера (VPN на каждом устройстве)</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>5 VPN подписок для семьи:</span>
+                                <span class="font-bold text-red-400">2,500?/мес</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Smart TV остается без защиты:</span>
+                                <span class="font-bold text-red-400">Уязвимость</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Время на настройку всех устройств:</span>
+                                <span class="font-bold text-red-400">5+ часов</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Итого в год:</span>
+                                <span class="font-bold text-red-400 text-lg">30,000?</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-emerald-400">? С VPN роутером</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>1 VPN подписка:</span>
+                                <span class="font-bold text-emerald-400">126?/мес</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Все устройства защищены:</span>
+                                <span class="font-bold text-emerald-400">Автоматически</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Время на настройку:</span>
+                                <span class="font-bold text-emerald-400">30 минут</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Итого в год:</span>
+                                <span class="font-bold text-emerald-400 text-lg">1,512?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <div class="text-3xl font-bold text-emerald-400 mb-2">Экономия: 28,488? в год</div>
+                    <div class="text-gray-300">При этом защита в 10 раз лучше</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Choose Router -->
+        <section id="choose-router" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">
+                <i class="fas fa-router mr-3 text-emerald-400"></i>Какой роутер выбрать с VPN в 2025: лучшие модели для дома
+            </h2>
+
+            <!-- Router Categories -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">Категории роутеров по поддержке VPN</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card-dark rounded-xl p-6 border-2 border-emerald-500/50">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-crown text-3xl text-emerald-400 mb-2"></i>
+                            <h4 class="text-xl font-bold text-emerald-400">Встроенный VPN-клиент</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-emerald-400">100%</div>
+                                <div class="text-sm text-gray-300">готов к работе</div>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>? Поддержка OpenVPN и WireGuard</li>
+                                <li>? Простая настройка через веб-интерфейс</li>
+                                <li>? Автоматические обновления</li>
+                                <li>? Kill Switch и DNS защита</li>
+                            </ul>
+                            <div class="mt-4">
+                                <strong>Лучшие модели:</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    Keenetic Giga/Ultra, Asus RT-AX86U, Synology RT2600AC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-dark rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-tools text-3xl text-yellow-400 mb-2"></i>
+                            <h4 class="text-xl font-bold text-yellow-400">Требует кастомной прошивки</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-yellow-400">70%</div>
+                                <div class="text-sm text-gray-300">готовности после настройки</div>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>?? Нужна замена прошивки</li>
+                                <li>?? Риск потери гарантии</li>
+                                <li>? Максимальные возможности настройки</li>
+                                <li>? Поддержка новейших протоколов</li>
+                            </ul>
+                            <div class="mt-4">
+                                <strong>Прошивки:</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    OpenWrt, DD-WRT, AsusWRT-Merlin
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-dark rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-times text-3xl text-red-400 mb-2"></i>
+                            <h4 class="text-xl font-bold text-red-400">Не поддерживает VPN</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-red-400">0%</div>
+                                <div class="text-sm text-gray-300">невозможно настроить</div>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>? Слабое железо</li>
+                                <li>? Нет VPN-клиента в прошивке</li>
+                                <li>? Не поддерживает кастомные прошивки</li>
+                                <li>? Требует замены роутера</li>
+                            </ul>
+                            <div class="mt-4">
+                                <strong>Что делать:</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    Купить новый роутер или использовать VPN на устройствах
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Router Models -->
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold mb-8 text-center">Лучшие роутеры с VPN для дома 2025</h3>
+                
+                <!-- Premium Category -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold mb-6 text-emerald-400">?? Премиум сегмент (15,000-40,000?)</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="router-card card-dark rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                                    ASUS
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold">Asus RT-AX86U Pro</h5>
+                                    <div class="text-emerald-400 font-semibold">~25,000?</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>VPN производительность:</span>
+                                    <span class="font-bold text-emerald-400">500+ Мбит/с</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Протоколы:</span>
+                                    <span class="text-gray-300">OpenVPN, WireGuard*</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Wi-Fi:</span>
+                                    <span class="text-gray-300">AX5700 (Wi-Fi 6)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Для дома:</span>
+                                    <span class="text-gray-300">До 200 м?, 50+ устройств</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="protocol-badge badge-openvpn">OpenVPN встроен</div>
+                                <div class="protocol-badge badge-wireguard">WireGuard через Merlin</div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-sm text-gray-300 mb-2">
+                                    ? Отличная производительность VPN<br>
+                                    ? Простая настройка<br>
+                                    ? Стабильная работа 24/7<br>
+                                    ?? WireGuard требует прошивку Merlin
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="router-card card-dark rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                                    KEEN
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold">Keenetic Ultra (KN-1811)</h5>
+                                    <div class="text-emerald-400 font-semibold">~18,000?</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>VPN производительность:</span>
+                                    <span class="font-bold text-emerald-400">400 Мбит/с</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Протоколы:</span>
+                                    <span class="text-gray-300">OpenVPN, WireGuard</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Wi-Fi:</span>
+                                    <span class="text-gray-300">AC2600 (Wi-Fi 5)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Для дома:</span>
+                                    <span class="text-gray-300">До 150 м?, 40+ устройств</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="protocol-badge badge-openvpn">OpenVPN компонент</div>
+                                <div class="protocol-badge badge-wireguard">WireGuard компонент</div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-sm text-gray-300 mb-2">
+                                    ? Простейшая настройка VPN<br>
+                                    ? Русский интерфейс<br>
+                                    ? Отличная поддержка<br>
+                                    ? Стабильность работы
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mid-range Category -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold mb-6 text-yellow-400">? Средний сегмент (8,000-15,000?)</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="router-card card-dark rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                                    KEEN
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold">Keenetic Giga (KN-1011)</h5>
+                                    <div class="text-emerald-400 font-semibold">~12,000?</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>VPN производительность:</span>
+                                    <span class="font-bold text-yellow-400">200 Мбит/с</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Протоколы:</span>
+                                    <span class="text-gray-300">OpenVPN, WireGuard</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Wi-Fi:</span>
+                                    <span class="text-gray-300">AC1200 (Wi-Fi 5)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Для дома:</span>
+                                    <span class="text-gray-300">До 100 м?, 25+ устройств</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="protocol-badge badge-openvpn">OpenVPN компонент</div>
+                                <div class="protocol-badge badge-wireguard">WireGuard компонент</div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-sm text-gray-300 mb-2">
+                                    ? Лучшее соотношение цена/качество<br>
+                                    ? Простая настройка VPN<br>
+                                    ? Хватит для семьи из 4 человек<br>
+                                    ?? Скорость VPN средняя
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="router-card card-dark rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                                    ASUS
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold">Asus RT-AX58U</h5>
+                                    <div class="text-emerald-400 font-semibold">~10,000?</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>VPN производительность:</span>
+                                    <span class="font-bold text-yellow-400">180 Мбит/с</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Протоколы:</span>
+                                    <span class="text-gray-300">OpenVPN, WireGuard*</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Wi-Fi:</span>
+                                    <span class="text-gray-300">AX3000 (Wi-Fi 6)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Для дома:</span>
+                                    <span class="text-gray-300">До 120 м?, 30+ устройств</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="protocol-badge badge-openvpn">OpenVPN встроен</div>
+                                <div class="protocol-badge badge-wireguard">WireGuard через Merlin</div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-sm text-gray-300 mb-2">
+                                    ? Wi-Fi 6 за разумные деньги<br>
+                                    ? Стабильный OpenVPN<br>
+                                    ? Хорошая производительность<br>
+                                    ?? WireGuard требует перепрошивку
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget Category -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold mb-6 text-orange-400">?? Бюджетный сегмент (4,000-8,000?)</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="router-card card-dark rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                                    KEEN
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold">Keenetic Speedster (KN-3012)</h5>
+                                    <div class="text-emerald-400 font-semibold">~7,500?</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>VPN производительность:</span>
+                                    <span class="font-bold text-orange-400">100 Мбит/с</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Протоколы:</span>
+                                    <span class="text-gray-300">OpenVPN, WireGuard</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Wi-Fi:</span>
+                                    <span class="text-gray-300">AC1200 (Wi-Fi 5)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Для дома:</span>
+                                    <span class="text-gray-300">До 80 м?, 20+ устройств</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="protocol-badge badge-openvpn">OpenVPN компонент</div>
+                                <div class="protocol-badge badge-wireguard">WireGuard компонент</div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-sm text-gray-300 mb-2">
+                                    ? Самый доступный с VPN<br>
+                                    ? Простая настройка<br>
+                                    ?? Скорость VPN ограничена<br>
+                                    ?? Подходит для небольшой семьи
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="router-card card-dark rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-sm mr-4">
+                                    TP-LINK
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold">TP-Link Archer AX72</h5>
+                                    <div class="text-emerald-400 font-semibold">~8,000?</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>VPN производительность:</span>
+                                    <span class="font-bold text-orange-400">120 Мбит/с</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Протоколы:</span>
+                                    <span class="text-gray-300">OpenVPN клиент</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Wi-Fi:</span>
+                                    <span class="text-gray-300">AX5400 (Wi-Fi 6)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Для дома:</span>
+                                    <span class="text-gray-300">До 100 м?, 25+ устройств</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="protocol-badge badge-openvpn">OpenVPN клиент</div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-sm text-gray-300 mb-2">
+                                    ? Wi-Fi 6 за небольшие деньги<br>
+                                    ? Встроенный OpenVPN клиент<br>
+                                    ? Нет WireGuard<br>
+                                    ?? Базовая функциональность VPN
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold mb-6 text-center">Сравнение лучших роутеров с VPN 2025</h4>
+                    <div class="overflow-x-auto">
+                        <table class="comparison-table w-full text-left text-sm">
+                            <thead>
+                                <tr>
+                                    <th class="text-emerald-400">Модель роутера</th>
+                                    <th class="text-center">Цена</th>
+                                    <th class="text-center">VPN скорость</th>
+                                    <th class="text-center">Протоколы</th>
+                                    <th class="text-center">Сложность настройки</th>
+                                    <th class="text-center">Для дома</th>
+                                    <th class="text-center">Рейтинг</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr>
+                                    <td class="font-bold">Keenetic Ultra KN-1811</td>
+                                    <td class="text-center">18,000?</td>
+                                    <td class="text-center"><span class="text-emerald-400 font-bold">400 Мбит/с</span></td>
+                                    <td class="text-center">OpenVPN + WireGuard</td>
+                                    <td class="text-center"><span class="text-emerald-400">Простая</span></td>
+                                    <td class="text-center">150 м? / 40+ устр.</td>
+                                    <td class="text-center"><span class="text-yellow-400">?????</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Asus RT-AX86U Pro</td>
+                                    <td class="text-center">25,000?</td>
+                                    <td class="text-center"><span class="text-emerald-400 font-bold">500+ Мбит/с</span></td>
+                                    <td class="text-center">OpenVPN + WireGuard*</td>
+                                    <td class="text-center"><span class="text-yellow-400">Средняя</span></td>
+                                    <td class="text-center">200 м? / 50+ устр.</td>
+                                    <td class="text-center"><span class="text-yellow-400">?????</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Keenetic Giga KN-1011</td>
+                                    <td class="text-center">12,000?</td>
+                                    <td class="text-center"><span class="text-yellow-400 font-bold">200 Мбит/с</span></td>
+                                    <td class="text-center">OpenVPN + WireGuard</td>
+                                    <td class="text-center"><span class="text-emerald-400">Простая</span></td>
+                                    <td class="text-center">100 м? / 25+ устр.</td>
+                                    <td class="text-center"><span class="text-yellow-400">????</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Asus RT-AX58U</td>
+                                    <td class="text-center">10,000?</td>
+                                    <td class="text-center"><span class="text-yellow-400 font-bold">180 Мбит/с</span></td>
+                                    <td class="text-center">OpenVPN + WireGuard*</td>
+                                    <td class="text-center"><span class="text-yellow-400">Средняя</span></td>
+                                    <td class="text-center">120 м? / 30+ устр.</td>
+                                    <td class="text-center"><span class="text-yellow-400">????</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">TP-Link Archer AX72</td>
+                                    <td class="text-center">8,000?</td>
+                                    <td class="text-center"><span class="text-orange-400 font-bold">120 Мбит/с</span></td>
+                                    <td class="text-center">Только OpenVPN</td>
+                                    <td class="text-center"><span class="text-emerald-400">Простая</span></td>
+                                    <td class="text-center">100 м? / 25+ устр.</td>
+                                    <td class="text-center"><span class="text-yellow-400">???</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Keenetic Speedster KN-3012</td>
+                                    <td class="text-center">7,500?</td>
+                                    <td class="text-center"><span class="text-orange-400 font-bold">100 Мбит/с</span></td>
+                                    <td class="text-center">OpenVPN + WireGuard</td>
+                                    <td class="text-center"><span class="text-emerald-400">Простая</span></td>
+                                    <td class="text-center">80 м? / 20+ устр.</td>
+                                    <td class="text-center"><span class="text-yellow-400">???</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-400">
+                        <strong>*</strong> WireGuard доступен только через кастомную прошивку Asuswrt-Merlin
+                    </div>
+                </div>
+
+                <!-- Expert Recommendation -->
+                <div class="card-dark rounded-xl p-8 border-2 border-emerald-500/50">
+                    <h4 class="text-2xl font-bold mb-6 text-center text-emerald-400">
+                        <i class="fas fa-star mr-3"></i>Экспертная рекомендация 2025
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl mb-3">??</div>
+                            <h5 class="text-xl font-bold mb-2 text-emerald-400">Лучший выбор</h5>
+                            <div class="font-semibold text-lg">Keenetic Ultra</div>
+                            <p class="text-sm text-gray-300 mt-2">
+                                Идеальный баланс цены, производительности и простоты настройки. 
+                                Подходит 90% семей.
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-3">??</div>
+                            <h5 class="text-xl font-bold mb-2 text-yellow-400">Лучшая цена</h5>
+                            <div class="font-semibold text-lg">Keenetic Giga</div>
+                            <p class="text-sm text-gray-300 mt-2">
+                                Оптимальное соотношение цена/качество. 
+                                Достаточно для квартиры и небольшого дома.
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-3">?</div>
+                            <h5 class="text-xl font-bold mb-2 text-purple-400">Максимальная скорость</h5>
+                            <div class="font-semibold text-lg">Asus RT-AX86U Pro</div>
+                            <p class="text-sm text-gray-300 mt-2">
+                                Для больших домов и максимальных требований к скорости VPN.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-300 mb-4">
+                            <strong>Не готовы покупать новый роутер?</strong> SAFENET-VPN работает на любом существующем роутере 
+                            через конфигурационные файлы. Получите готовую настройку для вашей модели.
+                        </p>
+                        <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold inline-flex items-center">
+                            <i class="fas fa-download mr-2"></i>Скачать конфигурацию для своего роутера
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Instructions -->
+        <section id="setup-instructions" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">
+                <i class="fas fa-cogs mr-3 text-emerald-400"></i>Пошаговая настройка VPN на роутере: универсальная инструкция
+            </h2>
+
+            <!-- Universal Steps -->
+            <div class="card-dark rounded-xl p-8 mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-emerald-400">
+                    <i class="fas fa-list-ol mr-3"></i>Общий алгоритм для всех роутеров
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="step-number mr-4">1</div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Получите VPN конфигурацию</h4>
+                            <p class="text-gray-300 mb-3">
+                                Скачайте файл настроек (.ovpn для OpenVPN или .conf для WireGuard) 
+                                у своего VPN-провайдера или в <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="text-emerald-400 hover:text-emerald-300">SAFENET-VPN боте</a>.
+                            </p>
+                            <div class="bg-slate-800/50 rounded-lg p-4 text-sm font-mono">
+                                <div class="text-gray-400 mb-2"># Что должно быть в файле:</div>
+                                <div>• Адрес VPN-сервера</div>
+                                <div>• Порт подключения</div>
+                                <div>• Сертификаты и ключи</div>
+                                <div>• DNS настройки</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number mr-4">2</div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Войдите в веб-интерфейс роутера</h4>
+                            <p class="text-gray-300 mb-3">
+                                Откройте браузер и перейдите по IP-адресу роутера. 
+                                Обычно это <code class="bg-slate-800 px-2 py-1 rounded">192.168.1.1</code> 
+                                или <code class="bg-slate-800 px-2 py-1 rounded">192.168.0.1</code>.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="bg-slate-800/50 rounded-lg p-3">
+                                    <strong>Keenetic:</strong><br>
+                                    192.168.1.1 или my.keenetic.net
+                                </div>
+                                <div class="bg-slate-800/50 rounded-lg p-3">
+                                    <strong>Asus:</strong><br>
+                                    192.168.1.1 или router.asus.com
+                                </div>
+                                <div class="bg-slate-800/50 rounded-lg p-3">
+                                    <strong>TP-Link:</strong><br>
+                                    192.168.0.1 или tplinkwifi.net
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number mr-4">3</div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Найдите раздел VPN-клиента</h4>
+                            <p class="text-gray-300 mb-3">
+                                Местоположение настроек VPN зависит от производителя роутера:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <strong class="text-blue-400">Keenetic:</strong>
+                                    <ul class="list-disc list-inside mt-2 text-gray-300">
+                                        <li>Интернет > Подключения</li>
+                                        <li>Добавить подключение > VPN</li>
+                                        <li>Тип: OpenVPN или WireGuard</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-emerald-400">Asus:</strong>
+                                    <ul class="list-disc list-inside mt-2 text-gray-300">
+                                        <li>Дополнительные настройки</li>
+                                        <li>VPN > VPN Client</li>
+                                        <li>Add profile</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number mr-4">4</div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Импортируйте конфигурационный файл</h4>
+                            <p class="text-gray-300 mb-3">
+                                Загрузите файл настроек VPN в интерфейс роутера:
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-upload text-emerald-400 mr-3"></i>
+                                    <span>Нажмите "Browse" или "Обзор"</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-file text-emerald-400 mr-3"></i>
+                                    <span>Выберите скачанный .ovpn или .conf файл</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-emerald-400 mr-3"></i>
+                                    <span>Нажмите "Import" или "Импортировать"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number mr-4">5</div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Активируйте VPN подключение</h4>
+                            <p class="text-gray-300 mb-3">
+                                Включите VPN и настройте маршрутизацию трафика:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-emerald-900/20 rounded-lg p-4">
+                                    <h5 class="font-semibold text-emerald-400 mb-2">? Что включить:</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Enable VPN connection</li>
+                                        <li>• Redirect internet traffic</li>
+                                        <li>• Auto-reconnect</li>
+                                        <li>• DNS через VPN</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-red-900/20 rounded-lg p-4">
+                                    <h5 class="font-semibold text-red-400 mb-2">?? Проверить статус:</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Connected (зеленый индикатор)</li>
+                                        <li>• IP адрес изменился</li>
+                                        <li>• Нет ошибок подключения</li>
+                                        <li>• Трафик идет через VPN</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number mr-4">6</div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Проверьте работу VPN</h4>
+                            <p class="text-gray-300 mb-3">
+                                Убедитесь, что все устройства в сети используют VPN:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="bg-slate-800/50 rounded-lg p-4">
+                                    <strong class="text-emerald-400">1. Проверка IP:</strong><br>
+                                    <a href="https://dostup-plus.github.io/diagnostics/ip-check/" class="text-blue-400 hover:text-blue-300">Наш тест IP</a><br>
+                                    Должен показать IP VPN-сервера
+                                </div>
+                                <div class="bg-slate-800/50 rounded-lg p-4">
+                                    <strong class="text-emerald-400">2. Тест скорости:</strong><br>
+                                    speedtest.net<br>
+                                    Скорость должна быть приемлемой
+                                </div>
+                                <div class="bg-slate-800/50 rounded-lg p-4">
+                                    <strong class="text-emerald-400">3. Доступ к сайтам:</strong><br>
+                                    YouTube, Netflix<br>
+                                    Должны открываться быстро
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preparation Checklist -->
+            <div class="card-dark rounded-xl p-8 mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-yellow-400">
+                    <i class="fas fa-clipboard-check mr-3"></i>Чек-лист перед настройкой
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">?? Подготовка:</h4>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Роутер поддерживает VPN-клиент (проверили в инструкции)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Скачан конфигурационный файл VPN (.ovpn или .conf)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Знаем IP адрес роутера и данные для входа</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Интернет работает стабильно без VPN</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Есть 30-60 минут свободного времени</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">?? Важные моменты:</h4>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Создали резервную копию настроек роутера</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Записали текущие настройки DNS</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Предупредили семью о временной недоступности интернета</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Имеем план отката, если что-то пойдет не так</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-5 h-5">
+                                <span>Подготовили мобильный интернет на случай проблем</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keenetic Guide -->
+        <section id="keenetic-guide" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">
+                <i class="fas fa-wrench mr-3 text-emerald-400"></i>Keenetic VPN настройка пошагово с картинками
+            </h2>
+
+            <div class="mb-8 text-center">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Keenetic — самые простые в настройке роутеры с VPN. Русский интерфейс, 
+                    встроенная поддержка OpenVPN и WireGuard, подробные инструкции.
+                </p>
+            </div>
+
+            <!-- Keenetic Models -->
+            <div class="card-dark rounded-xl p-8 mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-400">
+                    <i class="fas fa-router mr-3"></i>Модели Keenetic с поддержкой VPN
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-bold text-lg mb-2 text-emerald-400">Premium серия:</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Ultra (KN-1811) — топовый</li>
+                            <li>• Hero 4G+ (KN-2311) — с 4G</li>
+                            <li>• Peak (KN-2710) — игровой</li>
+                            <li>• Titan (KN-1810) — мощный</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-bold text-lg mb-2 text-yellow-400">Основная серия:</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Giga (KN-1011) — популярный</li>
+                            <li>• Extra (KN-1713) — расширенный</li>
+                            <li>• Viva (KN-1912) — средний</li>
+                            <li>• City (KN-1512) — городской</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <h4 class="font-bold text-lg mb-2 text-orange-400">Начальная серия:</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Speedster (KN-3012) — быстрый</li>
+                            <li>• Start (KN-1112) — начальный</li>
+                            <li>• Launcher DSL (KN-2012) — ADSL</li>
+                            <li>• Air (KN-1613) — компактный</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-blue-900/20 rounded-lg border border-blue-500/30">
+                    <strong class="text-blue-400">?? Важно:</strong> Все модели Keenetic поддерживают VPN через компоненты. 
+                    Разница только в производительности — более мощные модели дают большую скорость VPN.
+                </div>
+            </div>
+
+            <!-- Step by step Keenetic -->
+            <div class="space-y-8">
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">
+                        <i class="fas fa-download mr-3"></i>Шаг 1: Установка VPN компонентов
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4">Последовательность действий:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1.1</div>
+                                    <div>
+                                        <p class="text-gray-300">Откройте браузер и перейдите на <code class="bg-slate-800 px-2 py-1 rounded">192.168.1.1</code> или <code class="bg-slate-800 px-2 py-1 rounded">my.keenetic.net</code></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1.2</div>
+                                    <div>
+                                        <p class="text-gray-300">Войдите с логином/паролем (по умолчанию admin/admin или указано на наклейке роутера)</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1.3</div>
+                                    <div>
+                                        <p class="text-gray-300">Перейдите в <strong>Управление > Общие настройки > Изменить набор компонентов</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1.4</div>
+                                    <div>
+                                        <p class="text-gray-300">Найдите и установите компоненты:</p>
+                                        <ul class="list-disc list-inside mt-2 ml-4 text-sm">
+                                            <li><strong>"Клиент VPN"</strong> — для OpenVPN</li>
+                                            <li><strong>"Клиент WireGuard VPN"</strong> — для WireGuard</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1.5</div>
+                                    <div>
+                                        <p class="text-gray-300">Нажмите <strong>"Установить обновления"</strong> и дождитесь перезагрузки роутера</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-emerald-400">Где найти компоненты VPN:</h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-blue-900/30 rounded p-3">
+                                    <strong>Путь в интерфейсе:</strong><br>
+                                    Управление > Общие настройки > Обновления и компоненты > Изменить набор компонентов
+                                </div>
+                                <div class="bg-green-900/30 rounded p-3">
+                                    <strong>Что искать:</strong><br>
+                                    В списке компонентов найдите секцию "VPN" и поставьте галочки напротив нужных протоколов
+                                </div>
+                                <div class="bg-yellow-900/30 rounded p-3">
+                                    <strong>Время установки:</strong><br>
+                                    Скачивание и установка займет 3-5 минут, после чего роутер перезагрузится
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">
+                        <i class="fas fa-plus mr-3"></i>Шаг 2: Создание VPN подключения
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4">Настройка подключения:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2.1</div>
+                                    <div>
+                                        <p class="text-gray-300">Перейдите в <strong>Интернет > Подключения</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2.2</div>
+                                    <div>
+                                        <p class="text-gray-300">Нажмите <strong>"Добавить подключение"</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2.3</div>
+                                    <div>
+                                        <p class="text-gray-300">Выберите тип подключения:</p>
+                                        <ul class="list-disc list-inside mt-2 ml-4 text-sm">
+                                            <li><strong>"VPN"</strong> > <strong>"OpenVPN"</strong> (для .ovpn файлов)</li>
+                                            <li><strong>"VPN"</strong> > <strong>"WireGuard"</strong> (для .conf файлов)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2.4</div>
+                                    <div>
+                                        <p class="text-gray-300">Введите имя подключения (например, "SAFENET-VPN")</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2.5</div>
+                                    <div>
+                                        <p class="text-gray-300">Нажмите <strong>"Загрузить из файла"</strong> и выберите конфигурационный файл</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-emerald-400">Важные настройки:</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <strong class="text-yellow-400">Маршрутизация:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2 text-sm">
+                                        <div class="mb-2">? <strong>Использовать для выхода в интернет:</strong> ВКЛ</div>
+                                        <div class="mb-2">? <strong>Назначить интерфейс по умолчанию:</strong> ВКЛ</div>
+                                        <div>? <strong>Игнорировать DNS от провайдера:</strong> ВКЛ</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong class="text-blue-400">Автоподключение:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2 text-sm">
+                                        <div class="mb-2">? <strong>Автоматически подключаться:</strong> ВКЛ</div>
+                                        <div>? <strong>Постоянное соединение:</strong> ВКЛ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">
+                        <i class="fas fa-play mr-3"></i>Шаг 3: Активация и проверка
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4">Финальные шаги:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">3.1</div>
+                                    <div>
+                                        <p class="text-gray-300">Нажмите <strong>"Сохранить"</strong> для создания подключения</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">3.2</div>
+                                    <div>
+                                        <p class="text-gray-300">Включите VPN подключение переключателем</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">3.3</div>
+                                    <div>
+                                        <p class="text-gray-300">Дождитесь изменения статуса на <strong class="text-emerald-400">"Подключено"</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">3.4</div>
+                                    <div>
+                                        <p class="text-gray-300">Проверьте IP адрес на любом устройстве: <a href="https://dostup-plus.github.io/diagnostics/ip-check/" class="text-emerald-400 hover:text-emerald-300">наш тест</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-emerald-400">Индикаторы успешной настройки:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-emerald-400 mr-3"></i>
+                                    <span class="text-sm">Статус подключения: "Подключено" (зеленый)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-emerald-400 mr-3"></i>
+                                    <span class="text-sm">IP адрес изменился на IP VPN-сервера</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-emerald-400 mr-3"></i>
+                                    <span class="text-sm">YouTube и заблокированные сайты открываются</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-emerald-400 mr-3"></i>
+                                    <span class="text-sm">Скорость интернета приемлемая (>10 Мбит/с)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-emerald-400 mr-3"></i>
+                                    <span class="text-sm">Все устройства в доме используют VPN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keenetic Troubleshooting -->
+            <div class="card-dark rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-yellow-400">
+                    <i class="fas fa-exclamation-triangle mr-3"></i>Решение проблем с Keenetic VPN
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-red-400">? Частые проблемы:</h4>
+                        <div class="space-y-4">
+                            <div class="bg-red-900/20 rounded-lg p-4">
+                                <strong>Компоненты VPN не устанавливаются</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    • Проверьте подключение к интернету<br>
+                                    • Обновите прошивку роутера<br>
+                                    • Попробуйте через мобильный интернет
+                                </div>
+                            </div>
+                            <div class="bg-red-900/20 rounded-lg p-4">
+                                <strong>VPN подключается, но нет интернета</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    • Включите "Использовать для выхода в интернет"<br>
+                                    • Проверьте DNS настройки<br>
+                                    • Перезагрузите роутер
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-emerald-400">? Решения:</h4>
+                        <div class="space-y-4">
+                            <div class="bg-emerald-900/20 rounded-lg p-4">
+                                <strong>Очень низкая скорость VPN</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    • Переключитесь с OpenVPN на WireGuard<br>
+                                    • Смените VPN сервер на ближайший<br>
+                                    • Проверьте загрузку процессора роутера
+                                </div>
+                            </div>
+                            <div class="bg-emerald-900/20 rounded-lg p-4">
+                                <strong>VPN постоянно отключается</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    • Включите "Постоянное соединение"<br>
+                                    • Проверьте стабильность интернета<br>
+                                    • Обратитесь в техподдержку VPN
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Asus Guide -->
+        <section id="asus-guide" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">
+                <i class="fas fa-microchip mr-3 text-emerald-400"></i>Asus роутер VPN инструкция: AsusWRT и Merlin прошивки
+            </h2>
+
+            <div class="mb-8 text-center">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Роутеры Asus имеют встроенный OpenVPN клиент, а с прошивкой AsusWRT-Merlin 
+                    поддерживают еще и WireGuard. Высокая производительность VPN.
+                </p>
+            </div>
+
+            <!-- Asus Models -->
+            <div class="card-dark rounded-xl p-8 mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-emerald-400">
+                    <i class="fas fa-router mr-3"></i>Модели Asus с лучшей поддержкой VPN
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-emerald-900/30 to-emerald-800/30 rounded-lg p-4 border border-emerald-500/30">
+                        <h4 class="font-bold text-lg mb-3 text-emerald-400">?? Премиум класс:</h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <strong>RT-AX86U Pro</strong> (~25,000?)<br>
+                                <span class="text-gray-300">VPN: 500+ Мбит/с, Wi-Fi 6, топовая производительность</span>
+                            </div>
+                            <div>
+                                <strong>GT-AX11000</strong> (~35,000?)<br>
+                                <span class="text-gray-300">VPN: 600+ Мбит/с, игровой, три диапазона Wi-Fi</span>
+                            </div>
+                            <div>
+                                <strong>RT-AC86U</strong> (~18,000?)<br>
+                                <span class="text-gray-300">VPN: 300+ Мбит/с, проверенная модель</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-yellow-900/30 to-yellow-800/30 rounded-lg p-4 border border-yellow-500/30">
+                        <h4 class="font-bold text-lg mb-3 text-yellow-400">? Средний класс:</h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <strong>RT-AX58U</strong> (~10,000?)<br>
+                                <span class="text-gray-300">VPN: 180 Мбит/с, Wi-Fi 6, отличное соотношение цена/качество</span>
+                            </div>
+                            <div>
+                                <strong>RT-AC68U</strong> (~8,000?)<br>
+                                <span class="text-gray-300">VPN: 120 Мбит/с, популярная модель, поддержка Merlin</span>
+                            </div>
+                            <div>
+                                <strong>RT-AX55</strong> (~7,000?)<br>
+                                <span class="text-gray-300">VPN: 100 Мбит/с, бюджетный Wi-Fi 6</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-lg p-4 border border-blue-500/30">
+                        <h4 class="font-bold text-lg mb-3 text-blue-400">?? Особенности:</h4>
+                        <div class="space-y-2 text-sm">
+                            <div>? <strong>OpenVPN встроен</strong> во все модели</div>
+                            <div>? <strong>WireGuard</strong> доступен через прошивку Merlin</div>
+                            <div>? <strong>AES-NI ускорение</strong> в топовых моделях</div>
+                            <div>? <strong>Adaptive QoS</strong> для приоритизации VPN</div>
+                            <div>?? <strong>Нужна перепрошивка</strong> для WireGuard</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AsusWRT vs Merlin -->
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold mb-8 text-center">AsusWRT vs AsusWRT-Merlin: что выбрать для VPN?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-dark rounded-xl p-6">
+                        <h4 class="text-2xl font-bold mb-4 text-blue-400">
+                            <i class="fas fa-shield-alt mr-3"></i>AsusWRT (оригинальная)
+                        </h4>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-emerald-400">? Преимущества:</strong>
+                                <ul class="list-disc list-inside mt-2 text-sm text-gray-300">
+                                    <li>Официальная прошивка, гарантия сохраняется</li>
+                                    <li>Встроенный OpenVPN клиент</li>
+                                    <li>Автоматические обновления безопасности</li>
+                                    <li>Простая настройка VPN</li>
+                                    <li>Стабильная работа</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-red-400">? Недостатки:</strong>
+                                <ul class="list-disc list-inside mt-2 text-sm text-gray-300">
+                                    <li>Нет WireGuard (только в новейших версиях)</li>
+                                    <li>Ограниченные настройки VPN</li>
+                                    <li>Меньше функций для продвинутых пользователей</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+                                <strong class="text-blue-400">Рекомендуется для:</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    Обычных пользователей, которым нужен простой и надежный OpenVPN на роутере без лишних сложностей.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-dark rounded-xl p-6">
+                        <h4 class="text-2xl font-bold mb-4 text-purple-400">
+                            <i class="fas fa-code mr-3"></i>AsusWRT-Merlin
+                        </h4>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-emerald-400">? Преимущества:</strong>
+                                <ul class="list-disc list-inside mt-2 text-sm text-gray-300">
+                                    <li>Поддержка WireGuard из коробки</li>
+                                    <li>Расширенные настройки VPN</li>
+                                    <li>Лучшая производительность</li>
+                                    <li>Больше возможностей настройки</li>
+                                    <li>Активное сообщество и поддержка</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-red-400">? Недостатки:</strong>
+                                <ul class="list-disc list-inside mt-2 text-sm text-gray-300">
+                                    <li>Потеря гарантии при перепрошивке</li>
+                                    <li>Сложнее в настройке</li>
+                                    <li>Нужно вручную обновлять</li>
+                                    <li>Риск "кирпича" при неправильной прошивке</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-900/20 rounded-lg p-4 border border-purple-500/30">
+                                <strong class="text-purple-400">Рекомендуется для:</strong>
+                                <div class="text-sm text-gray-300 mt-2">
+                                    Продвинутых пользователей, которым нужен WireGuard и максимальная производительность VPN.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asus OpenVPN Setup -->
+            <div class="space-y-8">
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-400">
+                        <i class="fas fa-lock mr-3"></i>Настройка OpenVPN на Asus (стандартная прошивка)
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4">Пошаговая настройка:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1</div>
+                                    <div>
+                                        <p class="text-gray-300">Откройте браузер и перейдите на <code class="bg-slate-800 px-2 py-1 rounded">192.168.1.1</code> или <code class="bg-slate-800 px-2 py-1 rounded">router.asus.com</code></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2</div>
+                                    <div>
+                                        <p class="text-gray-300">Войдите с логином/паролем администратора</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">3</div>
+                                    <div>
+                                        <p class="text-gray-300">Перейдите в <strong>Дополнительные настройки > VPN > VPN Client</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">4</div>
+                                    <div>
+                                        <p class="text-gray-300">Нажмите <strong>"Add profile"</strong> и выберите <strong>"OpenVPN"</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">5</div>
+                                    <div>
+                                        <p class="text-gray-300">Нажмите <strong>"Choose file"</strong> и загрузите .ovpn конфигурацию</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">6</div>
+                                    <div>
+                                        <p class="text-gray-300">Настройте параметры подключения и нажмите <strong>"OK"</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-emerald-400">Важные настройки Asus VPN:</h4>
+                            <div class="space-y-4 text-sm">
+                                <div>
+                                    <strong class="text-yellow-400">Redirect Internet traffic:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2">
+                                        <div class="mb-2">? <strong>Yes (All traffic)</strong> — весь трафик через VPN</div>
+                                        <div>?? <strong>Policy Rules</strong> — выборочно для устройств</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong class="text-blue-400">Auto reconnect:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2">
+                                        <div class="mb-2">? <strong>Yes</strong> — автопереподключение</div>
+                                        <div>? <strong>Kill Switch</strong> — блокировка без VPN</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong class="text-purple-400">DNS Settings:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2">
+                                        <div class="mb-2">? <strong>Accept DNS configuration</strong>: Yes</div>
+                                        <div>? <strong>DNS Server 1</strong>: 1.1.1.1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-dark rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-400">
+                        <i class="fas fa-bolt mr-3"></i>Настройка WireGuard через AsusWRT-Merlin
+                    </h3>
+                    
+                    <div class="mb-6 p-4 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
+                        <strong class="text-yellow-400">?? Внимание:</strong> Установка AsusWRT-Merlin прошивки лишает роутер гарантии. 
+                        Процедуру выполняйте на свой страх и риск. Убедитесь, что ваша модель поддерживается.
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4">Установка прошивки Merlin:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">1</div>
+                                    <div>
+                                        <p class="text-gray-300">Скачайте прошивку с <a href="#" class="text-purple-400 hover:text-purple-300">официального сайта AsusWRT-Merlin</a> для вашей модели</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">2</div>
+                                    <div>
+                                        <p class="text-gray-300">Зайдите в <strong>Администрирование > Обновление прошивки</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">3</div>
+                                    <div>
+                                        <p class="text-gray-300">Загрузите файл .trx прошивки и нажмите <strong>"Upload"</strong></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">4</div>
+                                    <div>
+                                        <p class="text-gray-300">Дождитесь перезагрузки (5-10 минут), <strong>НЕ ВЫКЛЮЧАЙТЕ</strong> роутер</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="step-number mr-4 text-sm w-8 h-8">5</div>
+                                    <div>
+                                        <p class="text-gray-300">После загрузки зайдите в <strong>VPN > VPN Client > WireGuard</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-purple-400">Настройка WireGuard в Merlin:</h4>
+                            <div class="space-y-4 text-sm">
+                                <div>
+                                    <strong>1. Создание клиента:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2">
+                                        Нажмите "+" > Import from file > Загрузите .conf файл
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong>2. Настройки подключения:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2">
+                                        <div>• <strong>Auto start:</strong> Yes</div>
+                                        <div>• <strong>Force Internet traffic:</strong> Yes</div>
+                                        <div>• <strong>Kill switch:</strong> Yes</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong>3. DNS настройки:</strong>
+                                    <div class="bg-slate-800/50 rounded p-3 mt-2">
+                                        <div>• <strong>Accept DNS:</strong> Relaxed</div>
+                                        <div>• <strong>DNS Server:</strong> 1.1.1.1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asus Performance Optimization -->
+            <div class="card-dark rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-orange-400">
+                    <i class="fas fa-tachometer-alt mr-3"></i>Оптимизация производительности VPN на Asus
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-emerald-400">Аппаратное ускорение:</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-emerald-900/20 rounded-lg p-4">
+                                <strong>Включите AES-NI (если поддерживается):</strong><br>
+                                <code class="text-xs">Adaptive QoS > Traditional QoS > Hardware Acceleration: Enable</code>
+                            </div>
+                            <div class="bg-blue-900/20 rounded-lg p-4">
+                                <strong>Настройте CTF (Cut Through Forwarding):</strong><br>
+                                <code class="text-xs">LAN > Switch Control > NAT Acceleration: Auto</code>
+                            </div>
+                            <div class="bg-purple-900/20 rounded-lg p-4">
+                                <strong>Оптимизируйте CPU:</strong><br>
+                                Отключите неиспользуемые сервисы: AiProtection, Traffic Analyzer
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-yellow-400">Настройки протоколов:</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-slate-800/50 rounded-lg p-4">
+                                <strong>OpenVPN оптимизация:</strong>
+                                <div class="mt-2 font-mono text-xs">
+                                    <div>cipher AES-256-GCM</div>
+                                    <div>fast-io</div>
+                                    <div>sndbuf 393216</div>
+                                    <div>rcvbuf 393216</div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-4">
+                                <strong>WireGuard настройки:</strong>
+                                <div class="mt-2 font-mono text-xs">
+                                    <div>MTU = 1420</div>
+                                    <div>PersistentKeepalive = 25</div>
+                                    <div>DNS = 1.1.1.1, 8.8.8.8</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-emerald-900/30 rounded-lg p-4">
+                        <div class="text-2xl font-bold text-emerald-400 mb-2">500+</div>
+                        <div class="text-sm">Мбит/с с AES-NI</div>
+                    </div>
+                    <div class="bg-yellow-900/30 rounded-lg p-4">
+                        <div class="text-2xl font-bold text-yellow-400 mb-2">200+</div>
+                        <div class="text-sm">Мбит/с без ускорения</div>
+                    </div>
+                    <div class="bg-blue-900/30 rounded-lg p-4">
+                        <div class="text-2xl font-bold text-blue-400 mb-2">30%</div>
+                        <div class="text-sm">загрузка CPU</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocols Comparison -->
+        <section id="protocols-comparison" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">
+                <i class="fas fa-random mr-3 text-emerald-400"></i>WireGuard vs OpenVPN на роутере: что выбрать в 2025?
+            </h2>
+
+            <div class="mb-8 text-center">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+

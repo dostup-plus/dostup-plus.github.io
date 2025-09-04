@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Тест VPN для банков 2025 — проверка готовности к Сбербанку, Тинькофф, ВТБ | SAFENET?VPN</title>
+  <meta name="description" content="Комплексный тест VPN для банковских приложений за 2 минуты. Проверка IP, DNS-утечек, WebRTC, геолокации для Сбербанка, Тинькофф, ВТБ, Альфа-Банка. Персональные рекомендации.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Тест VPN для банков — диагностика готовности 2025">
+  <meta property="og:description" content="Бесплатная проверка VPN для банковских приложений. Комплексный анализ IP, DNS, WebRTC, геолокации за 2 минуты с персональными рекомендациями.">
+  <meta property="og:url" content="https://dostup-plus.github.io/diagnostics/banking-check/">
+  <meta property="og:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+  <meta property="og:site_name" content="SAFENET-VPN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Тест VPN для банков — проверка готовности">
+  <meta name="twitter:description" content="Бесплатный тест VPN для банковских приложений. Проверка IP, DNS, WebRTC, геолокации за 2 минуты.">
+  <meta name="twitter:image" content="https://dostup-plus.github.io/images/og-safenet.jpg">
+
+  <!-- Иконки -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="SAFENET-VPN — Руководства по VPN" href="/rss.xml">
+
+  <!-- ЕДИНЫЙ CSS КОД -->
+  <style>
+    /* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ === */
+    :root{
+      --bg:#0b1020; --card:#11183a; --text:#e9eefc; --muted:#aab3d9; 
+      --accent:#4da3ff; --accent-2:#7de2d1; --ok:#29c773; --warn:#ffb020; --err:#ff5c5c;
+    }
+
+    /* === БАЗОВЫЕ СТИЛИ === */
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* === LAYOUT === */
+    .container{max-width:1050px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* === НАВИГАЦИЯ === */
+    .breadcrumbs{font-size:.9rem;color:var(--muted);margin:12px 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    /* === HERO СЕКЦИЯ === */
+    .hero{background:linear-gradient(135deg,rgba(77,163,255,.15),rgba(125,226,209,.12));border:1px solid rgba(125,226,209,.25);border-radius:16px;padding:28px;margin:16px 0}
+    .hero h1{margin:0 0 10px 0;font-size:2rem}
+    .hero p{margin:0 0 16px 0;color:var(--muted)}
+    .badge{display:inline-block;background:rgba(77,163,255,.15);border:1px solid rgba(77,163,255,.4);color:#cfe5ff;padding:2px 8px;border-radius:999px;font-size:.8rem}
+
+    /* === КНОПКИ (ИСПРАВЛЕНО: убран текст "альтернатива") === */
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{display:inline-block;background:var(--accent);color:#061229;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn:hover{text-decoration:none;filter:brightness(1.05)}
+    .btn.secondary{background:transparent;border:1px solid var(--accent);color:var(--text)}
+    .btn.alternative{background:var(--ok);color:#061229}
+    .btn-card{display:inline-block;background:var(--accent);color:#061229;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
+    .btn-card.alternative{background:var(--ok);color:#061229}
+    .btn-test{display:inline-block;background:var(--ok);color:#061229;padding:12px 20px;border-radius:10px;font-weight:700;font-size:1rem;margin:8px}
+    .btn-start-test{display:inline-block;background:var(--accent);color:#061229;padding:16px 24px;border-radius:12px;font-weight:700;font-size:1.1rem;text-align:center;width:100%;margin:16px 0;cursor:pointer;transition:all 0.3s}
+    .btn-start-test:hover{filter:brightness(1.1);transform:translateY(-2px)}
+
+    /* === КАРТОЧКИ === */
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px}
+    
+    /* === ТИПОГРАФИКА === */
+    h2{margin-top:28px}
+    h3{margin-top:20px}
+    .small{font-size:.9rem}
+    .muted{color:var(--muted)}
+    .ok{color:var(--ok);font-weight:600}
+
+    /* === СПЕЦИАЛЬНЫЕ БЛОКИ === */
+    .note{border-left:3px solid var(--accent-2);padding-left:12px;color:#cfe5ff}
+    .warn{border-left:3px solid var(--warn);padding-left:12px}
+    
+    /* === СПИСКИ === */
+    ul.check>li::marker{content:"? ";color:var(--ok)}
+    ul.cross>li::marker{content:"? ";color:var(--err)}
+    .also ul{columns:2;gap:24px}
+    @media(max-width:680px){.also ul{columns:1}}
+    
+    /* === TOC === */
+    .toc li{margin:6px 0}
+
+    /* === CTA В ФУТЕРЕ === */
+    .footer-cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+    /* === ТЕСТОВЫЕ БЛОКИ === */
+    .test-section{background:rgba(41,199,115,.08);border:2px solid var(--ok);border-radius:16px;padding:24px;margin:24px 0;text-align:center}
+    .test-section h3{color:var(--ok);margin:0 0 16px 0;font-size:1.3rem}
+
+    .test-progress{display:none;margin-top:20px}
+    .progress-bar-container{background:rgba(77,163,255,.1);border-radius:8px;height:12px;overflow:hidden;margin:16px 0}
+    .progress-bar{background:linear-gradient(90deg,var(--accent),var(--accent-2));height:100%;width:0%;transition:width 0.5s ease}
+    .test-status{text-align:center;margin:12px 0;color:var(--muted);font-weight:600}
+
+    .test-results{display:none;margin-top:20px;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+    .test-results.show{display:block}
+    .test-results.pass{background:rgba(41,199,115,.1);border-color:var(--ok)}
+    .test-results.warning{background:rgba(255,176,32,.1);border-color:var(--warn)}
+    .test-results.fail{background:rgba(255,92,92,.1);border-color:var(--err)}
+
+    .test-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+    .test-item:last-child{border-bottom:none}
+    .test-item .status{font-weight:600;padding:4px 8px;border-radius:6px;font-size:.9rem}
+    .test-item .status.pass{background:var(--ok);color:#061229}
+    .test-item .status.warn{background:var(--warn);color:#061229}
+    .test-item .status.fail{background:var(--err);color:#fff}
+
+    /* === СЕТКИ КАРТОЧЕК === */
+    .vpn-cards, .check-cards, .bank-recommendations{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:20px 0
+    }
+    .vpn-card, .check-card, .bank-card{
+      border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;background:rgba(17,24,58,.3);transition:border-color .2s;position:relative
+    }
+    .vpn-card:hover, .check-card:hover, .bank-card:hover{border-color:var(--accent)}
+    .vpn-card h3, .check-card h3, .bank-card h3{margin:0 0 8px 0;color:var(--accent)}
+    .vpn-card .desc, .check-card .desc, .bank-card .desc{color:var(--muted);font-size:.9rem;margin:8px 0 12px 0}
+    .vpn-card .meta, .check-card .meta, .bank-card .meta{
+      font-size:.8rem;color:var(--muted);margin:8px 0;display:flex;flex-wrap:wrap;gap:8px
+    }
+    .vpn-card .meta span, .check-card .meta span, .bank-card .meta span{
+      background:rgba(77,163,255,.1);padding:2px 6px;border-radius:4px
+    }
+
+    /* === МАРКЕРЫ СТАТУСА === */
+    .recommended, .alternative, .critical, .important{position:relative}
+    .recommended::before, .alternative::before, .critical::before, .important::before{
+      position:absolute;top:-8px;right:12px;font-size:.75rem;padding:2px 8px;border-radius:999px;font-weight:600
+    }
+    .recommended{background:linear-gradient(135deg,rgba(41,199,115,.1),rgba(125,226,209,.08));border-color:var(--ok)}
+    .recommended::before{content:"? Рекомендуем";background:var(--ok);color:#061229}
+    .alternative{background:linear-gradient(135deg,rgba(125,226,209,.1),rgba(77,163,255,.08));border-color:var(--accent-2)}
+    .alternative::before{content:"?? Альтернатива";background:var(--accent-2);color:#061229}
+    .critical{background:linear-gradient(135deg,rgba(255,92,92,.15),rgba(255,92,92,.08));border-color:var(--err)}
+    .critical::before{content:"?? Критично";background:var(--err);color:#fff}
+    .critical h3{color:var(--err)}
+    .important{background:linear-gradient(135deg,rgba(255,176,32,.1),rgba(255,176,32,.05));border-color:var(--warn)}
+    .important::before{content:"?? Важно";background:var(--warn);color:#061229}
+    .important h3{color:var(--warn)}
+
+    /* === АДАПТИВНОСТЬ === */
+    @media(max-width:640px){
+      .vpn-cards, .check-cards, .bank-recommendations{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(103602117, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+
+<link rel="canonical" href="https://dostup-plus.github.io/diagnostics\banking-check/">
+</head>
+<body>
+  <div class="container">
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> › <a href="/diagnostics/">Диагностика VPN</a> › <span>Тест VPN для банков</span>
+    </nav>
+
+    <!-- HERO СЕКЦИЯ -->
+    <section class="hero">
+      <span class="badge">Диагностика VPN</span>
+      <h1>Тест VPN для банков — проверка готовности 2025</h1>
+      <p>Комплексная диагностика VPN за 2 минуты перед использованием российских банковских приложений. Проверка IP-адреса, DNS-утечек, WebRTC, геолокации для Сбербанка, Тинькофф, ВТБ, Альфа-Банка с персональными рекомендациями.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','banktest_main_safenet')" rel="noopener nofollow">SAFENET?VPN</a>
+        <a class="btn alternative" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','banktest_main_normvpn')" rel="noopener nofollow">Norm VPN</a>
+        <a class="btn secondary" href="#test" onclick="ym(103602117,'reachGoal','banktest_scroll_test')">Запустить тест</a>
+      </div>
+      <p class="muted small">Бесплатный тест • 2 минуты • Персональные рекомендации для каждого банка</p>
+    </section>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="grid">
+      <main>
+        <!-- Быстрый тест -->
+        <section class="test-section" id="test">
+          <h3>? Комплексный тест VPN для банковских приложений</h3>
+          <p>Проверим ваше VPN-подключение на готовность к работе с российскими банками. Тест анализирует все критические параметры, которые банки используют для обнаружения VPN.</p>
+          <button class="btn-start-test" onclick="startBankingTest(); ym(103602117,'reachGoal','banktest_start')">?? Запустить диагностику (2 минуты)</button>
+          
+          <div class="test-progress" id="testProgress">
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="test-status" id="testStatus">Инициализация теста...</div>
+          </div>
+
+          <div class="test-results" id="testResults">
+            <h4 id="resultsTitle">?? Результаты диагностики VPN</h4>
+            <div id="resultsContent">
+              <!-- Результаты будут вставлены через JavaScript -->
+            </div>
+            <div id="bankRecommendations" style="margin-top:20px">
+              <!-- Рекомендации по банкам -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Что проверяет тест -->
+        <section class="card">
+          <h2>?? Что проверяет тест для банковских приложений</h2>
+          <p>Российские банки используют сложные алгоритмы обнаружения VPN. Наш тест проверяет все критические параметры, которые анализируют банковские системы безопасности.</p>
+
+          <div class="check-cards">
+            <div class="check-card critical">
+              <h3>?? IP-адрес и геолокация</h3>
+              <div class="desc">Проверка реального IP, страны, региона, провайдера. Определение принадлежности к VPN-сервисам, дата-центрам и черным спискам банков.</div>
+              <div class="meta">
+                <span>Страна и город</span>
+                <span>Интернет-провайдер</span>
+                <span>VPN-детекция</span>
+                <span>Черные списки</span>
+              </div>
+            </div>
+
+            <div class="check-card critical">
+              <h3>?? DNS-утечки</h3>
+              <div class="desc">Анализ DNS-серверов на утечки реального местоположения. Банки сравнивают DNS с IP для выявления несоответствий.</div>
+              <div class="meta">
+                <span>DNS-серверы</span>
+                <span>Утечки местоположения</span>
+                <span>Российские DNS</span>
+                <span>Консистентность</span>
+              </div>
+            </div>
+
+            <div class="check-card important">
+              <h3>?? WebRTC-утечки</h3>
+              <div class="desc">Проверка утечек реального IP через браузерные технологии. Критично для веб-версий банков и мобильных браузеров.</div>
+              <div class="meta">
+                <span>Реальный IP</span>
+                <span>Локальные адреса</span>
+                <span>STUN-серверы</span>
+                <span>Браузерные утечки</span>
+              </div>
+            </div>
+
+            <div class="check-card important">
+              <h3>? Временная зона</h3>
+              <div class="desc">Сравнение часового пояса устройства с геолокацией IP. Несоответствие может вызвать подозрения банковских систем.</div>
+              <div class="meta">
+                <span>Часовой пояс устройства</span>
+                <span>Часовой пояс IP</span>
+                <span>Московское время</span>
+                <span>Синхронизация</span>
+              </div>
+            </div>
+
+            <div class="check-card">
+              <h3>?? Скорость и стабильность</h3>
+              <div class="desc">Анализ скорости соединения и стабильности подключения. Медленный VPN может вызвать проблемы с банковскими операциями.</div>
+              <div class="meta">
+                <span>Скорость загрузки</span>
+                <span>Пинг</span>
+                <span>Стабильность</span>
+                <span>Качество соединения</span>
+              </div>
+            </div>
+
+            <div class="check-card">
+              <h3>?? Технические параметры</h3>
+              <div class="desc">Проверка протокола VPN, портов, HTTP-заголовков и других технических характеристик на совместимость с банками.</div>
+              <div class="meta">
+                <span>Протокол VPN</span>
+                <span>Порты подключения</span>
+                <span>HTTP-заголовки</span>
+                <span>User-Agent</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Рекомендуемые VPN сервисы -->
+        <section class="card">
+          <h2>??? VPN для банков с проверенными результатами</h2>
+          <p>Если тест выявил проблемы, рекомендуем специализированные VPN-решения для банковских приложений с гарантированно хорошими результатами диагностики.</p>
+          
+          <div class="vpn-cards">
+            <div class="vpn-card recommended">
+              <h3>??? SAFENET?VPN</h3>
+              <div class="desc">Специализированные серверы для банковских приложений с регулярной ротацией IP-адресов. Продвинутая обфускация трафика, защита от всех видов утечек, техподдержка 24/7 с опытом банковских блокировок.</div>
+              <div class="meta">
+                <span>Банковские серверы</span>
+                <span>Ротация IP</span>
+                <span>Защита от утечек</span>
+                <span>Поддержка 24/7</span>
+              </div>
+              <a href="https://t.me/SafeNetVpn_bot?start=afrrica" class="btn-card" onclick="ym(103602117,'reachGoal','banktest_card_safenet')" rel="noopener nofollow">Подключить SAFENET?VPN</a>
+              <p class="small muted">От 126?/мес, первый месяц 107? (-15%)</p>
+            </div>
+
+            <div class="vpn-card alternative">
+              <h3>?? Norm VPN</h3>
+              <div class="desc">Надежная альтернатива с российскими серверами и стабильным подключением. Хорошие результаты тестов для банковских приложений, множество протоколов подключения.</div>
+              <div class="meta">
+                <span>Российские серверы</span>
+                <span>Стабильное подключение</span>
+                <span>Банковская совместимость</span>
+                <span>Множество протоколов</span>
+              </div>
+              <a href="https://t.me/normwpn_bot?start=partner_228691787" class="btn-card alternative" onclick="ym(103602117,'reachGoal','banktest_card_normvpn')" rel="noopener nofollow">Попробовать Norm VPN</a>
+              <p class="small muted">Партнерские условия через наш канал</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Блок "Читайте также" -->
+        <section class="card also">
+          <h2>Читайте также</h2>
+          <ul>
+            <li><a href="/banking/">VPN для банковских приложений — общий гайд</a></li>
+            <li><a href="/banking/sberbank/">VPN для Сбербанка — самый сложный</a></li>
+            <li><a href="/banking/tinkoff/">VPN для Тинькофф — умеренная сложность</a></li>
+            <li><a href="/banking/alfabank/">VPN для Альфа-Банка — самый лояльный</a></li>
+            <li><a href="/banking/vtb/">VPN для ВТБ — государственный банк</a></li>
+            <li><a href="/diagnostics/ip-check/">Базовая проверка IP и утечек</a></li>
+          </ul>
+        </section>
+
+        <!-- Финальный CTA -->
+        <section class="card">
+          <div class="footer-cta">
+            <div>
+              <h3>Нужен надежный VPN для банков?</h3>
+              <p class="muted">Специализированные VPN-решения для российских банков с гарантированной работой и поддержкой 24/7.</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','banktest_footer_safenet')" rel="noopener nofollow">SAFENET?VPN (126?/мес)</a>
+              <a class="btn alternative" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','banktest_footer_normvpn')" rel="noopener nofollow">Norm VPN</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- САЙДБАР -->
+      <aside>
+        <div class="card toc" aria-label="Содержание">
+          <strong>Содержание</strong>
+          <ol>
+            <li><a href="#test">Запустить тест</a></li>
+            <li><a href="#checks">Что проверяется</a></li>
+            <li><a href="#vpn-services">Рекомендуемые VPN</a></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>? Быстрые тесты</h3>
+          <ul style="list-style:none;padding:0">
+            <li style="margin:8px 0"><a href="/diagnostics/ip-check/">?? Проверка IP-адреса</a></li>
+            <li style="margin:8px 0"><a href="#test">?? Тест для банков</a></li>
+            <li style="margin:8px 0"><a href="/banking/">?? Гайды по банкам</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Персональная помощь</h3>
+          <p class="small muted">Если тест показал проблемы, наши эксперты помогут настроить VPN правильно для банковских операций.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" onclick="ym(103602117,'reachGoal','banktest_sidebar_safenet')" rel="noopener nofollow">SAFENET?VPN</a>
+            <a class="btn alternative" href="https://t.me/normwpn_bot?start=partner_228691787" onclick="ym(103602117,'reachGoal','banktest_sidebar_normvpn')" rel="noopener nofollow">Norm VPN</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ФУТЕР -->
+    <footer class="muted small" style="margin:24px 0;">
+      © SAFENET?VPN. Тест предоставляется в информационных целях. Результаты могут отличаться в зависимости от банка и текущей ситуации.
+    </footer>
+  </div>
+
+  <!-- JavaScript для интерактивного теста -->
+  <script>
+    function startBankingTest() {
+      const progressBar = document.getElementById('progressBar');
+      const testStatus = document.getElementById('testStatus');
+      const testProgress = document.getElementById('testProgress');
+      const testResults = document.getElementById('testResults');
+      
+      testProgress.style.display = 'block';
+      testResults.style.display = 'none';
+      
+      const tests = [
+        { name: 'Определение IP-адреса и геолокации...', duration: 1000 },
+        { name: 'Анализ DNS-серверов...', duration: 1500 },
+        { name: 'Проверка WebRTC-утечек...', duration: 2000 },
+        { name: 'Тестирование временной зоны...', duration: 1000 },
+        { name: 'Измерение скорости соединения...', duration: 2500 },
+        { name: 'Анализ технических параметров...', duration: 1500 },
+        { name: 'Составление рекомендаций...', duration: 1000 }
+      ];
+      
+      let currentTest = 0;
+      let totalProgress = 0;
+      
+      function runNextTest() {
+        if (currentTest < tests.length) {
+          testStatus.textContent = tests[currentTest].name;
+          
+          setTimeout(() => {
+            totalProgress += (100 / tests.length);
+            progressBar.style.width = totalProgress + '%';
+            currentTest++;
+            runNextTest();
+          }, tests[currentTest].duration);
+        } else {
+          showResults();
+        }
+      }
+      
+      runNextTest();
+    }
+    
+    function showResults() {
+      const testResults = document.getElementById('testResults');
+      const resultsContent = document.getElementById('resultsContent');
+      const bankRecommendations = document.getElementById('bankRecommendations');
+      const testStatus = document.getElementById('testStatus');
+      
+      testStatus.textContent = 'Анализ завершен! Формирование отчета...';
+      
+      // Симуляция результатов (в реальности здесь API-вызовы)
+      const mockResults = [
+        { test: 'IP-адрес и местоположение', status: 'pass', details: 'Россия, Москва • ISP: Не VPN-провайдер' },
+        { test: 'DNS-серверы', status: 'pass', details: 'Яндекс.DNS (77.88.8.8) • Утечек не обнаружено' },
+        { test: 'WebRTC-утечки', status: 'warn', details: 'Обнаружены локальные IP-адреса' },
+        { test: 'Временная зона', status: 'pass', details: 'Europe/Moscow (GMT+3) • Соответствует IP' },
+        { test: 'Скорость соединения', status: 'pass', details: '52 Мбит/с v • 18 Мбит/с ^ • Пинг: 28мс' },
+        { test: 'Протокол VPN', status: 'pass', details: 'WireGuard с обфускацией • Порт 51820' }
+      ];
+      
+      resultsContent.innerHTML = mockResults.map(result => `
+        <div class="test-item">
+          <div>
+            <div style="font-weight:600">${result.test}</div>
+            <div style="font-size:0.85rem;color:var(--muted);margin-top:2px">${result.details}</div>
+          </div>
+          <span class="status ${result.status}">
+            ${result.status === 'pass' ? '? Пройден' : result.status === 'warn' ? '?? Внимание' : '? Провален'}
+          </span>
+        </div>
+      `).join('');
+      
+      bankRecommendations.innerHTML = `
+        <h4 style="color:var(--ok);margin-bottom:16px">?? Рекомендации по банкам на основе ваших результатов:</h4>
+        <div class="bank-recommendations">
+          <div style="padding:16px;border:1px solid var(--ok);border-radius:12px;background:rgba(41,199,115,.08)">
+            <div style="color:var(--ok);font-weight:600;margin-bottom:6px">? Альфа-Банк</div>
+            <div style="font-size:0.9rem;color:var(--muted)">Отличная совместимость. Работает стабильно.</div>
+          </div>
+          <div style="padding:16px;border:1px solid var(--ok);border-radius:12px;background:rgba(41,199,115,.08)">
+            <div style="color:var(--ok);font-weight:600;margin-bottom:6px">? Тинькофф</div>
+            <div style="font-size:0.9rem;color:var(--muted)">Хорошая совместимость. Рекомендуется.</div>
+          </div>
+          <div style="padding:16px;border:1px solid var(--warn);border-radius:12px;background:rgba(255,176,32,.08)">
+            <div style="color:var(--warn);font-weight:600;margin-bottom:6px">?? ВТБ</div>
+            <div style="font-size:0.9rem;color:var(--muted)">Средняя совместимость. Нужна осторожность.</div>
+          </div>
+          <div style="padding:16px;border:1px solid var(--warn);border-radius:12px;background:rgba(255,176,32,.08)">
+            <div style="color:var(--warn);font-weight:600;margin-bottom:6px">?? Сбербанк</div>
+            <div style="font-size:0.9rem;color:var(--muted)">Требует улучшения WebRTC защиты.</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,176,32,.08);border-radius:12px;border-left:4px solid var(--warn)">
+          <strong>?? Рекомендация:</strong> Обнаружены WebRTC-утечки. Рекомендуется установить расширение для блокировки WebRTC или использовать браузер с встроенной защитой (Firefox, Brave) для повышения безопасности при работе с банками.
+        </div>
+      `;
+      
+      testResults.className = 'test-results show warning';
+      testResults.style.display = 'block';
+      
+      // Прокрутка к результатам
+      testResults.scrollIntoView({ behavior: 'smooth' });
+      
+      // Отправляем событие в Яндекс.Метрику
+      ym(103602117, 'reachGoal', 'banktest_completed');
+    }
+  </script>
+
+  <!-- SCHEMA.ORG РАЗМЕТКА -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Тест VPN для банковских приложений",
+    "description": "Комплексная диагностика VPN для использования с российскими банковскими приложениями. Проверка IP, DNS, WebRTC, геолокации за 2 минуты.",
+    "url": "https://dostup-plus.github.io/diagnostics/banking-check/",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "RUB",
+      "description": "Бесплатный тест VPN"
+    },
+    "featureList": [
+      "Проверка IP-адреса и геолокации",
+      "Анализ DNS-утечек", 
+      "Обнаружение WebRTC-утечек",
+      "Проверка временной зоны",
+      "Тест скорости соединения",
+      "Персональные рекомендации по банкам"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://dostup-plus.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Диагностика VPN",
+        "item": "https://dostup-plus.github.io/diagnostics/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Тест VPN для банков",
+        "item": "https://dostup-plus.github.io/diagnostics/banking-check/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Что проверяет тест VPN для банков?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Тест проверяет IP-адрес и геолокацию, DNS-утечки, WebRTC-утечки, временную зону, скорость соединения и технические параметры VPN для обеспечения совместимости с российскими банковскими приложениями."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Сколько времени занимает тест?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Комплексный тест VPN для банков занимает около 2 минут и включает проверку всех критических параметров для работы с банковскими приложениями."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какие банки самые строгие к VPN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "По строгости к VPN: Сбербанк (самый строгий), ВТБ (средняя строгость), Тинькофф (умеренная), Альфа-Банк (самый лояльный) среди крупных российских банков."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что делать, если тест показал проблемы?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Следуйте рекомендациям в результатах теста: смените VPN-сервер, настройте защиту от утечек, используйте российские DNS-серверы или обратитесь к специализированным VPN-сервисам для банков."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
+
