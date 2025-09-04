@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Газпромбанк — доступ и решения (2025) | Доступ Плюс</title>
+  <meta name="description" content="Как восстановить доступ к сервисам Газпромбанка: частые ошибки, быстрые решения и проверка настроек сети. Пошаговая диагностика и рекомендации.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="/banking/gazprombank/">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root { --fg:#111; --muted:#666; --bg:#fff; --card:#fafafa; --br:#eee; --link:#0b57d0; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.55}
+    header,main,footer{max-width:960px;margin:0 auto;padding:16px}
+    header nav a{color:var(--link);text-decoration:none}
+    .breadcrumbs{font-size:14px;color:var(--muted);margin-top:8px}
+    h1{margin:16px 0 8px}
+    .lead{font-size:18px;color:#222;margin:8px 0 16px}
+    .card{background:var(--card);border:1px solid var(--br);border-radius:12px;padding:16px;margin:16px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid .card{margin:0}
+    code,pre{background:#f6f8fa;border:1px solid #eaecef;border-radius:6px}
+    pre{padding:12px;overflow:auto}
+    ul{margin:8px 0 8px 18px}
+    .muted{color:var(--muted)}
+    .small{font-size:14px}
+    a{color:var(--link)}
+    @media (max-width:768px){ .grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <nav><a href="/">← На главную</a></nav>
+    <div class="breadcrumbs">Банкинг / Газпромбанк</div>
+  </header>
+
+  <main>
+    <h1>Газпромбанк: доступ и решения</h1>
+    <p class="lead">Пошаговая проверка, что мешает открытию сайта/приложения Газпромбанка, и как быстро это исправить — без лишних рисков.</p>
+    <p class="small muted">Обновлено: 4 сентября 2025</p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Частые симптомы</h2>
+        <ul>
+          <li>Сайт не открывается или грузится очень медленно.</li>
+          <li>Мобильное приложение не проходит авторизацию.</li>
+          <li>Ошибки «страница недоступна», «истекло время ожидания».</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Быстрые решения</h2>
+        <ul>
+          <li>Отключите нестабильный VPN/прокси во время входа.</li>
+          <li>Очистите DNS-кеш и перезапустите сеть (см. ниже).</li>
+          <li>Смените тип подключения: Wi-Fi ↔ мобильный интернет.</li>
+          <li>Проверьте точность системного времени/даты.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Диагностика сети</h2>
+      <ol>
+        <li><strong>Проверьте DNS.</strong> Попробуйте временно использовать системные DNS провайдера (или надёжные публичные). Смешанные/обфусцированные DNS нередко ломают доступ к финтех-сервисам.</li>
+        <li><strong>Сбросьте DNS-кеш.</strong>
+          <ul>
+            <li>Windows: откройте PowerShell от администратора и выполните:
+              <pre><code>ipconfig /flushdns</code></pre>
+            </li>
+            <li>macOS:
+              <pre><code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code></pre>
+            </li>
+            <li>Android/iOS: перезагрузите устройство или переключите авиарежим на 10–15 сек.</li>
+          </ul>
+        </li>
+        <li><strong>Проверьте сторонние фильтры.</strong> Антитрекинг/фаерволы/адблоки могут резать банкинг-домены — добавьте исключение.</li>
+      </ol>
+      <p class="small muted">Важно: не используйте публичные прокси/неизвестные VPN для операций, связанных с финансами.</p>
+    </section>
+
+    <section class="card">
+      <h2>Безопасность</h2>
+      <ul>
+        <li>Входите только по адресу, который вы вводите вручную или из закладок.</li>
+        <li>Проверяйте HTTPS-сертификат (замок в адресной строке).</li>
+        <li>Не передавайте коды и пароли третьим лицам; сотрудники банка их не запрашивают.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>FAQ</h2>
+      <p><strong>Можно ли пользоваться VPN?</strong> Для авторизации в банкинге лучше временно отключать VPN/прокси, чтобы избежать подозрительных входов и сетевых ошибок.</p>
+      <p><strong>Сайт доступен, но приложение не пускает.</strong> Обновите приложение, проверьте дату/время и удалите данные/кэш приложения, затем войдите снова.</p>
+    </section>
+
+    <p class="small muted">Материал носит информационный характер и не является финансовой или юридической рекомендацией.</p>
+    <p><a href="/">Вернуться на главную</a></p>
+  </main>
+
+  <footer class="small muted" style="text-align:center;padding:24px 16px;">
+    © Доступ Плюс · Банкинг — Газпромбанк
+  </footer>
+
+  <!-- Yandex.Metrica -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){ (m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j=0;j<document.scripts.length;j++){ if (document.scripts[j].src === r){ return; } }
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(103602117, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103602117" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+</body>
+</html>
