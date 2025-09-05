@@ -47,7 +47,7 @@ def detect_base_url() -> str:
 
 BASE_URL = detect_base_url()
 
-# ---------- Метрика (ID 104025851, твой точный код)
+# ---------- Метрика (ID 104025851)
 METRIKA = """<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -152,13 +152,27 @@ def render_related(related_rows):
   </div>
 """
 
+# --- Новое: безопасный текст «О сервисе» по категориям + фолбэк
+NOTES_BY_CATEGORY = {
+    "social":  "Соцсети часто режутся по IP и ASN провайдера. Нужен VPN с обфускацией.",
+    "video":   "Видеосервисы помимо сайта блокируют CDN — DNS редко спасает, лучше VPN.",
+    "games":   "Игровые сервисы чувствительны к задержке: берите ближайшие страны ЕС.",
+    "work":    "Рабочие сервисы иногда блокируются по корпоративным политикам и IP-пулу.",
+    "media":   "Музыка/стриминг фильтруется по гео. Без стабильного VPN часть треков недоступна.",
+    "other":   "От провайдера к провайдеру фильтры разные — пробуйте несколько подходов.",
+    # главное дополнение:
+    "outage":  ("Интернет-доступ может временно пропадать из-за работ у оператора, перегрузки "
+                "базовых станций или фильтрации трафика. Временно помогает: переключение 3G/4G/5G, "
+                "перезапуск устройств, ручной DNS (1.1.1.1/8.8.8.8) и VPN с обфускацией.")
+}
+
 def page_html(row: dict, related_html: str) -> str:
     title       = row["title"].strip()
     desc        = row["description"].strip()
     h1          = row["h1"].strip()
     lead        = row["lead"].strip()
     service     = row["service"].strip()
-    category    = row["category"].strip()
+    category    = row["category"].strip().lower()
     country     = row["country_hint"].strip()
     problems    = render_list(_split(row["problems"]))
     fixes       = render_list(_split(row["fixes"]))
@@ -181,14 +195,18 @@ def page_html(row: dict, related_html: str) -> str:
     # canonical для текущей страницы
     canonical_url = absolutize(row["url"])
 
-    category_note = {
-        "social":  "Соцсети часто режутся по IP и ASN провайдера. Нужен VPN с обфускацией.",
-        "video":   "Видеосервисы помимо сайта блокируют CDN — DNS редко спасает, лучше VPN.",
-        "games":   "Игровые сервисы чувствительны к задержке: берите ближайшие страны ЕС.",
-        "work":    "Рабочие сервисы иногда блокируются по корпоративным политикам и IP-пулу.",
-        "media":   "Музыка/стриминг фильтруется по гео. Без стабильного VPN часть треков недоступна.",
-        "other":   "От провайдера к провайдеру фильтры разные — пробуйте несколько подходов."
-    }.get(category or "other")
+    # Безопасно берём текст «О сервисе»: сначала по категории, иначе фолбэк к "other"
+    category_note = NOTES_BY_CATEGORY.get(category) or NOTES_BY_CATEGORY["other"]
+
+    # Карточку «О сервисе» показываем только если текст не пуст
+    service_card_html = ""
+    if category_note:
+        service_card_html = f"""
+  <div class="card p-6 mb-8">
+    <div class="badge mb-2">О сервисе</div>
+    <p class="text-gray-200">{category_note}</p>
+  </div>
+"""
 
     # Навигация
     nav_home   = BASE_URL + "/"
@@ -236,10 +254,7 @@ def page_html(row: dict, related_html: str) -> str:
 
 <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10" id="methods">
 
-  <div class="card p-6 mb-8">
-    <div class="badge mb-2">О сервисе</div>
-    <p class="text-gray-200">{category_note}</p>
-  </div>
+  {service_card_html}
 
   <div class="grid md:grid-cols-2 gap-6 mb-8">
     <div class="card p-6">
@@ -260,7 +275,7 @@ def page_html(row: dict, related_html: str) -> str:
 
   <div class="card p-6 mb-8">
     <h2 class="text-2xl font-bold mb-2">Рекомендуем</h2>
-    <p class="mb-4">Проще всего включить готовый профиль VPN: европейский сервер + обфускация, чтобы {service} открылся без бубна.</p>
+    <p class="mb-4">Проще всего включить готовый профиль VPN: европейский сервер + обфушкация, чтобы {service} открылся без бубна.</p>
     <div class="flex flex-wrap gap-3">
       <a class="btn" href="https://t.me/SafeNetVpn_bot?start=afrrica" rel="sponsored nofollow noopener"><i class="fab fa-telegram"></i> Подключить SAFENET-VPN</a>
       <a class="btn-alt" href="https://t.me/normwpn_bot?start=partner_228691787" rel="sponsored nofollow noopener">Альтернативный VPN</a>
