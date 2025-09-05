@@ -28,6 +28,9 @@ jobs:
           python-version: '3.x'
 
       - name: Generate pages
+        env:
+          # опционально: задай в репо Variables → SITE_DOMAIN, например https://dostup-plus.github.io
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
         run: |
           python tools/generate_pages.py
 
